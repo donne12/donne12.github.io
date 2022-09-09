@@ -7107,11 +7107,11 @@ Created using IcoMoon - icomoon.io
 
 .cc-profile-image a:before {
   content: "";
-  /* border: 15px solid rgba(55, 140, 63, 0.6); */
-  border: 15px solid rgb(255, 147, 0.6);
+  border: 15px solid rgba(55, 140, 63, 0.6);
+  /* border: 15px solid rgb(255, 147, 0.6); */
   border-radius: 50%;
   height: 180px;
-  width: 180px;
+  width: 170px;
   position: absolute;
   left: 0;
   -webkit-animation: pulsate 1.6s ease-out;
@@ -7126,7 +7126,7 @@ Created using IcoMoon - icomoon.io
   position: relative;
   border-radius: 50%;
   height: 180px;
-  width: 180px;
+  width: 170px;
   padding: 0;
   margin: 0;
   border: 15px solid transparent;
