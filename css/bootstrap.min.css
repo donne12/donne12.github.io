@@ -2213,7 +2213,7 @@ fieldset[disabled] a.btn {
 
 .btn-info:hover {
     color: #fff;
-    background-color: #138496;
+    background-color: black;
     border-color: #117a8b
 }
 
@@ -2332,7 +2332,7 @@ fieldset[disabled] a.btn {
 .btn-dark {
     color: #fff;
     background-color: #343a40;
-    border-color: #343a40
+    border-color: #343a40;
 }
 
 .btn-dark:hover {

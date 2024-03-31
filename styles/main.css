@@ -99,7 +99,7 @@
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-blue,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-blue {
   color: #fff;
-  background: #2CA8FF;
+  background: #052f78;
 }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-green,
@@ -273,7 +273,7 @@
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-blue ~ .bootstrap-switch-default {
-  background-color: #2CA8FF;
+  background-color: #052f78;
 }
 
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-red,
@@ -604,7 +604,7 @@
 }
 
 .slider.slider-info .noUi-connect, .slider.slider-info.noUi-connect {
-  background-color: #2CA8FF;
+  background-color: #052f78;
 }
 
 .slider.slider-info.noUi-target {
@@ -612,7 +612,7 @@
 }
 
 .slider.slider-info .noUi-handle {
-  background-color: #2CA8FF;
+  background-color: #052f78;
 }
 
 .slider.slider-success .noUi-connect, .slider.slider-success.noUi-connect {
@@ -1631,7 +1631,7 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-  background-color: #2CA8FF;
+  background-color: #052f78;
   color: #FFFFFF;
 }
 
@@ -1639,7 +1639,7 @@ fieldset[disabled] .btn-success.active {
 .show > .btn-info.dropdown-toggle,
 .show > .btn-info.dropdown-toggle:focus,
 .show > .btn-info.dropdown-toggle:hover {
-  background-color: #4bb5ff;
+  background-color: black;
   color: #FFFFFF;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -1657,13 +1657,13 @@ fieldset[disabled] .btn-info:focus,
 fieldset[disabled] .btn-info.focus,
 fieldset[disabled] .btn-info:active,
 fieldset[disabled] .btn-info.active {
-  background-color: #2CA8FF;
-  border-color: #2CA8FF;
+  background-color: #052f78;
+  border-color: #052f78;
 }
 
 .btn-info.btn-simple {
-  color: #2CA8FF;
-  border-color: #2CA8FF;
+  color: #052f78;
+  border-color: #052f78;
 }
 
 .btn-info.btn-simple:hover, .btn-info.btn-simple:focus, .btn-info.btn-simple:active {
@@ -1675,7 +1675,7 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-info.btn-link {
-  color: #2CA8FF;
+  color: #052f78;
 }
 
 .btn-info.btn-link:hover, .btn-info.btn-link:focus, .btn-info.btn-link:active {
@@ -1838,7 +1838,7 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .btn-neutral.btn-info {
-  color: #2CA8FF;
+  color: #052f78;
 }
 
 .btn-neutral.btn-info:hover, .btn-neutral.btn-info:focus, .btn-neutral.btn-info:active {
@@ -2348,8 +2348,8 @@ textarea.form-control {
   padding: 10px 10px 0 0;
   resize: none;
   border: none;
-  border-bottom: 1px solid #E3E3E3;
-  border-radius: 0;
+  border: 1px solid #E3E3E3;
+  border-radius: 1rem;
   line-height: 2;
 }
 
@@ -2622,12 +2622,12 @@ textarea.form-control:focus, textarea.form-control:active {
 }
 
 .progress-container.progress-info .progress-bar {
-  background: #2CA8FF;
+  background: #052f78;
 }
 
 .progress-container.progress-info .progress-value,
 .progress-container.progress-info .progress-badge {
-  color: #2CA8FF;
+  color: #052f78;
 }
 
 .progress-container.progress-success .progress {
@@ -2701,8 +2701,8 @@ textarea.form-control:focus, textarea.form-control:active {
 }
 
 .badge-info {
-  border-color: #2CA8FF;
-  color: #2CA8FF;
+  border-color: #052f78;
+  color: #052f78;
 }
 
 .badge-success {
@@ -2781,8 +2781,8 @@ textarea.form-control:focus, textarea.form-control:active {
 }
 
 .pagination.pagination-info .page-item.active > .page-link, .pagination.pagination-info .page-item.active > .page-link:focus, .pagination.pagination-info .page-item.active > .page-link:hover {
-  background-color: #2CA8FF;
-  border-color: #2CA8FF;
+  background-color: #052f78;
+  border-color: #052f78;
 }
 
 .pagination.pagination-success .page-item.active > .page-link, .pagination.pagination-success .page-item.active > .page-link:focus, .pagination.pagination-success .page-item.active > .page-link:hover {
@@ -2935,7 +2935,7 @@ p {
 }
 
 .text-info {
-  color: #2CA8FF !important;
+  color: #052f78 !important;
 }
 
 .text-success {
@@ -3115,7 +3115,7 @@ body {
 }
 
 .nav-pills.nav-pills-info .nav-item .nav-link.active, .nav-pills.nav-pills-info .nav-item .nav-link.active:focus, .nav-pills.nav-pills-info .nav-item .nav-link.active:hover {
-  background-color: #2CA8FF;
+  background-color: #052f78;
 }
 
 .nav-pills.nav-pills-success .nav-item .nav-link.active, .nav-pills.nav-pills-success .nav-item .nav-link.active:focus, .nav-pills.nav-pills-success .nav-item .nav-link.active:hover {
@@ -3229,8 +3229,8 @@ body {
 }
 
 .nav-tabs.nav-tabs-info > .nav-item > .nav-link.active {
-  border-color: #2CA8FF;
-  color: #2CA8FF;
+  border-color: #052f78;
+  color: #052f78;
 }
 
 .nav-tabs.nav-tabs-danger > .nav-item > .nav-link.active {
@@ -3416,7 +3416,7 @@ body {
 }
 
 .bg-info {
-  background-color: #2CA8FF !important;
+  background-color: #052f78 !important;
 }
 
 .bg-success {
@@ -3779,7 +3779,7 @@ img {
 }
 
 .popover.popover-info {
-  background-color: #2CA8FF;
+  background-color: #052f78;
 }
 
 .popover.popover-info .popover-body {
@@ -3787,19 +3787,19 @@ img {
 }
 
 .popover.popover-info.bs-popover-right .arrow:after {
-  border-right-color: #2CA8FF;
+  border-right-color: #052f78;
 }
 
 .popover.popover-info.bs-popover-top .arrow:after {
-  border-top-color: #2CA8FF;
+  border-top-color: #052f78;
 }
 
 .popover.popover-info.bs-popover-bottom .arrow:after {
-  border-bottom-color: #2CA8FF;
+  border-bottom-color: #052f78;
 }
 
 .popover.popover-info.bs-popover-left .arrow:after {
-  border-left-color: #2CA8FF;
+  border-left-color: #052f78;
 }
 
 .popover.popover-info .popover-header {
@@ -4538,7 +4538,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-mini .modal-profile.modal-profile-info {
-  background-color: #2CA8FF;
+  background-color: #052f78;
 }
 
 .modal.modal-mini .modal-footer button {
@@ -4595,7 +4595,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-info .modal-content {
-  background-color: #2CA8FF;
+  background-color: #052f78;
   color: #FFFFFF;
 }
 
@@ -4661,7 +4661,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .card[data-background-color="blue"] {
-  background-color: #2CA8FF;
+  background-color: #052f78;
 }
 
 .card[data-background-color="green"] {
@@ -5118,7 +5118,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .section {
-  padding: 70px 0;
+  /* padding: 70px 0; */
   position: relative;
   background: #FFFFFF;
 }

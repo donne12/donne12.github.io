@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr-FR">
+<html lang="fr">
   <head>
     <script type="text/javascript">
       function googleTranslateElementInit() {
@@ -20,7 +20,7 @@
     <title>Dieudonné {Portfolio}</title>
     <meta
       name="description"
-      content="ESIAKU K. Dieudonné, développeur d'applications"
+      content="ESIAKU K. Dieudonné, développeur d'applications."
     />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
@@ -36,25 +36,77 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="https://www.simplilearn.com/ice9/free_resources_article_thumb/full_stack_banner.jpg"
+      href="images/unnamed.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://www.codeur.com/system/user_profiles/avatars/000/278/816/large/avatar.jpg?1555648008"
+      href="images/unnamed.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="https://www.codeur.com/system/user_profiles/avatars/000/278/816/large/avatar.jpg?1555648008"
+      href="images/unnamed.png"
     />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <style>
       * {
-        font-family: "Bahnschrift";
+        font-family: "Arial";
       }
+
+      .nav-link {
+        font-size: 0.7em !important;
+        font-weight: bold;
+      }
+
+      .button1 {
+  background-color: #ffffff00;
+  color: #fff;
+  height: 2.9em;
+  border: #3654ff 0.2em solid;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+}
+
+.button1:hover {
+  background-color: #3654ff;
+  cursor: pointer;
+}
+
+.button1 a{
+  color: white;
+}
+
+.button2 {
+  background-color: #ffffff00;
+  color: #fff;
+  height: 2.9em;
+  border: #3654ff 0.2em solid;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+}
+
+.button2:hover {
+  background-color: #3654ff;
+  cursor: pointer;
+}
+
+.button2 a{
+  color: black;
+}
+
+.button2 a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+.text {
+  margin: 0 1.5em
+}
     </style>
   </head>
 
@@ -68,7 +120,7 @@
           <div class="container">
             <div class="navbar-translate">
               <a class="navbar-brand" href="#" rel="tooltip"
-                >Bienvenue sur mon portfolio</a
+                ><i class="fa fa-home"> </i> Accueil</a
               >
               <button
                 class="navbar-toggler navbar-toggler"
@@ -146,56 +198,78 @@
                   <p class="category text-white">
                     Développeur fullstack web/mobile
                   </p>
+                  <div class="row flex justify-content-center">
+                    <button class="button1">
+                      <div class="text">
+                        <a href="https://drive.google.com/file/d/1wTmxWW2LxBjsHtXjGKeDIyKRSe2O-RVr/view?usp=share_link" target="_blank">
+                          Consulter mon CV
+                        </a>
+                       </div>
+                    </button>
+                    &nbsp;&nbsp;
+                    <button class="button1">
+                      <div class="text">
+                        <a href="https://drive.google.com/file/d/1h5S8enH1KBHw3xDGnmmhNNwVGS4V6aZN/view?usp=share_link" target="_blank">
+                          See my resume
+                        </a>
+                       </div>
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div class="section">
+              <div class="section" style="padding:70px  !important;">
                 <div class="container">
-                  <div class="button-container">
-                    <a
-                      class="btn btn-info btn-round btn-lg btn-icon"
-                      href="https://www.facebook.com/donne.koffi.54/"
-                      rel="tooltip"
-                      title="Suivez-moi sur Facebook"
-                      target="_blank"
-                      ><i class="fa fa-facebook"></i></a
-                    >&nbsp;&nbsp;<a
-                      class="btn btn-info btn-round btn-lg btn-icon"
-                      href="http://twitter.com/EsiakuKoffi"
-                      rel="tooltip"
-                      title="Suivez-moi sur Twitter"
-                      target="_blank"
-                      ><i class="fa fa-twitter"></i></a
-                    >&nbsp;&nbsp;<a
-                      class="btn btn-info btn-round btn-lg btn-icon"
-                      href="https://www.linkedin.com/in/dieudonne-esiaku/"
-                      rel="tooltip"
-                      title="Suivez-moi sur Linkedin"
-                      target="_blank"
-                      ><i class="fa fa-linkedin"></i></a
-                    >&nbsp;&nbsp;<a
-                      class="btn btn-info btn-round btn-lg btn-icon"
-                      href="https://www.instagram.com/_donne.exe_1"
-                      rel="tooltip"
-                      title="Suivez-moi sur Instagram"
-                      target="_blank"
-                      ><i class="fa fa-instagram"></i
-                    ></a>
-                    &nbsp;&nbsp;<a
-                      class="btn btn-info btn-round btn-lg btn-icon"
-                      href="https://github.com/donne12"
-                      rel="tooltip"
-                      title="Suivez-moi sur Github"
-                      target="_blank"
-                      ><i class="fa fa-github"></i
-                    ></a>
-                  </div>
+                  
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <br>
         <div class="section" id="about">
           <div class="container">
+            <center>
+              <div class="button-container">
+                <a
+                  class="btn btn-info btn-round btn-lg btn-icon"
+                  href="https://www.facebook.com/donne.koffi.54/"
+                  rel="tooltip"
+                  title="Suivez-moi sur Facebook"
+                  target="_blank"
+                  ><i class="fa fa-facebook"></i></a
+                >&nbsp;&nbsp;<a
+                  class="btn btn-info btn-round btn-lg btn-icon"
+                  href="http://twitter.com/EsiakuKoffi"
+                  rel="tooltip"
+                  title="Suivez-moi sur Twitter"
+                  target="_blank"
+                  ><i class="fa fa-twitter"></i></a
+                >&nbsp;&nbsp;<a
+                  class="btn btn-info btn-round btn-lg btn-icon"
+                  href="https://www.linkedin.com/in/dieudonne-esiaku/"
+                  rel="tooltip"
+                  title="Suivez-moi sur Linkedin"
+                  target="_blank"
+                  ><i class="fa fa-linkedin"></i></a
+                >&nbsp;&nbsp;<a
+                  class="btn btn-info btn-round btn-lg btn-icon"
+                  href="https://www.instagram.com/_donne.exe_1"
+                  rel="tooltip"
+                  title="Suivez-moi sur Instagram"
+                  target="_blank"
+                  ><i class="fa fa-instagram"></i
+                ></a>
+                &nbsp;&nbsp;<a
+                  class="btn btn-info btn-round btn-lg btn-icon"
+                  href="https://github.com/donne12"
+                  rel="tooltip"
+                  title="Suivez-moi sur Github"
+                  target="_blank"
+                  ><i class="fa fa-github"></i
+                ></a>
+              </div>
+            </center>
+           
             <div id="google_translate_element"></div>
 
             <div class="card" data-aos="fade-up" data-aos-offset="10">
@@ -204,16 +278,18 @@
                   <div class="card-body">
                     <div class="h4 mt-0 title">Biographie</div>
                     <p style="text-align: justify">
-                      Bonjour! Je suis ESIAKU Dieudonné, développeur fullstack
+                      Bonjour, je suis ESIAKU Dieudonné, développeur fullstack
                       mobile/web et Designer UI/UX.
                     </p>
                     <p style="text-align: justify">
-                      Je passe mon temps à apprendre de nouvelles technologies
-                      afin de renforcer mes connaissances. J'ai eu la chance de
-                      travailler avec des équipes de développeurs, ce qui m'a
-                      permis d'acquérir assez d'expériences dans le domaine. A
-                      mon actif, j'ai mené plusieurs projets informatiques à
-                      bien que ce soit web ou mobile.
+                      Je consacre une grande partie de mon temps à
+                      l'apprentissage de nouvelles technologies, dans le but de
+                      renforcer continuellement mes compétences. Grâce à des
+                      collaborations enrichissantes avec diverses équipes de
+                      développeurs, j'ai eu l'opportunité d'acquérir une
+                      expertise solide dans le domaine. Mon expérience inclut la
+                      gestion réussie de nombreux projets informatiques, qu'ils
+                      soient axés sur le web ou sur mobile.
                     </p>
                   </div>
                 </div>
@@ -247,7 +323,7 @@
                         <strong class="text-uppercase">Langues:</strong>
                       </div>
                       <div class="col-sm-8">
-                        Français, Anglais, Ewé, Espagnol
+                        Français, Anglais, Espagnol, Ewé
                       </div>
                     </div>
                   </div>
@@ -553,17 +629,17 @@
                       data-aos-anchor-placement="top-bottom"
                     >
                       <a
-                        href="http://go-meet-job.herokuapp.com/"
+                        href="https://play.google.com/store/apps/details?id=com.ch.rytmodelivery"
                         target="_blank"
                       >
                         <figure class="cc-effect">
                           <img
-                            src="images/Capture%20d’écran%20(107).png"
+                            src="images/app1.png"
                             alt=""
                           />
                           <figcaption>
-                            <div class="h4">Go Meet Job</div>
-                            <p>Site Web</p>
+                            <div class="h4">Swiss Eats</div>
+                            <p>Application mobile</p>
                           </figcaption>
                         </figure>
                       </a>
@@ -595,14 +671,56 @@
                       data-aos-anchor-placement="top-bottom"
                     >
                       <a
-                        href="https://play.google.com/store/apps/details?id=org.dezon.dezon"
+                        href="https://isysend.com"
                         target="_blank"
                       >
                         <figure class="cc-effect">
-                          <img src="images/app5.jpeg" alt="" />
+                          <img src="images/app5.png" alt="" />
                           <figcaption>
-                            <div class="h4">Dezon</div>
+                            <div class="h4">IsySend</div>
                             <p>Application mobile</p>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div
+                      class="cc-porfolio-image img-raised"
+                      data-aos="fade-up"
+                      data-aos-anchor-placement="top-bottom"
+                    >
+                      <a
+                        href="https://play.google.com/store/apps/details?id=tg.mardoche.empire.univenpoche"
+                        target="_blank"
+                      >
+                        <figure class="cc-effect">
+                          <img src="images/app6.png" alt="" />
+                          <figcaption>
+                            <div class="h4">UNIV EN POCHE</div>
+                            <p>Application mobile</p>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div
+                      class="cc-porfolio-image img-raised"
+                      data-aos="fade-up"
+                      data-aos-anchor-placement="top-bottom"
+                    >
+                      <a
+                        href="https://bbfood-borne-frontend-app.vercel.app/"
+                        target="_blank"
+                      >
+                        <figure class="cc-effect">
+                          <img src="images/app7.png" alt="" />
+                          <figcaption>
+                            <div class="h4">BB FOOD</div>
+                            <p>Application Web</p>
                           </figcaption>
                         </figure>
                       </a>
@@ -659,20 +777,13 @@
 
           <div class="row mt-4">
             <div class="col text-center">
-              <!-- <a class="btn btn-info" target="_blank"
-              href="https://drive.google.com/file/d/1iAinH3luD29jtq5Gl2KdT12PMSJDPftz/view?usp=sharing"
-              data-aos="zoom-in" data-aos-anchor="data-aos-anchor">
-              Voir certains de mes projets
-            </a> <br> -->
-              <a
-                class="btn btn-info"
-                target="_blank"
-                href="https://drive.google.com/file/d/1sX7lM4pQa5A1iPutr6H98V0myjCHGxg9/view?usp=share_link"
-                data-aos="zoom-in"
-                data-aos-anchor="data-aos-anchor"
-              >
-                Voir certaines de mes certifications
-              </a>
+              <button class="button2">
+                <div class="text">
+                  <a href="https://drive.google.com/file/d/1sX7lM4pQa5A1iPutr6H98V0myjCHGxg9/view?usp=share_link" target="_blank">
+                    Voir certaines de mes certifications
+                  </a>
+                 </div>
+              </button>
             </div>
           </div>
         </div>
@@ -703,16 +814,86 @@
                 data-aos-offset="50"
                 data-aos-duration="500"
               >
-                <div class="card-body">
-                  <div class="h5">Analyste développeur RPA</div>
-                  <p style="text-align: justify">
-                    - Analyse des processus métier. <br />
-                    - Développement des robots RPA avec UiPath.<br />
-                    - Tests et déboggage.<br />
-                    - Déploiement et suivi.<br />
-                    - Documentation.<br />
-                    <br />
-                  </p>
+                <div class="row">
+                  <div class="card-body">
+                    <div class="h5">Analyste développeur RPA</div>
+                    <p style="text-align: justify">
+                      Digital Factory Finance & Corporate - D.S.I<br />
+                      - Analyse des processus métier.<br />
+                      - Développement des robots RPA avec UiPath.<br />
+                      - Tests et débogage.<br />
+                      - Déploiement et suivi.<br />
+                      - Documentation.<br />
+                    </p>
+                  </div>
+                  <img src="images/logo-carrefour.png" alt="" height="100" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <div
+                class="col-md-3 bg-info"
+                data-aos="fade-right"
+                data-aos-offset="50"
+                data-aos-duration="500"
+              >
+                <div class="card-body cc-experience-header">
+                  <p style="color: bisque">Mars 2023 – aujourd'hui</p>
+                  <div class="h5">VosCours.fr</div>
+                </div>
+              </div>
+              <div
+                class="col-md-9"
+                data-aos="fade-left"
+                data-aos-offset="50"
+                data-aos-duration="500"
+              >
+                <div class="row">
+                  <div class="card-body">
+                    <div class="h5">Professeur particulier d'informatique</div>
+                    <p style="text-align: justify">
+                      - Cours de Flutter.<br />
+                      - Cours sur Wordpress.<br />
+                      - Cours sur les bases du développement Web.<br />
+                    </p>
+                  </div>
+                  <img src="images/voscours.png" alt="" height="100" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <div
+                class="col-md-3 bg-info"
+                data-aos="fade-right"
+                data-aos-offset="50"
+                data-aos-duration="500"
+              >
+                <div class="card-body cc-experience-header">
+                  <p style="color: bisque">Janvier 2023 – Juillet 2023</p>
+                  <div class="h5">ISYCHAIN</div>
+                </div>
+              </div>
+              <div
+                class="col-md-9"
+                data-aos="fade-left"
+                data-aos-offset="50"
+                data-aos-duration="500"
+              >
+                <div class="row">
+                  <div class="card-body">
+                    <div class="h5">Développeur Mobile Flutter</div>
+                    <p style="text-align: justify">
+                      Développement d'une application mobile de <br />
+                      transfert d'argent basée sur la blockchain: IsySend.
+                    </p>
+                  </div>
+                  <img src="images/isychain_cover.jpg" alt="" height="100" />
                 </div>
               </div>
             </div>
@@ -859,27 +1040,7 @@
               </div>
             </div>
           </div>
-          <!-- <div class="card">
-          <div class="row">
-            <div class="col-md-3 bg-info" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-              <div class="card-body cc-experience-header">
-                 <p>Avril 2021- Novembre 2021</p>
-                <div class="h5">Coders For Togo</div>
-              </div>
-            </div>
-            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-              <div class="card-body">
-                <div class="h5">Développeur Freelance</div>
-                <p style=" text-align: justify;">
-                  En tant que développeur d'applications, je travailles quotidiennement sur des projects web et
-                  mobiles avec mon équipe afin de répondre aux besoins des clients.
-                  J'ai été amené à coder en React, Vue.js, Node.js pour les projects web et en Flutter pour le mobile.
-                </p>
-
-              </div>
-            </div>
-          </div>
-        </div> -->
+         
           <div class="card">
             <div class="row">
               <div
@@ -911,24 +1072,24 @@
               </div>
             </div>
           </div>
-          <a
-            class="btn btn-dark"
-            target="_blank"
-            href="https://drive.google.com/file/d/1wTmxWW2LxBjsHtXjGKeDIyKRSe2O-RVr/view?usp=share_link"
-            data-aos="zoom-in"
-            data-aos-anchor="data-aos-anchor"
-          >
-            Consulter mon CV (Français)
-          </a>
-          <a
-            class="btn btn-primary"
-            target="_blank"
-            href="https://drive.google.com/file/d/1h5S8enH1KBHw3xDGnmmhNNwVGS4V6aZN/view?usp=share_link"
-            data-aos="zoom-in"
-            data-aos-anchor="data-aos-anchor"
-          >
-            See my resume (English)
-          </a>
+          <div class="row flex justify-content-center">
+            <button class="button2">
+              <div class="text">
+                <a href="https://drive.google.com/file/d/1wTmxWW2LxBjsHtXjGKeDIyKRSe2O-RVr/view?usp=share_link" target="_blank">
+                  Consulter mon CV
+                </a>
+               </div>
+            </button>
+            &nbsp;&nbsp;
+            <button class="button2">
+              <div class="text">
+                <a href="https://drive.google.com/file/d/1h5S8enH1KBHw3xDGnmmhNNwVGS4V6aZN/view?usp=share_link" target="_blank">
+                  See my resume
+                </a>
+               </div>
+            </button>
+        
+          </div>
         </div>
         <div class="section" id="formation">
           <div class="container cc-education">
@@ -958,6 +1119,18 @@
                         Manager de projet digital, Titre RNCP Niveau 7 (BAC+5)
                       </div>
                       <p class="category">MyDigitalSchool - Caen, FRANCE</p>
+                      <p>
+                        Le manager de projet web digital définit une stratégie
+                        <br />
+                        et négocie le développement des projets avec le <br />
+                        service communication marketing de son entreprise ou
+                        <br />
+                        sur demande de commanditaires externes. <br />
+                        <a
+                          href="https://www.francecompetences.fr/recherche/rncp/34394/" target="_blank"
+                          >https://www.francecompetences.fr/recherche/rncp/34394/</a
+                        >
+                      </p,>
                     </div>
                     <img
                       src="images/rncp7.jpeg"
@@ -1026,14 +1199,17 @@
                   data-aos-offset="50"
                   data-aos-duration="500"
                 >
-                  <div class="card-body">
-                    <div class="h5">
-                      Génie Logiciel et Systèmes d'Informations
+                  <div class="row">
+                    <div class="card-body">
+                      <div class="h5">
+                        Génie Logiciel et Systèmes d'Informations
+                      </div>
+                      <p class="category">
+                        Institut Africaine d'Informatique - TOGO
+                      </p>
+                      <p></p>
                     </div>
-                    <p class="category">
-                      Institut Africaine d'Informatique - TOGO
-                    </p>
-                    <p></p>
+                    <img src="images/logo-iai.jpeg" alt="" height="100" />
                   </div>
                 </div>
               </div>
@@ -1057,10 +1233,17 @@
                   data-aos-offset="50"
                   data-aos-duration="500"
                 >
-                  <div class="card-body">
-                    <div class="h5">Série C4</div>
-                    <p class="category">Lycée Scientifique de Lomé - Togo</p>
-                    <p></p>
+                  <div class="row">
+                    <div class="card-body">
+                      <div class="h5">Série C4</div>
+                      <p class="category">Lycée Scientifique de Lomé - Togo</p>
+                      <p></p>
+                    </div>
+                    <!-- <img
+                        src="images/logo-iai.jpeg"
+                        alt=""
+                        height="100"
+                       /> -->
                   </div>
                 </div>
               </div>
@@ -1159,7 +1342,7 @@
                                   <button class="btn btn-info" type="submit">
                                     <div
                                       class="text-center"
-                                      style="font-family: Bahnschrift"
+                                      style="font-weight: bold;"
                                     >
                                       Envoyer
                                     </div>
@@ -1167,7 +1350,7 @@
                                   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                   <a
                                     class="btn btn-dark"
-                                    href="javascript:void(0)"
+                                    style="font-weight: bold;"
                                     data-aos="zoom-in"
                                     data-aos-anchor="data-aos-anchor"
                                     onclick="window.location = 'https://api.whatsapp.com/send?phone=+330761547994'"
@@ -1229,9 +1412,9 @@
       </div>
       <div class="text-center text-muted">
         <p>
-          &copy;2024. All rights reserved.<br />Design & Code
+          &copy;2024. Tous droits reservés.<br />Design & Code
           <a class="credit" href="#" target="_blank"
-            >with &hearts; by Donné ESIAKU</a
+            >with &hearts; by Dieudonné ESIAKU</a
           >
         </p>
       </div>
