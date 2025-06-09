@@ -73,7 +73,7 @@
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-blue,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-blue {
   color: #fff;
-  background: #052f78;
+  background: #054278;
 }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-green,
@@ -247,7 +247,7 @@
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-blue ~ .bootstrap-switch-default {
-  background-color: #052f78;
+  background-color: #054278;
 }
 
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-red,
@@ -578,7 +578,7 @@
 }
 
 .slider.slider-info .noUi-connect, .slider.slider-info.noUi-connect {
-  background-color: #052f78;
+  background-color: #054278;
 }
 
 .slider.slider-info.noUi-target {
@@ -586,7 +586,7 @@
 }
 
 .slider.slider-info .noUi-handle {
-  background-color: #052f78;
+  background-color: #054278;
 }
 
 .slider.slider-success .noUi-connect, .slider.slider-success.noUi-connect {
@@ -1605,7 +1605,7 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-  background-color: #052f78;
+  background-color: #054278;
   color: #FFFFFF;
 }
 
@@ -1631,13 +1631,13 @@ fieldset[disabled] .btn-info:focus,
 fieldset[disabled] .btn-info.focus,
 fieldset[disabled] .btn-info:active,
 fieldset[disabled] .btn-info.active {
-  background-color: #052f78;
-  border-color: #052f78;
+  background-color: #054278;
+  border-color: #054278;
 }
 
 .btn-info.btn-simple {
-  color: #052f78;
-  border-color: #052f78;
+  color: #054278;
+  border-color: #054278;
 }
 
 .btn-info.btn-simple:hover, .btn-info.btn-simple:focus, .btn-info.btn-simple:active {
@@ -1649,7 +1649,7 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-info.btn-link {
-  color: #052f78;
+  color: #054278;
 }
 
 .btn-info.btn-link:hover, .btn-info.btn-link:focus, .btn-info.btn-link:active {
@@ -1812,7 +1812,7 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .btn-neutral.btn-info {
-  color: #052f78;
+  color: #054278;
 }
 
 .btn-neutral.btn-info:hover, .btn-neutral.btn-info:focus, .btn-neutral.btn-info:active {
@@ -2596,12 +2596,12 @@ textarea.form-control:focus, textarea.form-control:active {
 }
 
 .progress-container.progress-info .progress-bar {
-  background: #052f78;
+  background: #054278;
 }
 
 .progress-container.progress-info .progress-value,
 .progress-container.progress-info .progress-badge {
-  color: #052f78;
+  color: #054278;
 }
 
 .progress-container.progress-success .progress {
@@ -2675,8 +2675,8 @@ textarea.form-control:focus, textarea.form-control:active {
 }
 
 .badge-info {
-  border-color: #052f78;
-  color: #052f78;
+  border-color: #054278;
+  color: #054278;
 }
 
 .badge-success {
@@ -2755,8 +2755,8 @@ textarea.form-control:focus, textarea.form-control:active {
 }
 
 .pagination.pagination-info .page-item.active > .page-link, .pagination.pagination-info .page-item.active > .page-link:focus, .pagination.pagination-info .page-item.active > .page-link:hover {
-  background-color: #052f78;
-  border-color: #052f78;
+  background-color: #054278;
+  border-color: #054278;
 }
 
 .pagination.pagination-success .page-item.active > .page-link, .pagination.pagination-success .page-item.active > .page-link:focus, .pagination.pagination-success .page-item.active > .page-link:hover {
@@ -2811,11 +2811,11 @@ small {
 }
 
 a {
-  color: #378C3F;
+  color: #054278;
 }
 
 a:hover, a:focus {
-  color: #378C3F;
+  color: #054278;
 }
 
 h1, .h1 {
@@ -2909,7 +2909,7 @@ p {
 }
 
 .text-info {
-  color: #052f78 !important;
+  color: #054278 !important;
 }
 
 .text-success {
@@ -3089,7 +3089,7 @@ body {
 }
 
 .nav-pills.nav-pills-info .nav-item .nav-link.active, .nav-pills.nav-pills-info .nav-item .nav-link.active:focus, .nav-pills.nav-pills-info .nav-item .nav-link.active:hover {
-  background-color: #052f78;
+  background-color: #054278;
 }
 
 .nav-pills.nav-pills-success .nav-item .nav-link.active, .nav-pills.nav-pills-success .nav-item .nav-link.active:focus, .nav-pills.nav-pills-success .nav-item .nav-link.active:hover {
@@ -3203,8 +3203,8 @@ body {
 }
 
 .nav-tabs.nav-tabs-info > .nav-item > .nav-link.active {
-  border-color: #052f78;
-  color: #052f78;
+  border-color: #054278;
+  color: #054278;
 }
 
 .nav-tabs.nav-tabs-danger > .nav-item > .nav-link.active {
@@ -3390,7 +3390,7 @@ body {
 }
 
 .bg-info {
-  background-color: #052f78 !important;
+  background-color: #054278 !important;
 }
 
 .bg-success {
@@ -3753,7 +3753,7 @@ img {
 }
 
 .popover.popover-info {
-  background-color: #052f78;
+  background-color: #054278;
 }
 
 .popover.popover-info .popover-body {
@@ -3761,19 +3761,19 @@ img {
 }
 
 .popover.popover-info.bs-popover-right .arrow:after {
-  border-right-color: #052f78;
+  border-right-color: #054278;
 }
 
 .popover.popover-info.bs-popover-top .arrow:after {
-  border-top-color: #052f78;
+  border-top-color: #054278;
 }
 
 .popover.popover-info.bs-popover-bottom .arrow:after {
-  border-bottom-color: #052f78;
+  border-bottom-color: #054278;
 }
 
 .popover.popover-info.bs-popover-left .arrow:after {
-  border-left-color: #052f78;
+  border-left-color: #054278;
 }
 
 .popover.popover-info .popover-header {
@@ -4512,7 +4512,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-mini .modal-profile.modal-profile-info {
-  background-color: #052f78;
+  background-color: #054278;
 }
 
 .modal.modal-mini .modal-footer button {
@@ -4569,7 +4569,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-info .modal-content {
-  background-color: #052f78;
+  background-color: #054278;
   color: #FFFFFF;
 }
 
@@ -4635,7 +4635,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .card[data-background-color="blue"] {
-  background-color: #052f78;
+  background-color: #054278;
 }
 
 .card[data-background-color="green"] {
@@ -4828,7 +4828,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .profile-page .page-header {
-  min-height: 550px;
+  min-height: 100vh;
 }
 
 .profile-page .profile-container {
@@ -7085,7 +7085,7 @@ Created using IcoMoon - icomoon.io
   /* border: 15px solid rgb(255, 147, 0.6); */
   border-radius: 50%;
   height: 180px;
-  width: 170px;
+  width: 180px;
   position: absolute;
   left: 0;
   -webkit-animation: pulsate 1.6s ease-out;
