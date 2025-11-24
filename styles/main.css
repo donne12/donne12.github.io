@@ -7521,3 +7521,154 @@ a.credit {
 .portfolio-link i {
     margin-left: 5px;
 }
+
+/* Contact Section Glassmorphism Redesign */
+#contact {
+    position: relative;
+}
+
+#contact .cc-contact-information::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+#contact .container {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-glass-card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px !important;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    color: #fff;
+}
+
+.contact-glass-card .title {
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.contact-glass-card .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.contact-glass-card .form-control:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.contact-glass-card .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-glass-card .input-group-addon {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: none;
+    color: #fff;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-glass-card .input-group .form-control {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.contact-glass-card .card-body {
+    color: #fff;
+}
+
+.contact-glass-card .card-body p,
+.contact-glass-card .card-body strong {
+    color: #fff;
+}
+
+.contact-glass-card .card-body a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact-glass-card .card-body a:hover {
+    color: #00d2ff;
+    border-bottom-color: #00d2ff;
+}
+
+.contact-glass-card .btn-info {
+    background: linear-gradient(90deg, #3654ff 0%, #00d2ff 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(54, 84, 255, 0.3);
+}
+
+.contact-glass-card .btn-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(54, 84, 255, 0.4);
+}
+
+.contact-glass-card .btn-dark {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-glass-card .btn-dark:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Button group alignment */
+.contact-glass-card .d-flex {
+    align-items: center;
+}
+
+.contact-glass-card .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-glass-card {
+        padding: 25px;
+    }
+    
+    #contact .cc-contact-information {
+        padding: 50px 0 !important;
+    }
+}
