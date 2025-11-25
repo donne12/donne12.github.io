@@ -4618,6 +4618,278 @@ Created using IcoMoon - icomoon.io
           box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
 }
 
+/* Enhanced Bio Card Styles */
+.bio-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px !important;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  margin-top: 30px;
+}
+
+.bio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.bio-card .row {
+  margin: 0;
+}
+
+.bio-section {
+  background: linear-gradient(135deg, #054278 0%, #0a6bb8 100%);
+  color: white;
+  position: relative;
+  padding: 0;
+}
+
+.bio-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+  background-size: cover;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.bio-section .card-body {
+  position: relative;
+  z-index: 1;
+  padding: 40px 35px;
+}
+
+.info-section {
+  padding: 0;
+  background: white;
+}
+
+.info-section .card-body {
+  padding: 40px 35px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 15px;
+}
+
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.bio-section .icon-wrapper {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-section .icon-wrapper {
+  background: linear-gradient(135deg, #054278 0%, #0a6bb8 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(5, 66, 120, 0.3);
+}
+
+.icon-wrapper:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.bio-section .section-title {
+  color: white;
+}
+
+.info-section .section-title {
+  background: linear-gradient(135deg, #054278 0%, #0a6bb8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bio-text {
+  text-align: justify;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+}
+
+.bio-text strong {
+  color: white;
+  font-weight: 600;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 1px solid rgba(5, 66, 120, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #054278 0%, #0a6bb8 100%);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 20px rgba(5, 66, 120, 0.15);
+  border-color: rgba(5, 66, 120, 0.3);
+}
+
+.info-item:hover::before {
+  transform: scaleY(1);
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #054278 0%, #0a6bb8 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(5, 66, 120, 0.25);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover .info-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(5, 66, 120, 0.35);
+}
+
+.info-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6c757d;
+}
+
+.info-value {
+  font-size: 1rem;
+  color: #2d3748;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.info-value a,
+a.info-value {
+  color: #054278;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.info-value a::after,
+a.info-value::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #054278 0%, #0a6bb8 100%);
+  transition: width 0.3s ease;
+}
+
+.info-value a:hover,
+a.info-value:hover {
+  color: #0a6bb8;
+}
+
+.info-value a:hover::after,
+a.info-value:hover::after {
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .bio-section {
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .info-section {
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .bio-section .card-body,
+  .info-section .card-body {
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-header {
+    margin-bottom: 20px;
+  }
+  
+  .icon-wrapper {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
+  }
+  
+  .info-item {
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .info-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+}
+
 .card .card-body {
   min-height: 190px;
 }
@@ -7289,8 +7561,7 @@ a.credit {
     color: #2c2c2c;
     font-size: 1.2rem;
     font-weight: 700;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #3654ff;
+    margin-bottom: 10px;
     padding-bottom: 10px;
     display: inline-block;
 }
@@ -7309,7 +7580,7 @@ a.credit {
 
 .skill-name i {
     margin-right: 8px;
-    color: #3654ff;
+    color: #054278;
     width: 20px;
     text-align: center;
 }
@@ -7323,7 +7594,7 @@ a.credit {
 
 .progress-bar-custom {
     height: 100%;
-    background: linear-gradient(90deg, #3654ff 0%, #00d2ff 100%);
+    background: linear-gradient(90deg, #054278 0%, #0a6bb8 100%);
     border-radius: 4px;
     transition: width 1s ease-in-out;
 }
@@ -7471,7 +7742,7 @@ a.credit {
 }
 
 .exp-company-logo img, .edu-logo img {
-    height: 40px;
+    height: 60px;
     width: auto;
     object-fit: contain;
 }
