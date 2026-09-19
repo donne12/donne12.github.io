@@ -4,6 +4,7 @@
   var STORAGE_KEY = "site-lang";
   var SUPPORTED_LANGS = ["fr", "en", "es"];
   var DEFAULT_LANG = "fr";
+  var currentLang = DEFAULT_LANG;
 
   var CV_LINKS = {
     fr: "https://drive.google.com/file/d/1un9lW2BJJqsFE6DPHbQbOLWThC74he8a/view?usp=sharing",
@@ -133,6 +134,9 @@
       "footer.credit": "Design & Code with",
       "footer.by": "by",
       "footer.back_to_top": "Retour en haut",
+
+      "theme.enable_dark": "Activer le mode sombre",
+      "theme.enable_light": "Activer le mode clair",
     },
 
     en: {
@@ -256,6 +260,9 @@
       "footer.credit": "Design & Code with",
       "footer.by": "by",
       "footer.back_to_top": "Back to top",
+
+      "theme.enable_dark": "Enable dark mode",
+      "theme.enable_light": "Enable light mode",
     },
 
     es: {
@@ -379,6 +386,9 @@
       "footer.credit": "Diseño y código con",
       "footer.by": "por",
       "footer.back_to_top": "Volver arriba",
+
+      "theme.enable_dark": "Activar el modo oscuro",
+      "theme.enable_light": "Activar el modo claro",
     },
   };
 
@@ -406,6 +416,7 @@
     }
 
     var dict = translations[lang];
+    currentLang = lang;
 
     document.documentElement.setAttribute("lang", lang);
 
@@ -455,6 +466,10 @@
     } catch (e) {
       // ignore storage errors
     }
+
+    if (window.themeManager) {
+      window.themeManager.refreshTitle();
+    }
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -464,5 +479,8 @@
   window.i18n = {
     setLanguage: applyLanguage,
     translations: translations,
+    getLanguage: function () {
+      return currentLang;
+    },
   };
 })();

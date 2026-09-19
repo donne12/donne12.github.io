@@ -7601,7 +7601,6 @@ a.credit {
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
 }
 
