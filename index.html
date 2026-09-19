@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-          { pageLanguage: "fr" },
-          "google_translate_element"
-        );
-      }
-    </script>
-
-    <script
-      type="text/javascript"
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    ></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -177,6 +164,39 @@
       .text {
         margin: 0 1.5em;
       }
+
+      .lang-switcher .lang-toggle {
+        cursor: pointer;
+      }
+
+      .lang-switcher .dropdown-menu {
+        min-width: 160px;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        padding: 6px;
+      }
+
+      .lang-switcher .dropdown-item {
+        border-radius: 6px;
+        font-size: 0.85em;
+        padding: 8px 12px;
+        margin-bottom: 4px;
+      }
+
+      .lang-switcher .dropdown-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .lang-switcher .dropdown-item:hover,
+      .lang-switcher .dropdown-item.active {
+        background: #3654ff;
+        color: #fff;
+      }
+
+      .lang-switcher .dropdown-item.active {
+        font-weight: bold;
+      }
     </style>
   </head>
 
@@ -189,7 +209,7 @@
           <div class="container">
             <div class="navbar-translate">
               <a class="navbar-brand" href="#" rel="tooltip"
-                ><i class="fa fa-home"> </i> Accueil</a
+                ><i class="fa fa-home"> </i> <span data-i18n="nav.brand">Accueil</span></a
               >
               <button
                 class="navbar-toggler navbar-toggler"
@@ -215,31 +235,49 @@
               <ul class="navbar-nav">
                 <li class="nav-item">
                   <a class="nav-link smooth-scroll" href="#about"
-                    >Qui suis-je?</a
+                    ><span data-i18n="nav.about">Qui suis-je?</span></a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link smooth-scroll" href="#skill">Tech Stack</a>
+                  <a class="nav-link smooth-scroll" href="#skill"><span data-i18n="nav.skills">Tech Stack</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link smooth-scroll" href="#portfolio"
-                    >Mes réalisations</a
+                    ><span data-i18n="nav.portfolio">Mes réalisations</span></a
                   >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link smooth-scroll" href="#experience"
-                    >Expériences</a
+                    ><span data-i18n="nav.experience">Expériences</span></a
                   >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link smooth-scroll" href="#formation"
-                    >Formations</a
+                    ><span data-i18n="nav.formation">Formations</span></a
                   >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link smooth-scroll" href="#contact"
-                    >Contactez-moi</a
+                    ><span data-i18n="nav.contact">Contactez-moi</span></a
                   >
+                </li>
+                <li class="nav-item dropdown lang-switcher">
+                  <a
+                    class="nav-link dropdown-toggle lang-toggle"
+                    href="#"
+                    id="langDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <i class="fa fa-globe"></i> <span id="current-lang-label">FR</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="langDropdown">
+                    <a class="dropdown-item lang-option" href="#" data-lang="fr">🇫🇷 Français</a>
+                    <a class="dropdown-item lang-option" href="#" data-lang="en">🇬🇧 English</a>
+                    <a class="dropdown-item lang-option" href="#" data-lang="es">🇪🇸 Español</a>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -268,19 +306,13 @@
                     /></a>
                   </div>
                   <div class="h2 title">Dieudonné K. A. ESIAKU</div>
-                  <p class="category text-white">
+                  <p class="category text-white" data-i18n="hero.role">
                     Développeur fullstack web/mobile
                   </p>
                   <div class="row flex justify-content-center">
-                    <a class="button1" href="https://drive.google.com/file/d/1un9lW2BJJqsFE6DPHbQbOLWThC74he8a/view?usp=sharing" target="_blank">
-                      <div class="text">
+                    <a class="button1 cv-link" href="https://drive.google.com/file/d/1un9lW2BJJqsFE6DPHbQbOLWThC74he8a/view?usp=sharing" target="_blank">
+                      <div class="text" data-i18n="hero.cv_button">
                         Consulter mon CV
-                      </div>
-                    </a>
-                    &nbsp;&nbsp;
-                    <a class="button1" href="https://drive.google.com/file/d/1KX-3aag8Ys9l3bxCXHmz9N6Rkzls3UPB/view?usp=sharing" target="_blank">
-                      <div class="text">
-                        See my resume
                       </div>
                     </a>
                   </div>
@@ -302,6 +334,7 @@
                   href="https://www.facebook.com/donne.koffi.54/"
                   rel="tooltip"
                   title="Suivez-moi sur Facebook"
+                  data-i18n-title="social.facebook"
                   target="_blank"
                   ><i class="fa fa-facebook"></i></a
                 >&nbsp;&nbsp;<a
@@ -309,6 +342,7 @@
                   href="htts://x.com/EsiakuKoffi"
                   rel="tooltip"
                   title="Suivez-moi sur Twitter"
+                  data-i18n-title="social.twitter"
                   target="_blank"
                   ><i class="fa fa-twitter"></i></a
                 >&nbsp;&nbsp;<a
@@ -316,6 +350,7 @@
                   href="https://www.linkedin.com/in/dieudonne-esiaku/"
                   rel="tooltip"
                   title="Suivez-moi sur Linkedin"
+                  data-i18n-title="social.linkedin"
                   target="_blank"
                   ><i class="fa fa-linkedin"></i></a
                 >&nbsp;&nbsp;<a
@@ -323,6 +358,7 @@
                   href="https://www.instagram.com/_donne.exe_1"
                   rel="tooltip"
                   title="Suivez-moi sur Instagram"
+                  data-i18n-title="social.instagram"
                   target="_blank"
                   ><i class="fa fa-instagram"></i
                 ></a>
@@ -331,13 +367,12 @@
                   href="https://github.com/donne12"
                   rel="tooltip"
                   title="Suivez-moi sur Github"
+                  data-i18n-title="social.github"
                   target="_blank"
                   ><i class="fa fa-github"></i
                 ></a>
               </div>
             </center>
-
-            <div id="google_translate_element"></div>
 
             <div class="card bio-card" data-aos="fade-up" data-aos-offset="10">
               <div class="row">
@@ -347,15 +382,15 @@
                       <div class="icon-wrapper">
                         <i class="fa fa-user"></i>
                       </div>
-                      <h4 class="section-title">Biographie</h4>
+                      <h4 class="section-title" data-i18n="about.bio_title">Biographie</h4>
                     </div>
-                    <p class="bio-text">
+                    <p class="bio-text" data-i18n="about.bio_p1">
                       Analyste développeur et Data enthusiast passionné par l'innovation
                       technologique. Fort d'une expérience significative en développement
                       logiciel et gestion de projets, je m'efforce constamment d'élargir
                       mes compétences pour relever les défis technologiques actuels.
                     </p>
-                    <p class="bio-text">
+                    <p class="bio-text" data-i18n="about.bio_p2">
                       Mon parcours est marqué par la réussite de plusieurs projets
                       informatiques d'envergure et une collaboration efficace au sein
                       d'équipes multidisciplinaires. Toujours en quête de nouveaux défis,
@@ -370,14 +405,14 @@
                       <div class="icon-wrapper">
                         <i class="fa fa-info-circle"></i>
                       </div>
-                      <h4 class="section-title">Informations de base</h4>
+                      <h4 class="section-title" data-i18n="about.info_title">Informations de base</h4>
                     </div>
                     <div class="info-item">
                       <div class="info-icon">
                         <i class="fa fa-envelope"></i>
                       </div>
                       <div class="info-content">
-                        <span class="info-label">E-mail</span>
+                        <span class="info-label" data-i18n="about.label_email">E-mail</span>
                         <a href="mailto:donnesiaku@yahoo.com" class="info-value">donnesiaku@yahoo.com</a>
                       </div>
                     </div>
@@ -386,7 +421,7 @@
                         <i class="fa fa-phone"></i>
                       </div>
                       <div class="info-content">
-                        <span class="info-label">Téléphone</span>
+                        <span class="info-label" data-i18n="about.label_phone">Téléphone</span>
                         <span class="info-value">+33 07-61-54-79-94</span>
                       </div>
                     </div>
@@ -395,8 +430,8 @@
                         <i class="fa fa-map-marker"></i>
                       </div>
                       <div class="info-content">
-                        <span class="info-label">Adresse</span>
-                        <span class="info-value">Paris, France</span>
+                        <span class="info-label" data-i18n="about.label_address">Adresse</span>
+                        <span class="info-value" data-i18n="about.value_address">Paris, France</span>
                       </div>
                     </div>
                     <div class="info-item">
@@ -404,8 +439,8 @@
                         <i class="fa fa-language"></i>
                       </div>
                       <div class="info-content">
-                        <span class="info-label">Langues</span>
-                        <span class="info-value">Français, Anglais, Espagnol, Ewé</span>
+                        <span class="info-label" data-i18n="about.label_languages">Langues</span>
+                        <span class="info-value" data-i18n="about.value_languages">Français, Anglais, Espagnol, Ewé</span>
                       </div>
                     </div>
                   </div>
@@ -417,14 +452,14 @@
 
         <div class="section" id="skill">
           <div class="container">
-            <div class="h4 text-center mb-4 title">
+            <div class="h4 text-center mb-4 title" data-i18n="skills.title">
               Compétences professionnelles
             </div>
             <div class="skills-grid" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
               
               <!-- Frontend -->
               <div class="skill-card">
-                <div class="skill-category-title">Frontend Development</div>
+                <div class="skill-category-title" data-i18n="skills.frontend">Frontend Development</div>
                 
                 <div class="skill-item">
                   <div class="skill-info">
@@ -469,7 +504,7 @@
 
               <!-- Backend -->
               <div class="skill-card">
-                <div class="skill-category-title">Backend Development</div>
+                <div class="skill-category-title" data-i18n="skills.backend">Backend Development</div>
                 
                 <div class="skill-item">
                   <div class="skill-info">
@@ -504,7 +539,7 @@
 
               <!-- Mobile -->
               <div class="skill-card">
-                <div class="skill-category-title">Mobile App</div>
+                <div class="skill-category-title" data-i18n="skills.mobile">Mobile App</div>
                 
                 <div class="skill-item">
                   <div class="skill-info">
@@ -528,7 +563,7 @@
 
               <!-- Database & Cloud -->
               <div class="skill-card">
-                <div class="skill-category-title">Database & Cloud</div>
+                <div class="skill-category-title" data-i18n="skills.database">Database & Cloud</div>
                 
                 <div class="skill-item">
                   <div class="skill-info">
@@ -553,7 +588,7 @@
 
               <!-- Tools -->
               <div class="skill-card">
-                <div class="skill-category-title">Tools & DevOps</div>
+                <div class="skill-category-title" data-i18n="skills.tools">Tools & DevOps</div>
                 
                 <div class="skill-item">
                   <div class="skill-info">
@@ -578,7 +613,7 @@
 
               <!-- Design -->
               <div class="skill-card">
-                <div class="skill-category-title">Design</div>
+                <div class="skill-category-title" data-i18n="skills.design">Design</div>
                 
                 <div class="skill-item">
                   <div class="skill-info">
@@ -609,7 +644,7 @@
       <div class="section" id="portfolio">
         <div class="container">
           <div class="col-md-6 ml-auto mr-auto">
-            <div class="h4 text-center mb-4 title">Quelques réalisations</div>
+            <div class="h4 text-center mb-4 title" data-i18n="portfolio.title">Quelques réalisations</div>
           </div>
           
           <div class="portfolio-grid" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
@@ -620,9 +655,9 @@
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
                   <div class="portfolio-title">BorneEasy</div>
-                  <div class="portfolio-category">SaaS pour borne de commandes</div>
+                  <div class="portfolio-category" data-i18n="portfolio.cat_saas">SaaS pour borne de commandes</div>
                   <a href="https://borneasy.vercel.app" target="_blank" class="portfolio-link">
-                    Voir le projet <i class="fa fa-arrow-right"></i>
+                    <span data-i18n="portfolio.view_project">Voir le projet</span> <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -634,9 +669,9 @@
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
                   <div class="portfolio-title">Meyaku</div>
-                  <div class="portfolio-category">Application Web</div>
+                  <div class="portfolio-category" data-i18n="portfolio.cat_web">Application Web</div>
                   <a href="https://meyaku.com/" target="_blank" class="portfolio-link">
-                    Voir le projet <i class="fa fa-arrow-right"></i>
+                    <span data-i18n="portfolio.view_project">Voir le projet</span> <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -648,9 +683,9 @@
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
                   <div class="portfolio-title">Swiss Eats</div>
-                  <div class="portfolio-category">Application mobile</div>
+                  <div class="portfolio-category" data-i18n="portfolio.cat_mobile">Application mobile</div>
                   <a href="https://play.google.com/store/apps/details?id=com.ch.rytmodelivery" target="_blank" class="portfolio-link">
-                    Voir le projet <i class="fa fa-arrow-right"></i>
+                    <span data-i18n="portfolio.view_project">Voir le projet</span> <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -662,9 +697,9 @@
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
                   <div class="portfolio-title">Centralresource</div>
-                  <div class="portfolio-category">Application Web</div>
+                  <div class="portfolio-category" data-i18n="portfolio.cat_web">Application Web</div>
                   <a href="https://centralresource.net/" target="_blank" class="portfolio-link">
-                    Voir le projet <i class="fa fa-arrow-right"></i>
+                    <span data-i18n="portfolio.view_project">Voir le projet</span> <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -676,9 +711,9 @@
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
                   <div class="portfolio-title">IsySend</div>
-                  <div class="portfolio-category">Application mobile</div>
+                  <div class="portfolio-category" data-i18n="portfolio.cat_mobile">Application mobile</div>
                   <a href="https://isypay.net" target="_blank" class="portfolio-link">
-                    Voir le projet <i class="fa fa-arrow-right"></i>
+                    <span data-i18n="portfolio.view_project">Voir le projet</span> <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -690,9 +725,9 @@
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
                   <div class="portfolio-title">UNIV EN POCHE</div>
-                  <div class="portfolio-category">Application mobile</div>
+                  <div class="portfolio-category" data-i18n="portfolio.cat_mobile">Application mobile</div>
                   <a href="https://univenpoche.com" target="_blank" class="portfolio-link">
-                    Voir le projet <i class="fa fa-arrow-right"></i>
+                    <span data-i18n="portfolio.view_project">Voir le projet</span> <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -704,9 +739,9 @@
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
                   <div class="portfolio-title">BB FOOD</div>
-                  <div class="portfolio-category">Application Web</div>
+                  <div class="portfolio-category" data-i18n="portfolio.cat_web">Application Web</div>
                   <a href="https://bbfood-borne-frontend-app.vercel.app/" target="_blank" class="portfolio-link">
-                    Voir le projet <i class="fa fa-arrow-right"></i>
+                    <span data-i18n="portfolio.view_project">Voir le projet</span> <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -718,9 +753,9 @@
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
                   <div class="portfolio-title">Leader Delivery</div>
-                  <div class="portfolio-category">Application mobile</div>
+                  <div class="portfolio-category" data-i18n="portfolio.cat_mobile">Application mobile</div>
                   <a href="https://www.leaderdelivery-togo.com" target="_blank" class="portfolio-link">
-                    Voir le projet <i class="fa fa-arrow-right"></i>
+                    <span data-i18n="portfolio.view_project">Voir le projet</span> <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -732,9 +767,9 @@
               <div class="portfolio-overlay">
                 <div class="portfolio-content">
                   <div class="portfolio-title">SUNU Santé</div>
-                  <div class="portfolio-category">Application mobile</div>
+                  <div class="portfolio-category" data-i18n="portfolio.cat_mobile">Application mobile</div>
                   <a href="https://www.sunu-sante.com/index.php/fr/" target="_blank" class="portfolio-link">
-                    Voir le projet <i class="fa fa-arrow-right"></i>
+                    <span data-i18n="portfolio.view_project">Voir le projet</span> <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -745,7 +780,7 @@
           <div class="row mt-4">
             <div class="col text-center">
               <a class="button2" href="https://drive.google.com/file/d/1-zMdAM-IOGFBfOTwde0BiI_lu9oG6SzY/view?usp=sharing" target="_blank">
-                <div class="text">
+                <div class="text" data-i18n="portfolio.certifications_button">
                   Voir certaines de mes certifications
                 </div>
               </a>
@@ -756,25 +791,25 @@
 
 <div class="section" id="experience">
         <div class="container cc-experience">
-          <div class="h4 text-center mb-5 title">
+          <div class="h4 text-center mb-5 title" data-i18n="experience.title">
             Expériences professionnelles
           </div>
 
           <div class="row">
-            
+
             <!-- BNP Paribas -->
             <div class="col-md-6 mb-4">
               <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="exp-header">
-                  <div class="exp-date">Décembre 2025 – aujourd'hui</div>
+                  <div class="exp-date" data-i18n="exp.bnp.date">Décembre 2025 – aujourd'hui</div>
                   <div class="exp-company-logo">
                     <img src="images/logo-bnp.png" alt="BNP Paribas CIB">
                   </div>
                 </div>
                 <div class="exp-body">
-                  <h3>Graduate Analyst</h3>
+                  <h3 data-i18n="exp.bnp.title">Graduate Analyst</h3>
                   <h4>BNP Paribas CIB</h4>
-                  <p>
+                  <p data-i18n-html="exp.bnp.desc">
                     <strong>Asset and Liability Management & Treasury - IT</strong><br>
                     Développement et maintenance d'outils internes pour soutenir les opérations de front-office et la prise de décision des trésoriers.
                   </p>
@@ -786,15 +821,15 @@
             <div class="col-md-6 mb-4">
               <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="exp-header">
-                  <div class="exp-date">Juillet 2023 – Juillet 2025</div>
+                  <div class="exp-date" data-i18n="exp.carrefour.date">Juillet 2023 – Juillet 2025</div>
                   <div class="exp-company-logo">
                     <img src="images/logo-carrefour.png" alt="Carrefour">
                   </div>
                 </div>
                 <div class="exp-body">
-                  <h3>Analyste développeur RPA</h3>
-                  <h4>Groupe Carrefour</h4>
-                  <p>
+                  <h3 data-i18n="exp.carrefour.title">Analyste développeur RPA</h3>
+                  <h4 data-i18n="exp.carrefour.company">Groupe Carrefour</h4>
+                  <p data-i18n-html="exp.carrefour.desc">
                     <strong>Département Automatisation & Robotisation - Digital Factory Finance & Corporate - D.S.I</strong><br>
                     - Analyse des processus métier pour identifier les opportunités d'automatisation<br>
                     - Développement de robots RPA conformes aux spécifications (Finance, RH, Supply Chain)<br>
@@ -810,15 +845,15 @@
             <div class="col-md-6 mb-4">
               <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="exp-header">
-                  <div class="exp-date">Mars 2023 – aujourd'hui</div>
+                  <div class="exp-date" data-i18n="exp.voscours.date">Mars 2023 – aujourd'hui</div>
                   <div class="exp-company-logo">
                     <img src="images/voscours.jpeg" alt="VosCours.fr">
                   </div>
                 </div>
                 <div class="exp-body">
-                  <h3>Professeur particulier d'informatique</h3>
+                  <h3 data-i18n="exp.voscours.title">Professeur particulier d'informatique</h3>
                   <h4>VosCours.fr</h4>
-                  <p>
+                  <p data-i18n-html="exp.voscours.desc">
                     Accompagnement d'étudiants et professionnels dans l'apprentissage des technologies numériques. Portefeuille de 10 à 15 étudiants réguliers.<br>
                     <strong>Enseignements :</strong> Développement web (HTML, CSS, JavaScript), algorithmique, langages (Java, Python, C#), frameworks (Flutter, Symfony, Angular, Next.js), méthodologies (MERISE, UML).<br>
                     <strong>Approche :</strong> Pédagogie personnalisée avec projets pratiques, accompagnement de reconversions professionnelles.
@@ -831,15 +866,15 @@
             <div class="col-md-6 mb-4">
               <div class="experience-card" data-aos="fade-up" data-aos-delay="350">
                 <div class="exp-header">
-                  <div class="exp-date">Janvier 2021 – Juin 2025</div>
+                  <div class="exp-date" data-i18n="exp.nematech.date">Janvier 2021 – Juin 2025</div>
                   <div class="exp-company-logo">
                     <img src="images/nematech.jpeg" alt="NEMATECH GROUP">
                   </div>
                 </div>
                 <div class="exp-body">
-                  <h3>Développeur fullstack Web/Mobile</h3>
+                  <h3 data-i18n="exp.nematech.title">Développeur fullstack Web/Mobile</h3>
                   <h4>NEMATECH GROUP</h4>
-                  <p>
+                  <p data-i18n-html="exp.nematech.desc">
                     Conception et développement de solutions numériques innovantes en tant que développeur fullstack.<br>
                     - Développement d'applications web responsives (frontend & backend)<br>
                     - Création d'applications mobiles multiplateformes<br>
@@ -855,15 +890,15 @@
             <div class="col-md-6 mb-4">
               <div class="experience-card" data-aos="fade-up" data-aos-delay="375">
                 <div class="exp-header">
-                  <div class="exp-date">Janvier 2023 – Juin 2023</div>
+                  <div class="exp-date" data-i18n="exp.isychain.date">Janvier 2023 – Juin 2023</div>
                   <div class="exp-company-logo">
                     <img src="images/isychain.jpeg" alt="IsyChain">
                   </div>
                 </div>
                 <div class="exp-body">
-                  <h3>Développeur mobile Flutter</h3>
-                  <h4>IsyChain - Casablanca, Maroc (Télétravail)</h4>
-                  <p>
+                  <h3 data-i18n="exp.isychain.title">Développeur mobile Flutter</h3>
+                  <h4 data-i18n="exp.isychain.company">IsyChain - Casablanca, Maroc (Télétravail)</h4>
+                  <p data-i18n-html="exp.isychain.desc">
                     <strong>Projet IsyPay</strong> - Application de transfert d'argent avec blockchain<br>
                     - Architecture et développement avec Flutter<br>
                     - Intégration des APIs blockchain et services de paiement<br>
@@ -879,15 +914,15 @@
             <div class="col-md-6 mb-4">
               <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="exp-header">
-                  <div class="exp-date">Mai 2022 – Août 2022</div>
+                  <div class="exp-date" data-i18n="exp.protech.date">Mai 2022 – Août 2022</div>
                   <div class="exp-company-logo">
                     <img src="images/yas.svg" alt="TOGOCOM">
                   </div>
                 </div>
                 <div class="exp-body">
-                  <h3>Développeur web</h3>
+                  <h3 data-i18n="exp.protech.title">Développeur web</h3>
                   <h4>TOGOCOM (via PROTECH-TRI)</h4>
-                  <p>
+                  <p data-i18n="exp.protech.desc">
                     Conception d'une application de gestion de maintenance assistée par ordinateur (PRO-GMAO) pour TOGOCOM, l'une des entreprises de téléphonie les plus reconnues au Togo.
                   </p>
                 </div>
@@ -898,15 +933,15 @@
             <div class="col-md-6 mb-4">
               <div class="experience-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="exp-header">
-                  <div class="exp-date">Nov 2021 - Fév 2022</div>
+                  <div class="exp-date" data-i18n="exp.spark.date">Nov 2021 - Fév 2022</div>
                   <div class="exp-company-logo">
                     <img src="images/spark.webp" alt="SPARK CORPORATION">
                   </div>
                 </div>
                 <div class="exp-body">
-                  <h3>Développeur mobile</h3>
+                  <h3 data-i18n="exp.spark.title">Développeur mobile</h3>
                   <h4>SPARK CORPORATION</h4>
-                  <p>
+                  <p data-i18n="exp.spark.desc">
                     Conception et déploiement d'applications mobiles Android et iOS. Travail principal sur la plateforme Centralresource.
                   </p>
                 </div>
@@ -917,15 +952,15 @@
             <div class="col-md-6 mb-4">
               <div class="experience-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="exp-header">
-                  <div class="exp-date">Avril 2021 - Nov 2021</div>
+                  <div class="exp-date" data-i18n="exp.herpa.date">Avril 2021 - Nov 2021</div>
                   <div class="exp-company-logo">
                     <img src="images/sunu.jpeg" alt="SUNU GROUP">
                   </div>
                 </div>
                 <div class="exp-body">
-                  <h3>Développeur applications mobiles</h3>
+                  <h3 data-i18n="exp.herpa.title">Développeur applications mobiles</h3>
                   <h4>SUNU GROUP (via HERPA SOLUTIONS)</h4>
-                  <p>
+                  <p data-i18n-html="exp.herpa.desc">
                     Conception de l'application mobile SUNU Santé pour le groupe SUNU, dédiée à la gestion de contrat d'assurance.<br>
                     - Envoi de justificatifs en quelques clics via photographie<br>
                     - Interface intuitive pour gérer toute son assurance depuis le smartphone<br>
@@ -936,17 +971,11 @@
             </div>
 
           </div>
-          
+
           <div class="row flex justify-content-center mt-4">
-            <a class="button2" href="https://drive.google.com/file/d/1un9lW2BJJqsFE6DPHbQbOLWThC74he8a/view?usp=sharing" target="_blank">
-              <div class="text">
+            <a class="button2 cv-link" href="https://drive.google.com/file/d/1un9lW2BJJqsFE6DPHbQbOLWThC74he8a/view?usp=sharing" target="_blank">
+              <div class="text" data-i18n="hero.cv_button">
                 Consulter mon CV
-              </div>
-            </a>
-            &nbsp;&nbsp;
-            <a class="button2" href="https://drive.google.com/file/d/1KX-3aag8Ys9l3bxCXHmz9N6Rkzls3UPB/view?usp=sharing" target="_blank">
-              <div class="text">
-                See my resume
               </div>
             </a>
           </div>
@@ -955,10 +984,10 @@
 
 <div class="section" id="formation">
           <div class="container cc-education">
-            <div class="h4 text-center mb-5 title">Formations</div>
-            
+            <div class="h4 text-center mb-5 title" data-i18n="formation.title">Formations</div>
+
             <div class="row">
-              
+
               <!-- MBA -->
               <div class="col-md-6 mb-4">
                 <div class="education-card" data-aos="fade-up" data-aos-delay="100">
@@ -969,13 +998,13 @@
                     </div>
                   </div>
                   <div class="edu-body">
-                    <h3>MBA Développeur Fullstack</h3>
+                    <h3 data-i18n="edu.mba.title">MBA Développeur Fullstack</h3>
                     <h4>MyDigitalSchool - Caen, FRANCE</h4>
-                    <p>
+                    <p data-i18n-html="edu.mba.desc">
                       <strong>Manager de projet digital, Titre RNCP Niveau 7 (BAC+5)</strong><br>
                       Le manager de projet web digital définit une stratégie et négocie le développement des projets avec le service communication marketing de son entreprise ou sur demande de commanditaires externes.
                       <br>
-                      <a href="https://www.francecompetences.fr/recherche/rncp/40363" target="_blank">Voir le référentiel</a>
+                      <a href="https://www.francecompetences.fr/recherche/rncp/40363" target="_blank" data-i18n="edu.mba.link">Voir le référentiel</a>
                     </p>
                   </div>
                 </div>
@@ -991,9 +1020,9 @@
                     </div>
                   </div>
                   <div class="edu-body">
-                    <h3>Licence Informatique</h3>
+                    <h3 data-i18n="edu.licence_fr.title">Licence Informatique</h3>
                     <h4>Université Caen Normandie - France</h4>
-                    <p>
+                    <p data-i18n-html="edu.licence_fr.desc">
                       <strong>Sciences, Technologies, Santé mention Informatique</strong><br>
                       Formation approfondie en informatique théorique et pratique.
                     </p>
@@ -1011,9 +1040,9 @@
                     </div>
                   </div>
                   <div class="edu-body">
-                    <h3>Licence Professionnelle</h3>
+                    <h3 data-i18n="edu.licence_togo.title">Licence Professionnelle</h3>
                     <h4>Institut Africain d'Informatique - TOGO</h4>
-                    <p>
+                    <p data-i18n-html="edu.licence_togo.desc">
                       <strong>Génie Logiciel et Systèmes d'Informations</strong><br>
                       Conception et développement de logiciels, gestion de bases de données et systèmes d'information.
                     </p>
@@ -1031,9 +1060,9 @@
                     </div>
                   </div>
                   <div class="edu-body">
-                    <h3>BAC II Scientifique</h3>
+                    <h3 data-i18n="edu.bac.title">BAC II Scientifique</h3>
                     <h4>Lycée Scientifique de Lomé - Togo</h4>
-                    <p>
+                    <p data-i18n-html="edu.bac.desc">
                       <strong>Série Sciences-Mathématiques (C4)</strong><br>
                       Formation scientifique générale avec une forte composante en mathématiques et physique.
                     </p>
@@ -1063,7 +1092,7 @@
                 <div class="row">
                   <div class="col-md-9">
                     <div class="card mb-0 contact-glass-card" data-aos="zoom-in">
-                      <div class="h4 text-center title">Contactez-moi</div>
+                      <div class="h4 text-center title" data-i18n="nav.contact">Contactez-moi</div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="card-body">
@@ -1072,7 +1101,7 @@
                               method="POST"
                             >
                               <div class="p pb-3">
-                                <strong
+                                <strong data-i18n="contact.form_intro"
                                   >Besoin d'aide? Laissez moi un
                                   message.</strong
                                 >
@@ -1088,6 +1117,7 @@
                                       type="text"
                                       name="name"
                                       placeholder="Nom & prénoms"
+                                      data-i18n-placeholder="contact.placeholder_name"
                                       required="required"
                                     />
                                   </div>
@@ -1104,6 +1134,7 @@
                                       type="text"
                                       name="Subject"
                                       placeholder="Objet"
+                                      data-i18n-placeholder="contact.placeholder_subject"
                                       required="required"
                                     />
                                   </div>
@@ -1120,6 +1151,7 @@
                                       type="email"
                                       name="_replyto"
                                       placeholder="Votre adresse mail"
+                                      data-i18n-placeholder="contact.placeholder_email"
                                       required="required"
                                     />
                                   </div>
@@ -1132,6 +1164,7 @@
                                       class="form-control"
                                       name="message"
                                       placeholder="Votre Message"
+                                      data-i18n-placeholder="contact.placeholder_message"
                                       required="required"
                                     ></textarea>
                                   </div>
@@ -1148,6 +1181,7 @@
                                       <div
                                         class="text-center"
                                         style="font-weight: bold"
+                                        data-i18n="contact.submit_button"
                                       >
                                         Envoyer le message
                                       </div>
@@ -1161,6 +1195,7 @@
                                       "
                                       data-aos="zoom-in"
                                       data-aos-anchor="data-aos-anchor"
+                                      data-i18n="contact.whatsapp_button"
                                       onclick="window.location = 'https://wa.me/+33761547994'"
                                       >Me contacter sur Whatsapp</a
                                     >
@@ -1172,13 +1207,13 @@
                         </div>
                         <div class="col-md-6">
                           <div class="card-body">
-                            <p class="mb-0"><strong>Adresse </strong></p>
-                            <p class="pb-2">Paris, France</p>
-                            <p class="mb-0"><strong>Téléphone</strong></p>
+                            <p class="mb-0"><strong data-i18n="about.label_address">Adresse </strong></p>
+                            <p class="pb-2" data-i18n="about.value_address">Paris, France</p>
+                            <p class="mb-0"><strong data-i18n="about.label_phone">Téléphone</strong></p>
                             <p class="pb-2">
                               <a href="tel:+330761547994">+33 07-61-54-79-94</a>
                             </p>
-                            <p class="mb-0"><strong>E-mail</strong></p>
+                            <p class="mb-0"><strong data-i18n="about.label_email">E-mail</strong></p>
                             <p>
                               <a href="mailto:donnesiaku@yahoo.com"
                                 >donnesiaku@yahoo.com</a
@@ -1231,13 +1266,13 @@
           >
         </div>
         <div class="copyright">
-          &copy;<span id="copyright-year"></span>. Tous droits réservés.<br />
-          Design & Code with <i class="fa fa-heart heart"></i> by
+          &copy;<span id="copyright-year"></span>. <span data-i18n="footer.rights">Tous droits réservés.</span><br />
+          <span data-i18n="footer.credit">Design & Code with</span> <i class="fa fa-heart heart"></i> <span data-i18n="footer.by">by</span>
           <a href="#" target="_blank">Dieudonné ESIAKU</a>
         </div>
       </div>
     </footer>
-    <button id="back-to-top" class="btn btn-primary btn-icon btn-round btn-lg back-to-top" role="button" title="Retour en haut">
+    <button id="back-to-top" class="btn btn-primary btn-icon btn-round btn-lg back-to-top" role="button" title="Retour en haut" data-i18n-title="footer.back_to_top">
       <i class="fa fa-chevron-up"></i>
     </button>
     <script>
@@ -1249,8 +1284,17 @@
     <script src="js/now-ui-kit.js?v=1.1.0"></script>
     <script src="js/aos.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/i18n.js"></script>
     <script>
       $(document).ready(function() {
+        // Language switcher
+        $(document).on('click', '.lang-option', function(e) {
+          e.preventDefault();
+          var lang = $(this).data('lang');
+          if (window.i18n) {
+            window.i18n.setLanguage(lang);
+          }
+        });
         var $navbar = $('.navbar-glass');
         var $aboutSection = $('#about');
         
