@@ -162,7 +162,7 @@
         "Developer and data enthusiast passionate about technological innovation. With significant experience in software development and project management, I constantly strive to expand my skills to meet today's technological challenges.",
       "about.bio_p2":
         "My career is marked by the successful delivery of several large-scale IT projects and effective collaboration within multidisciplinary teams. Always seeking new challenges, I aim to apply my expertise to create innovative and impactful solutions.",
-      "about.info_title": "Basic Information",
+      "about.info_title": "Informations",
       "about.label_email": "E-mail",
       "about.label_phone": "Phone",
       "about.label_address": "Address",
@@ -185,7 +185,7 @@
       "portfolio.view_project": "View project",
       "portfolio.certifications_button": "See some of my certifications",
 
-      "experience.title": "Professional Experience",
+      "experience.title": "Professional experience",
 
       "exp.bnp.date": "December 2025 – present",
       "exp.bnp.title": "Graduate Analyst",

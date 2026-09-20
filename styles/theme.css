@@ -445,3 +445,254 @@ a.info-value::after {
 #formation {
   padding-top: 24px;
 }
+
+/* ---------- Tooltips follow the theme ---------- */
+.tooltip-inner {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(var(--shadow-color), 0.25);
+}
+
+.tooltip.bs-tooltip-top .arrow:before {
+  border-top-color: var(--surface);
+}
+
+.tooltip.bs-tooltip-bottom .arrow:before {
+  border-bottom-color: var(--surface);
+}
+
+.tooltip.bs-tooltip-left .arrow:before {
+  border-left-color: var(--surface);
+}
+
+.tooltip.bs-tooltip-right .arrow:before {
+  border-right-color: var(--surface);
+}
+
+/* ---------- Footer social icons: static, no motion ---------- */
+.footer .btn-icon,
+.footer .btn-icon:hover,
+.footer .btn-icon:focus {
+  transform: none;
+  transition: background-color 0.2s ease;
+  box-shadow: none;
+}
+
+.footer .btn-icon:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Contact: transparent glass card (same in both themes) ---------- */
+#contact .cc-contact-information .cc-contact {
+  padding: 0;
+}
+
+#contact .contact-glass-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 24px !important;
+  padding: 44px 44px 40px;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+#contact .contact-head {
+  margin-bottom: 32px;
+}
+
+#contact .contact-glass-card .title {
+  margin: 0 0 8px;
+  font-size: 1.75rem;
+  color: #fff;
+  text-shadow: none;
+}
+
+#contact .contact-sub {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+}
+
+#contact .contact-body {
+  align-items: stretch;
+}
+
+#contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#contact .contact-form .input-group {
+  margin: 0;
+  flex-wrap: nowrap;
+}
+
+#contact .contact-glass-card .input-group-addon {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0 16px;
+  min-width: 48px;
+  justify-content: center;
+}
+
+#contact .contact-glass-card .form-control {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  color: #fff;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 0.95rem;
+  box-shadow: none;
+}
+
+#contact .contact-glass-card .input-group .form-control {
+  border-radius: 0 12px 12px 0;
+}
+
+#contact .contact-glass-card textarea.form-control {
+  height: auto;
+  min-height: 130px;
+  padding: 14px 16px;
+  resize: vertical;
+}
+
+#contact .contact-glass-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#contact .contact-glass-card .form-control:focus {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+#contact .contact-submit {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 28px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent-1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 20px rgba(54, 84, 255, 0.3);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact .contact-submit:hover,
+#contact .contact-submit:focus,
+#contact .contact-submit:active {
+  background: var(--accent-1) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 26px rgba(54, 84, 255, 0.45);
+  transform: none;
+}
+
+/* info column */
+#contact .contact-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 12px;
+}
+
+#contact .contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#contact .contact-info-icon {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+#contact .contact-info-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#contact .contact-info-value,
+#contact a.contact-info-value {
+  display: block;
+  color: #fff;
+  font-size: 0.95rem;
+  border: none;
+  word-break: break-word;
+}
+
+#contact a.contact-info-value:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#contact .contact-whatsapp {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#contact .contact-whatsapp:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 991px) {
+  #contact .contact-info {
+    padding-left: 0;
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 575px) {
+  #contact .contact-glass-card {
+    padding: 28px 20px;
+  }
+  #contact .contact-submit {
+    align-self: stretch;
+    justify-content: center;
+  }
+}

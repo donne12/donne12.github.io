@@ -359,38 +359,14 @@
               <div class="button-container">
                 <a
                   class="btn btn-info btn-round btn-lg btn-icon"
-                  href="https://www.facebook.com/donne.koffi.54/"
-                  rel="tooltip"
-                  title="Suivez-moi sur Facebook"
-                  data-i18n-title="social.facebook"
-                  target="_blank"
-                  ><i class="fa fa-facebook"></i></a
-                >&nbsp;&nbsp;<a
-                  class="btn btn-info btn-round btn-lg btn-icon"
-                  href="htts://x.com/EsiakuKoffi"
-                  rel="tooltip"
-                  title="Suivez-moi sur Twitter"
-                  data-i18n-title="social.twitter"
-                  target="_blank"
-                  ><i class="fa fa-twitter"></i></a
-                >&nbsp;&nbsp;<a
-                  class="btn btn-info btn-round btn-lg btn-icon"
                   href="https://www.linkedin.com/in/dieudonne-esiaku/"
                   rel="tooltip"
                   title="Suivez-moi sur Linkedin"
                   data-i18n-title="social.linkedin"
                   target="_blank"
                   ><i class="fa fa-linkedin"></i></a
-                >&nbsp;&nbsp;<a
-                  class="btn btn-info btn-round btn-lg btn-icon"
-                  href="https://www.instagram.com/_donne.exe_1"
-                  rel="tooltip"
-                  title="Suivez-moi sur Instagram"
-                  data-i18n-title="social.instagram"
-                  target="_blank"
-                  ><i class="fa fa-instagram"></i
-                ></a>
-                &nbsp;&nbsp;<a
+                >
+                <a
                   class="btn btn-info btn-round btn-lg btn-icon"
                   href="https://github.com/donne12"
                   rel="tooltip"
@@ -1118,135 +1094,61 @@
             <div class="container">
               <div class="cc-contact">
                 <div class="row">
-                  <div class="col-md-9">
-                    <div class="card mb-0 contact-glass-card" data-aos="zoom-in">
-                      <div class="h4 text-center title" data-i18n="nav.contact">Contactez-moi</div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="card-body">
-                            <form
-                              action="https://formspree.io/f/xvodoqwb"
-                              method="POST"
-                            >
-                              <div class="p pb-3">
-                                <strong data-i18n="contact.form_intro"
-                                  >Besoin d'aide? Laissez moi un
-                                  message.</strong
-                                >
-                              </div>
-                              <div class="row mb-3">
-                                <div class="col">
-                                  <div class="input-group">
-                                    <span class="input-group-addon"
-                                      ><i class="fa fa-user-circle"></i
-                                    ></span>
-                                    <input
-                                      class="form-control"
-                                      type="text"
-                                      name="name"
-                                      placeholder="Nom & prénoms"
-                                      data-i18n-placeholder="contact.placeholder_name"
-                                      required="required"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <div class="col">
-                                  <div class="input-group">
-                                    <span class="input-group-addon"
-                                      ><i class="fa fa-file-text"></i
-                                    ></span>
-                                    <input
-                                      class="form-control"
-                                      type="text"
-                                      name="Subject"
-                                      placeholder="Objet"
-                                      data-i18n-placeholder="contact.placeholder_subject"
-                                      required="required"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <div class="col">
-                                  <div class="input-group">
-                                    <span class="input-group-addon"
-                                      ><i class="fa fa-envelope"></i
-                                    ></span>
-                                    <input
-                                      class="form-control"
-                                      type="email"
-                                      name="_replyto"
-                                      placeholder="Votre adresse mail"
-                                      data-i18n-placeholder="contact.placeholder_email"
-                                      required="required"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <div class="col">
-                                  <div class="form-group">
-                                    <textarea
-                                      class="form-control"
-                                      name="message"
-                                      placeholder="Votre Message"
-                                      data-i18n-placeholder="contact.placeholder_message"
-                                      required="required"
-                                    ></textarea>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col">
-                                  <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
-                                    <button
-                                      class="btn btn-info"
-                                      type="submit"
-                                      style="width: 200px"
-                                    >
-                                      <div
-                                        class="text-center"
-                                        style="font-weight: bold"
-                                        data-i18n="contact.submit_button"
-                                      >
-                                        Envoyer le message
-                                      </div>
-                                    </button>
-                                    <a
-                                      class="btn btn-dark"
-                                      style="
-                                        font-weight: bold;
-                                        color: white;
-                                        width: 200px;
-                                      "
-                                      data-aos="zoom-in"
-                                      data-aos-anchor="data-aos-anchor"
-                                      data-i18n="contact.whatsapp_button"
-                                      onclick="window.location = 'https://wa.me/+33761547994'"
-                                      >Me contacter sur Whatsapp</a
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
+                  <div class="col-lg-10 mx-auto">
+                    <div class="card mb-0 contact-glass-card" data-aos="fade-up">
+                      <div class="contact-head text-center">
+                        <div class="h4 title" data-i18n="nav.contact">Contactez-moi</div>
+                        <p class="contact-sub" data-i18n="contact.form_intro">Besoin d'aide? Laissez moi un message.</p>
+                      </div>
+                      <div class="row contact-body">
+                        <div class="col-lg-7">
+                          <form action="https://formspree.io/f/xvodoqwb" method="POST" class="contact-form">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                              <input class="form-control" type="text" name="name" placeholder="Nom & prénoms" data-i18n-placeholder="contact.placeholder_name" required="required" />
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
+                              <input class="form-control" type="text" name="Subject" placeholder="Objet" data-i18n-placeholder="contact.placeholder_subject" required="required" />
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                              <input class="form-control" type="email" name="_replyto" placeholder="Votre adresse mail" data-i18n-placeholder="contact.placeholder_email" required="required" />
+                            </div>
+                            <textarea class="form-control" name="message" rows="5" placeholder="Votre Message" data-i18n-placeholder="contact.placeholder_message" required="required"></textarea>
+                            <button class="btn contact-submit" type="submit">
+                              <span data-i18n="contact.submit_button">Envoyer le message</span>
+                              <i class="fa fa-paper-plane"></i>
+                            </button>
+                          </form>
                         </div>
-                        <div class="col-md-6">
-                          <div class="card-body">
-                            <p class="mb-0"><strong data-i18n="about.label_address">Adresse </strong></p>
-                            <p class="pb-2" data-i18n="about.value_address">Paris, France</p>
-                            <p class="mb-0"><strong data-i18n="about.label_phone">Téléphone</strong></p>
-                            <p class="pb-2">
-                              <a href="tel:+330761547994">+33 07-61-54-79-94</a>
-                            </p>
-                            <p class="mb-0"><strong data-i18n="about.label_email">E-mail</strong></p>
-                            <p>
-                              <a href="mailto:donnesiaku@yahoo.com"
-                                >donnesiaku@yahoo.com</a
-                              >
-                            </p>
+                        <div class="col-lg-5">
+                          <div class="contact-info">
+                            <div class="contact-info-item">
+                              <div class="contact-info-icon"><i class="fa fa-map-marker"></i></div>
+                              <div>
+                                <span class="contact-info-label" data-i18n="about.label_address">Adresse</span>
+                                <span class="contact-info-value" data-i18n="about.value_address">Paris, France</span>
+                              </div>
+                            </div>
+                            <div class="contact-info-item">
+                              <div class="contact-info-icon"><i class="fa fa-phone"></i></div>
+                              <div>
+                                <span class="contact-info-label" data-i18n="about.label_phone">Téléphone</span>
+                                <a class="contact-info-value" href="tel:+330761547994">+33 07-61-54-79-94</a>
+                              </div>
+                            </div>
+                            <div class="contact-info-item">
+                              <div class="contact-info-icon"><i class="fa fa-envelope"></i></div>
+                              <div>
+                                <span class="contact-info-label" data-i18n="about.label_email">E-mail</span>
+                                <a class="contact-info-value" href="mailto:donnesiaku@yahoo.com">donnesiaku@yahoo.com</a>
+                              </div>
+                            </div>
+                            <a class="contact-whatsapp" href="https://wa.me/+33761547994" target="_blank" rel="noopener">
+                              <i class="fa fa-whatsapp"></i>
+                              <span data-i18n="contact.whatsapp_button">Me contacter sur Whatsapp</span>
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -1264,27 +1166,9 @@
         <div class="social-icons">
           <a
             class="btn btn-icon btn-neutral btn-round"
-            href="https://www.facebook.com/donne.koffi.54/"
-            target="_blank"
-            ><i class="fa fa-facebook"></i></a
-          >
-          <a
-            class="btn btn-icon btn-neutral btn-round"
-            href="https://www.x.com/EsiakuKoffi"
-            target="_blank"
-            ><i class="fa fa-twitter"></i></a
-          >
-          <a
-            class="btn btn-icon btn-neutral btn-round"
             href="https://www.linkedin.com/in/dieudonne-esiaku/"
             target="_blank"
             ><i class="fa fa-linkedin"></i></a
-          >
-          <a
-            class="btn btn-icon btn-neutral btn-round"
-            href="https://www.instagram.com/_donne.exe_1"
-            target="_blank"
-            ><i class="fa fa-instagram"></i></a
           >
           <a
             class="btn btn-icon btn-neutral btn-round"
@@ -1296,7 +1180,7 @@
         <div class="copyright">
           &copy;<span id="copyright-year"></span>. <span data-i18n="footer.rights">Tous droits réservés.</span><br />
           <span data-i18n="footer.credit">Design & Code with</span> <i class="fa fa-heart heart"></i> <span data-i18n="footer.by">by</span>
-          <a href="#" target="_blank">Dieudonné ESIAKU</a>
+          <a href="#top" class="smooth-scroll">Dieudonné ESIAKU</a>
         </div>
       </div>
     </footer>
