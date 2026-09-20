@@ -1,54 +1,60 @@
-
 /* Back to Top Button */
 .back-to-top {
     position: fixed !important;
-    bottom: 30px !important;
-    right: 30px !important;
+    bottom: 28px !important;
+    right: 28px !important;
     left: auto !important;
     display: none;
     z-index: 9999 !important;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    background: rgba(54, 84, 255, 0.8); /* fallback */
-    background: color-mix(in srgb, var(--accent-1, #3654ff) 80%, transparent);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 0; /* Reset padding for centering */
-    border-radius: 50% !important; /* Ensure it is round */
+    width: 46px;
+    height: 46px;
+    padding: 0 !important;
     margin: 0 !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    background: rgba(20, 23, 32, 0.72) !important;
+    color: #fff !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .back-to-top i {
-    font-size: 20px;
-    line-height: 50px; /* Vertically center icon */
+    font-size: 16px;
+    line-height: 1;
     color: #fff;
-    display: block; /* Ensure icon behaves as block for centering */
+    display: block;
+    transition: transform 0.25s ease;
 }
 
-.back-to-top:hover {
-    background: var(--accent-1, #3654ff);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(54, 84, 255, 0.5);
+.back-to-top:hover,
+.back-to-top:focus,
+.back-to-top:active {
+    background: var(--accent-1, #3654ff) !important;
+    border-color: transparent !important;
+    color: #fff !important;
+    box-shadow: 0 8px 24px rgba(54, 84, 255, 0.35) !important;
+    outline: none;
 }
 
-/* Mobile adjustment */
+.back-to-top:hover i {
+    transform: translateY(-2px);
+}
+
+.back-to-top:focus-visible {
+    outline: 2px solid var(--accent-1, #3654ff);
+    outline-offset: 3px;
+}
+
 @media (max-width: 768px) {
     .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-    }
-    
-    .back-to-top i {
-        line-height: 40px;
-        font-size: 16px;
+        bottom: 18px !important;
+        right: 18px !important;
+        width: 42px;
+        height: 42px;
     }
 }

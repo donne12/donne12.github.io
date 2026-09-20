@@ -7,9 +7,9 @@
   var currentLang = DEFAULT_LANG;
 
   var CV_LINKS = {
-    fr: "https://drive.google.com/file/d/1un9lW2BJJqsFE6DPHbQbOLWThC74he8a/view?usp=sharing",
-    en: "https://drive.google.com/file/d/1KX-3aag8Ys9l3bxCXHmz9N6Rkzls3UPB/view?usp=sharing",
-    es: "https://drive.google.com/file/d/1un9lW2BJJqsFE6DPHbQbOLWThC74he8a/view?usp=sharing",
+    fr: "https://drive.google.com/file/d/1PLWnAOViJ6QT-aej1sGUPsJx5cvghvkf/view?usp=sharing",
+    en: "https://drive.google.com/file/d/1j49t_aiHz3lntgjEyNahopZ69EbkGdWM/view?usp=sharing",
+    es: "https://drive.google.com/file/d/1j49t_aiHz3lntgjEyNahopZ69EbkGdWM/view?usp=sharing",
   };
 
   var translations = {
@@ -159,7 +159,7 @@
 
       "about.bio_title": "Biography",
       "about.bio_p1":
-        "Developer analyst and data enthusiast passionate about technological innovation. With significant experience in software development and project management, I constantly strive to expand my skills to meet today's technological challenges.",
+        "Developer and data enthusiast passionate about technological innovation. With significant experience in software development and project management, I constantly strive to expand my skills to meet today's technological challenges.",
       "about.bio_p2":
         "My career is marked by the successful delivery of several large-scale IT projects and effective collaboration within multidisciplinary teams. Always seeking new challenges, I aim to apply my expertise to create innovative and impactful solutions.",
       "about.info_title": "Basic Information",
@@ -193,7 +193,7 @@
         "<strong>Asset and Liability Management & Treasury - IT</strong><br>Development and maintenance of internal tools to support front-office operations and treasurers' decision-making.",
 
       "exp.carrefour.date": "July 2023 – July 2025",
-      "exp.carrefour.title": "RPA Developer Analyst",
+      "exp.carrefour.title": "RPA Developer",
       "exp.carrefour.company": "Carrefour Group",
       "exp.carrefour.desc":
         "<strong>Automation & Robotics Department - Digital Factory Finance & Corporate - IT Department</strong><br>- Business process analysis to identify automation opportunities<br>- Development of RPA robots according to specifications (Finance, HR, Supply Chain)<br>- Testing before production deployment<br>- Production support for RPA robots<br>- Set up a web application for production support and autonomous robot launch/monitoring",

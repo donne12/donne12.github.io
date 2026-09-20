@@ -345,3 +345,103 @@ a.info-value::after {
 .lang-switcher .dropdown-item {
   color: var(--text);
 }
+
+/* ---------- Biography card: calm, no motion; dark personal-info panel ---------- */
+.bio-card,
+.bio-card:hover {
+  transform: none;
+}
+
+.bio-card .icon-wrapper,
+.bio-card .icon-wrapper:hover,
+.bio-card .info-item,
+.bio-card .info-item:hover,
+.bio-card .info-icon,
+.bio-card .info-item:hover .info-icon {
+  transform: none;
+  transition: none;
+}
+
+.bio-card .info-item::before,
+.bio-card .info-value a::after,
+.bio-card a.info-value::after {
+  display: none;
+}
+
+.bio-card .info-item:hover {
+  box-shadow: none;
+}
+
+:root[data-theme="dark"] .bio-card .info-section {
+  background: #12151c;
+  color: #e7e9ee;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+:root[data-theme="dark"] .bio-card .info-section .section-title {
+  color: #f3f4f7;
+}
+
+:root[data-theme="dark"] .bio-card .info-section .icon-wrapper {
+  background: rgba(255, 255, 255, 0.08);
+  color: #c9d1ff;
+}
+
+:root[data-theme="dark"] .bio-card .info-section .info-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+:root[data-theme="dark"] .bio-card .info-section .info-icon {
+  background: rgba(255, 255, 255, 0.08);
+  color: #c9d1ff;
+  box-shadow: none;
+}
+
+:root[data-theme="dark"] .bio-card .info-section .info-label {
+  color: #8b93a5;
+}
+
+:root[data-theme="dark"] .bio-card .info-section .info-value,
+:root[data-theme="dark"] .bio-card .info-section a.info-value {
+  color: #e7e9ee;
+}
+
+:root[data-theme="dark"] .bio-card .info-section a.info-value:hover {
+  color: #9fb0ff;
+}
+
+/* Compact personal-info panel */
+.bio-card .info-section .card-body {
+  padding: 28px 28px;
+}
+
+.bio-card .info-section .section-header {
+  margin-bottom: 18px;
+}
+
+.bio-card .info-item {
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  gap: 14px;
+}
+
+.bio-card .info-icon {
+  width: 34px;
+  height: 34px;
+  font-size: 15px;
+}
+
+.bio-card .info-content {
+  gap: 1px;
+}
+
+.bio-card .info-value {
+  font-size: 0.95rem;
+}
+
+/* Breathing room under the section dividers */
+#skill,
+#formation {
+  padding-top: 24px;
+}
