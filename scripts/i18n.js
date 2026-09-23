@@ -7,9 +7,9 @@
   var currentLang = DEFAULT_LANG;
 
   var CV_LINKS = {
-    fr: "https://drive.google.com/file/d/1PLWnAOViJ6QT-aej1sGUPsJx5cvghvkf/view?usp=sharing",
-    en: "https://drive.google.com/file/d/1j49t_aiHz3lntgjEyNahopZ69EbkGdWM/view?usp=sharing",
-    es: "https://drive.google.com/file/d/1j49t_aiHz3lntgjEyNahopZ69EbkGdWM/view?usp=sharing",
+    fr: "https://drive.google.com/file/d/1un9lW2BJJqsFE6DPHbQbOLWThC74he8a/view?usp=sharing",
+    en: "https://drive.google.com/file/d/1KX-3aag8Ys9l3bxCXHmz9N6Rkzls3UPB/view?usp=sharing",
+    es: "https://drive.google.com/file/d/1KX-3aag8Ys9l3bxCXHmz9N6Rkzls3UPB/view?usp=sharing",
   };
 
   var translations = {
