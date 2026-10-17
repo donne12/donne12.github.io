@@ -320,12 +320,3 @@ export const extra = {
     "meta.description": "ESIAKU K. Dieudonné, desarrollador fullstack web/móvil.",
   },
 } as const;
-
-// Boot sequence shown on first load (kept in English on purpose: it reads as terminal output)
-export const bootLines = [
-  "init portfolio --env=production",
-  "loading stack [dotnet, angular, flutter, spring]",
-  "compiling experiences ............ ok",
-  "optimizing ideas ................. ok",
-  "ready.",
-];

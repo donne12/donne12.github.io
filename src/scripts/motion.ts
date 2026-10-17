@@ -17,7 +17,7 @@ startHeroCanvas(document.getElementById("hero-canvas") as HTMLCanvasElement, mot
 (window as any).__motionReady = true;
 
 if (motion) {
-  boot().then(() => heroIntro());
+  heroIntro(splashDelay());
   orbit();
   marquee();
   splitTitles();
@@ -30,49 +30,6 @@ if (motion) {
   }
 }
 
-// Terminal boot sequence, then the two curtains split open onto the hero.
-function boot(): Promise<void> {
-  const el = document.getElementById("preloader");
-  if (!el || root.classList.contains("no-preload")) {
-    el?.remove();
-    root.classList.remove("booting");
-    return Promise.resolve();
-  }
-  document.body.style.overflow = "hidden";
-  const count = el.querySelector<HTMLElement>("[data-boot-count]")!;
-  const state = { v: 0 };
-
-  return new Promise((resolve) => {
-    gsap
-      .timeline({
-        onComplete: () => {
-          el.remove();
-          document.body.style.overflow = "";
-          try {
-            sessionStorage.setItem("booted", "1");
-          } catch {}
-        },
-      })
-      .to($$("[data-boot-line]", el), { opacity: 1, duration: 0.05, stagger: 0.12 }, 0.05)
-      .to(state, {
-        v: 100,
-        duration: 0.9,
-        ease: "power2.inOut",
-        onUpdate: () => (count.textContent = String(Math.round(state.v))),
-      }, 0)
-      .to(el.querySelector("[data-boot-bar]"), { scaleX: 1, duration: 0.9, ease: "power2.inOut" }, 0)
-      .to(el.querySelector("[data-boot]"), { opacity: 0, y: -30, duration: 0.25, ease: "power2.in" }, 0.95)
-      .to(el.querySelectorAll("[data-curtain]"), {
-        yPercent: (i) => (i ? 100 : -100),
-        duration: 0.75,
-        ease: "expo.inOut",
-      }, 1.05)
-      .add(() => {
-        root.classList.remove("booting");
-        resolve();
-      }, 1.15);
-  });
-}
 
 // Dot + ring cursor that grows over interactive elements.
 function cursor() {
@@ -166,8 +123,18 @@ function splitTitles() {
   });
 }
 
-function heroIntro() {
-  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+// Seconds until the splash folds away (matches --hero-start in global.css).
+function splashDelay() {
+  const splash = document.getElementById("splash");
+  if (!splash) return 0;
+  splash.addEventListener("animationend", (e) => e.target === splash && splash.remove());
+  const start = parseFloat(getComputedStyle(root).getPropertyValue("--splash")) - 0.35;
+  // Time already spent since navigation start counts toward the splash.
+  return Math.max(0, start - performance.now() / 1000);
+}
+
+function heroIntro(delay = 0) {
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay });
 
   // Photo, badges and buttons fade in through CSS (see global.css); JS adds the rest.
 

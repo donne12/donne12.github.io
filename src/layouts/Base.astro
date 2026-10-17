@@ -1,9 +1,10 @@
 ---
 import "../styles/global.css";
 import { defaultLang, languages, pathFor, useTranslations, type Lang } from "../i18n/utils";
-// Self-hosted fonts (bundled via global.css); preload the two used above the fold.
+// Self-hosted fonts (bundled via global.css); preload the ones used above the fold.
 import interFont from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import displayFont from "@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url";
+import monoFont from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url";
 
 interface Props {
   lang: Lang;
@@ -39,9 +40,16 @@ const canonical = new URL(pathFor(lang), site).href;
     <link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={monoFont} as="font" type="font/woff2" crossorigin />
     <script is:inline define:vars={{ lang, defaultLang, supported: Object.keys(languages) }}>
       (function () {
         var root = document.documentElement;
+
+        // Every load starts on the hero: drop any #section and don't restore the old scroll.
+        try {
+          if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+          if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+        } catch (e) {}
         try {
           var saved = localStorage.getItem("site-theme");
           var theme =
@@ -59,23 +67,14 @@ const canonical = new URL(pathFor(lang), site).href;
             var pref = localStorage.getItem("site-lang");
             if (!pref) pref = (navigator.language || "").slice(0, 2).toLowerCase();
             if (pref !== defaultLang && supported.indexOf(pref) !== -1) {
-              location.replace("/" + pref + "/" + location.hash);
+              location.replace("/" + pref + "/");
             }
           } catch (e) {}
         }
 
         if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          // js-motion also turns on the splash screen (pure CSS, see Splash.astro).
           root.classList.add("js-motion");
-          // Boot sequence only plays once per browser session, and never on phones.
-          try {
-            if (sessionStorage.getItem("booted") || matchMedia("(max-width: 767px)").matches) {
-              root.classList.add("no-preload");
-            } else {
-              root.classList.add("booting");
-            }
-          } catch (e) {
-            root.classList.add("no-preload");
-          }
           // Never leave content hidden if the animation bundle fails to load.
           setTimeout(function () {
             if (!window.__motionReady) root.classList.remove("js-motion");

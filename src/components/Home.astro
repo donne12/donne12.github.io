@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Nav from "./Nav.astro";
-import Preloader from "./Preloader.astro";
+import Splash from "./Splash.astro";
 import Cursor from "./Cursor.astro";
 import Marquee from "./Marquee.astro";
 import DocViewer from "./DocViewer.astro";
@@ -23,7 +23,7 @@ const { lang } = Astro.props;
 ---
 
 <Base lang={lang}>
-  <Preloader />
+  <Splash />
   <Cursor />
   <div id="scroll-progress" class="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left scale-x-0 bg-gradient-to-r from-accent to-accent-2"></div>
   <Nav lang={lang} />

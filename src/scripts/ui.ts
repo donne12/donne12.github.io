@@ -1,6 +1,10 @@
 // Non-animated UI behaviour: theme, language switcher, menus, scroll state.
 
 const root = document.documentElement;
+
+// Always land on the hero, also when the page comes back from the back/forward cache.
+window.scrollTo(0, 0);
+window.addEventListener("pageshow", (e) => e.persisted && window.scrollTo(0, 0));
 const nav = document.getElementById("site-nav")!;
 
 // Theme toggle
@@ -67,9 +71,7 @@ document.addEventListener("keydown", (e) => {
 const backToTop = document.getElementById("back-to-top")!;
 function onScroll() {
   const scrolled = window.scrollY > 40;
-  nav.classList.toggle("glass", scrolled);
-  nav.classList.toggle("!border-x-0", scrolled);
-  nav.classList.toggle("!border-t-0", scrolled);
+  nav.toggleAttribute("data-scrolled", scrolled);
   backToTop.toggleAttribute("data-show", window.scrollY > 400);
 }
 window.addEventListener("scroll", onScroll, { passive: true });

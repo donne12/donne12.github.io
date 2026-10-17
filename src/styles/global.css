@@ -133,17 +133,18 @@
 .js-motion :is([data-reveal], [data-orbit], [data-code-card], [data-code-line]) {
   opacity: 0;
 }
-/* The hero intro is pure CSS so it paints before the JS bundle has loaded.
-   It waits (paused) while the boot sequence is on screen. */
+/* Splash length; the hero intro (pure CSS, so it paints before the JS bundle
+   has loaded) starts as the splash folds away. */
+.js-motion {
+  --splash: 1.5s;
+  --hero-start: calc(var(--splash) - 0.35s);
+}
 .js-motion :is([data-hero-in], [data-scramble]) {
   animation: hero-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
-  animation-delay: calc(var(--d, 0) * 60ms + 40ms);
+  animation-delay: calc(var(--hero-start) + var(--d, 0) * 60ms);
 }
 .js-motion [data-photo] {
-  animation: hero-photo 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-}
-.js-motion.booting :is([data-hero-in], [data-scramble], [data-photo]) {
-  animation-play-state: paused;
+  animation: hero-photo 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--hero-start) backwards;
 }
 .js-motion [data-typed] {
   visibility: hidden;
