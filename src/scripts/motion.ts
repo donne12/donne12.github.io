@@ -37,6 +37,7 @@ function cursor() {
   const dot = el.querySelector<HTMLElement>("[data-cursor-dot]")!;
   const label = el.querySelector<HTMLElement>("[data-cursor-label]")!;
   el.classList.remove("hidden");
+  const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#5b6cff";
   const rx = gsap.quickTo(ring, "x", { duration: 0.45, ease: "power3.out" });
   const ry = gsap.quickTo(ring, "y", { duration: 0.45, ease: "power3.out" });
   const dx = gsap.quickTo(dot, "x", { duration: 0.08 });
@@ -58,15 +59,15 @@ function cursor() {
     const big = target.matches("a[data-tilt]");
     const text = target.matches("input, textarea");
     label.textContent = big ? "view" : "";
-    gsap.to(ring, { scale: big ? 2.2 : text ? 0.5 : 1.6, backgroundColor: big ? "rgba(255,255,255,1)" : "rgba(255,255,255,0)", duration: 0.35 });
-    gsap.to(label, { opacity: big ? 1 : 0, color: "#000", scale: 1 / 2.2, duration: 0.25 });
+    gsap.to(ring, { scale: big ? 2.2 : text ? 0.5 : 1.6, backgroundColor: big ? accent : "rgba(255,255,255,0)", borderColor: big ? accent : "rgba(255,255,255,0.8)", duration: 0.35 });
+    gsap.to(label, { opacity: big ? 1 : 0, color: "#fff", scale: 1 / 2.2, duration: 0.25 });
     gsap.to(dot, { scale: big ? 0 : 1, duration: 0.25 });
   });
   document.addEventListener("pointerout", (e) => {
     const from = (e.target as Element).closest("a, button, input, textarea");
     const to = (e.relatedTarget as Element | null)?.closest("a, button, input, textarea");
     if (!from || from === to) return;
-    gsap.to(ring, { scale: 1, backgroundColor: "rgba(255,255,255,0)", duration: 0.35 });
+    gsap.to(ring, { scale: 1, backgroundColor: "rgba(255,255,255,0)", borderColor: "rgba(255,255,255,0.8)", duration: 0.35 });
     gsap.to(label, { opacity: 0, duration: 0.2 });
     gsap.to(dot, { scale: 1, duration: 0.25 });
   });

@@ -9,16 +9,16 @@ const rows = [
 ];
 ---
 
-<section class="relative overflow-hidden py-6 select-none" aria-hidden="true">
+<section class="relative overflow-hidden py-4 select-none" aria-hidden="true">
   {
     rows.map((items, i) => (
       <div
-        data-marquee={i % 2 ? "-1" : "1"}
         class:list={[
-          "flex w-max border-y border-line py-4",
+          "relative -mx-[5%] w-[110%] overflow-hidden border-y border-line",
           i ? "-mt-px -rotate-1 bg-bg" : "rotate-1 bg-accent text-white",
         ]}
       >
+      <div data-marquee={i % 2 ? "-1" : "1"} class="flex w-max py-4">
         {[0, 1].map(() => (
           <div class="flex shrink-0 items-center">
             {items.map((slug) => (
@@ -34,6 +34,7 @@ const rows = [
             ))}
           </div>
         ))}
+      </div>
       </div>
     ))
   }
