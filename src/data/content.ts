@@ -76,15 +76,15 @@ export const aiAgents = [
 ] as const;
 
 export const projects = [
+  { title: "My Student Companion", cat: "portfolio.cat_platform", img: img("mystudentcompanion.jpg"), url: "https://mystudentcompanion.com/" },
+  { title: "Padel Up Togo", cat: "portfolio.cat_mobile", img: img("padelup.jpg"), url: "https://play.google.com/store/apps/details?id=tg.padel.up" },
+  { title: "SubMeett", cat: "portfolio.cat_mobile", img: img("submeet.jpg"), url: "https://play.google.com/store/apps/details?id=tg.submeet.app" },
   { title: "BorneEasy", cat: "portfolio.cat_saas", img: img("app2.png"), url: "https://borneasy.vercel.app" },
   { title: "Meyaku", cat: "portfolio.cat_web", img: img("app8.jpg"), url: "https://meyaku.com/" },
   { title: "Swiss Eats", cat: "portfolio.cat_mobile", img: img("app1.png"), url: "https://play.google.com/store/apps/details?id=com.ch.rytmodelivery" },
   { title: "Centralresource", cat: "portfolio.cat_web", img: img("app3.jpeg"), url: "https://centralresource.net/" },
-  { title: "IsySend", cat: "portfolio.cat_mobile", img: img("app5.png"), url: "https://isypay.net" },
-  { title: "UNIV EN POCHE", cat: "portfolio.cat_mobile", img: img("app6.png"), url: "https://univenpoche.com" },
-  { title: "BB FOOD", cat: "portfolio.cat_web", img: img("app7.png"), url: "https://bbfood-borne-frontend-app.vercel.app/" },
   { title: "Leader Delivery", cat: "portfolio.cat_mobile", img: img("affiche1.png"), url: "https://www.leaderdelivery-togo.com" },
-  { title: "SUNU Santé", cat: "portfolio.cat_mobile", img: img("affiche3.png"), url: "https://www.sunu-sante.com/index.php/fr/" },
+  { title: "SUNU Santé", cat: "portfolio.cat_mobile", img: img("affiche3.png"), url: "https://sunugrouphealth.com/" },
 ] as const;
 
 // `company` is either a literal name or a translation key (when it starts with "exp.").

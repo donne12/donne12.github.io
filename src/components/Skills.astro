@@ -16,37 +16,6 @@ const t = useTranslations(Astro.props.lang);
   <div class="container-x">
     <SectionHeading index="02" label={t("nav.skills")} title={t("skills.title")} />
 
-    <article data-reveal class="ai-card relative mb-5 overflow-hidden rounded-3xl p-px">
-      <div class="relative flex flex-col gap-6 rounded-[calc(1.5rem-1px)] bg-bg-soft/95 p-6 sm:p-7 lg:flex-row lg:items-center lg:justify-between">
-        <div class="max-w-sm">
-          <p class="mb-2 flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-accent-2 uppercase">
-            <span class="relative flex size-2">
-              <span class="absolute inline-flex size-full animate-ping rounded-full bg-accent-2 opacity-60"></span>
-              <span class="relative inline-flex size-2 rounded-full bg-accent-2"></span>
-            </span>
-            AI · agents
-          </p>
-          <h3 class="font-display text-xl font-semibold sm:text-2xl">{t("skills.ai")}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-muted">{t("skills.ai_desc")}</p>
-        </div>
-        <ul class="grid gap-3 sm:grid-cols-3 lg:w-[36rem] lg:shrink-0">
-          {
-            aiAgents.map(({ slug, tag }) => (
-              <li class="glass flex items-center gap-3 rounded-2xl p-3 transition-colors hover:bg-card-hover">
-                <span class="grid size-11 shrink-0 place-items-center rounded-xl border border-line bg-bg">
-                  <TechIcon slug={slug} size={26} />
-                </span>
-                <span class="min-w-0">
-                  <span class="block text-sm font-semibold">{tech[slug].name}</span>
-                  <span class="block font-mono text-[11px] leading-snug text-muted">{t(tag)}</span>
-                </span>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </article>
-
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
         skills.map((group) => (
@@ -82,5 +51,36 @@ const t = useTranslations(Astro.props.lang);
         ))
       }
     </div>
+
+    <article data-reveal class="ai-card relative mt-5 overflow-hidden rounded-3xl p-px">
+      <div class="relative flex flex-col gap-6 rounded-[calc(1.5rem-1px)] bg-bg-soft/95 p-6 sm:p-7 lg:flex-row lg:items-center lg:justify-between">
+        <div class="max-w-sm">
+          <p class="mb-2 flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-accent-2 uppercase">
+            <span class="relative flex size-2">
+              <span class="absolute inline-flex size-full animate-ping rounded-full bg-accent-2 opacity-60"></span>
+              <span class="relative inline-flex size-2 rounded-full bg-accent-2"></span>
+            </span>
+            AI · agents
+          </p>
+          <h3 class="font-display text-xl font-semibold sm:text-2xl">{t("skills.ai")}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{t("skills.ai_desc")}</p>
+        </div>
+        <ul class="grid gap-3 sm:grid-cols-3 lg:w-[36rem] lg:shrink-0">
+          {
+            aiAgents.map(({ slug, tag }) => (
+              <li class="glass flex items-center gap-3 rounded-2xl p-3 transition-colors hover:bg-card-hover">
+                <span class="grid size-11 shrink-0 place-items-center rounded-xl border border-line bg-bg">
+                  <TechIcon slug={slug} size={26} />
+                </span>
+                <span class="min-w-0">
+                  <span class="block text-sm font-semibold">{tech[slug].name}</span>
+                  <span class="block font-mono text-[11px] leading-snug text-muted">{t(tag)}</span>
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </article>
   </div>
 </section>
