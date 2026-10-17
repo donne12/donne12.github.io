@@ -76,15 +76,15 @@ export const aiAgents = [
 ] as const;
 
 export const projects = [
-  { title: "My Student Companion", cat: "portfolio.cat_platform", img: img("mystudentcompanion.jpg"), url: "https://mystudentcompanion.com/" },
-  { title: "Padel Up Togo", cat: "portfolio.cat_mobile", img: img("padelup.jpg"), url: "https://play.google.com/store/apps/details?id=tg.padel.up" },
-  { title: "SubMeett", cat: "portfolio.cat_mobile", img: img("submeet.jpg"), url: "https://play.google.com/store/apps/details?id=tg.submeet.app" },
-  { title: "BorneEasy", cat: "portfolio.cat_saas", img: img("app2.png"), url: "https://borneasy.vercel.app" },
-  { title: "Meyaku", cat: "portfolio.cat_web", img: img("app8.jpg"), url: "https://meyaku.com/" },
-  { title: "Swiss Eats", cat: "portfolio.cat_mobile", img: img("app1.png"), url: "https://play.google.com/store/apps/details?id=com.ch.rytmodelivery" },
-  { title: "Centralresource", cat: "portfolio.cat_web", img: img("app3.jpeg"), url: "https://centralresource.net/" },
-  { title: "Leader Delivery", cat: "portfolio.cat_mobile", img: img("affiche1.png"), url: "https://www.leaderdelivery-togo.com" },
-  { title: "SUNU Santé", cat: "portfolio.cat_mobile", img: img("affiche3.png"), url: "https://sunugrouphealth.com/" },
+  { title: "My Student Companion", desc: "portfolio.d.msc", cat: "portfolio.cat_platform", img: img("mystudentcompanion.jpg"), url: "https://mystudentcompanion.com/" },
+  { title: "Padel Up Togo", desc: "portfolio.d.padel", cat: "portfolio.cat_mobile", img: img("padelup.jpg"), url: "https://play.google.com/store/apps/details?id=tg.padel.up" },
+  { title: "SubMeett", desc: "portfolio.d.submeet", cat: "portfolio.cat_mobile", img: img("submeet.jpg"), url: "https://play.google.com/store/apps/details?id=tg.submeet.app" },
+  { title: "BorneEasy", desc: "portfolio.d.borne", cat: "portfolio.cat_saas", img: img("app2.png"), url: "https://borneasy.vercel.app" },
+  { title: "Meyaku", desc: "portfolio.d.meyaku", cat: "portfolio.cat_web", img: img("app8.jpg"), url: "https://meyaku.com/" },
+  { title: "Swiss Eats", desc: "portfolio.d.swiss", cat: "portfolio.cat_mobile", img: img("app1.png"), url: "https://play.google.com/store/apps/details?id=com.ch.rytmodelivery" },
+  { title: "Centralresource", desc: "portfolio.d.central", cat: "portfolio.cat_web", img: img("app3.jpeg"), url: "https://centralresource.net/" },
+  { title: "Leader Delivery", desc: "portfolio.d.leader", cat: "portfolio.cat_mobile", img: img("affiche1.png"), url: "https://www.leaderdelivery-togo.com" },
+  { title: "SUNU Santé", desc: "portfolio.d.sunu", cat: "portfolio.cat_mobile", img: img("affiche3.png"), url: "https://sunugrouphealth.com/" },
 ] as const;
 
 // `company` is either a literal name or a translation key (when it starts with "exp.").

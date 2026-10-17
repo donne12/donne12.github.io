@@ -24,55 +24,9 @@ if (motion) {
   sections();
   if (finePointer) {
     magnetic();
-    tilt();
-    cursor();
   }
 }
 
-
-// Dot + ring cursor that grows over interactive elements.
-function cursor() {
-  const el = document.getElementById("cursor")!;
-  const ring = el.querySelector<HTMLElement>("[data-cursor-ring]")!;
-  const dot = el.querySelector<HTMLElement>("[data-cursor-dot]")!;
-  const label = el.querySelector<HTMLElement>("[data-cursor-label]")!;
-  el.classList.remove("hidden");
-  const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#5b6cff";
-  const rx = gsap.quickTo(ring, "x", { duration: 0.45, ease: "power3.out" });
-  const ry = gsap.quickTo(ring, "y", { duration: 0.45, ease: "power3.out" });
-  const dx = gsap.quickTo(dot, "x", { duration: 0.08 });
-  const dy = gsap.quickTo(dot, "y", { duration: 0.08 });
-  gsap.set(el, { opacity: 0 });
-
-  window.addEventListener("pointermove", (e) => {
-    gsap.to(el, { opacity: 1, duration: 0.3, overwrite: "auto" });
-    rx(e.clientX);
-    ry(e.clientY);
-    dx(e.clientX);
-    dy(e.clientY);
-  });
-  document.addEventListener("pointerleave", () => gsap.to(el, { opacity: 0, duration: 0.3 }));
-
-  document.addEventListener("pointerover", (e) => {
-    const target = (e.target as Element).closest("a, button, input, textarea");
-    if (!target) return;
-    const big = target.matches("a[data-tilt]");
-    const text = target.matches("input, textarea");
-    label.textContent = big ? "view" : "";
-    gsap.to(ring, { scale: big ? 2.2 : text ? 0.5 : 1.6, backgroundColor: big ? accent : "rgba(255,255,255,0)", borderColor: big ? accent : "rgba(255,255,255,0.8)", duration: 0.35 });
-    gsap.to(label, { opacity: big ? 1 : 0, color: "#fff", scale: 1 / 2.2, duration: 0.25 });
-    gsap.to(dot, { scale: big ? 0 : 1, duration: 0.25 });
-  });
-  document.addEventListener("pointerout", (e) => {
-    const from = (e.target as Element).closest("a, button, input, textarea");
-    const to = (e.relatedTarget as Element | null)?.closest("a, button, input, textarea");
-    if (!from || from === to) return;
-    gsap.to(ring, { scale: 1, backgroundColor: "rgba(255,255,255,0)", borderColor: "rgba(255,255,255,0.8)", duration: 0.35 });
-    gsap.to(label, { opacity: 0, duration: 0.2 });
-    gsap.to(dot, { scale: 1, duration: 0.25 });
-  });
-  window.addEventListener("pointerdown", () => gsap.to(ring, { scale: "*=0.8", duration: 0.15, yoyo: true, repeat: 1 }));
-}
 
 // Infinite stack bands; scroll velocity speeds them up and flips direction.
 function marquee() {
@@ -127,6 +81,10 @@ function splitTitles() {
 function splashDelay() {
   const splash = document.getElementById("splash");
   if (!splash) return 0;
+  if (!root.classList.contains("js-splash")) {
+    splash.remove();
+    return 0;
+  }
   splash.addEventListener("animationend", (e) => e.target === splash && splash.remove());
   const start = parseFloat(getComputedStyle(root).getPropertyValue("--splash")) - 0.35;
   // Time already spent since navigation start counts toward the splash.
@@ -206,27 +164,6 @@ function sections() {
       gsap.to(els, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.08, overwrite: true }),
   });
 
-  $$("[data-bar]").forEach((bar) => {
-    gsap.from(bar, {
-      scaleX: 0,
-      duration: 1.4,
-      ease: "expo.out",
-      scrollTrigger: { trigger: bar, start: "top 92%", once: true },
-    });
-  });
-
-  $$("[data-count]").forEach((el) => {
-    const end = Number(el.dataset.count);
-    const state = { v: 0 };
-    gsap.to(state, {
-      v: end,
-      duration: 1.4,
-      ease: "expo.out",
-      scrollTrigger: { trigger: el, start: "top 92%", once: true },
-      onUpdate: () => (el.textContent = `${Math.round(state.v)}%`),
-    });
-  });
-
   $$("[data-timeline]").forEach((tl) => {
     gsap.fromTo(
       tl.querySelector("[data-timeline-progress]"),
@@ -248,23 +185,6 @@ function magnetic() {
     el.addEventListener("pointerleave", () => {
       x(0);
       y(0);
-    });
-  });
-}
-
-function tilt() {
-  $$("[data-tilt]").forEach((el) => {
-    gsap.set(el, { transformPerspective: 900 });
-    const rx = gsap.quickTo(el, "rotationX", { duration: 0.6, ease: "power3.out" });
-    const ry = gsap.quickTo(el, "rotationY", { duration: 0.6, ease: "power3.out" });
-    el.addEventListener("pointermove", (e) => {
-      const r = el.getBoundingClientRect();
-      ry(((e.clientX - r.left) / r.width - 0.5) * 8);
-      rx(-((e.clientY - r.top) / r.height - 0.5) * 8);
-    });
-    el.addEventListener("pointerleave", () => {
-      rx(0);
-      ry(0);
     });
   });
 }

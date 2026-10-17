@@ -28,7 +28,6 @@ const defs: Record<string, Omit<Tech, "icon"> & { file?: string }> = {
   nodejs: { name: "Node.js" },
   spring: { name: "Spring Boot" },
   php: { name: "PHP" },
-  symfony: { name: "Symfony", invert: true },
   python: { name: "Python" },
   java: { name: "Java" },
   flutter: { name: "Flutter" },

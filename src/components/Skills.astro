@@ -19,9 +19,9 @@ const t = useTranslations(Astro.props.lang);
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
         skills.map((group) => (
-          <article data-reveal data-tilt class="glass group rounded-3xl p-6 transition-colors hover:bg-card-hover">
+          <article data-reveal class="glass group rounded-3xl p-6 transition-colors hover:bg-card-hover">
             <h3 class="mb-6 font-display text-lg font-semibold">{t(group.key)}</h3>
-            <ul class="space-y-4">
+            <ul class="space-y-3.5">
               {group.items.map(([name, pct, logos]) => (
                 <li>
                   <div class="mb-2 flex items-center justify-between gap-3 font-mono text-xs">
@@ -35,14 +35,14 @@ const t = useTranslations(Astro.props.lang);
                       </span>
                       <span class="truncate">{name}</span>
                     </span>
-                    <span class="text-muted" data-count={pct}>{pct}%</span>
-                  </div>
-                  <div class="h-1.5 overflow-hidden rounded-full bg-line">
-                    <div
-                      data-bar
-                      class="h-full origin-left rounded-full bg-gradient-to-r from-accent to-accent-2"
-                      style={`width:${pct}%`}
-                    />
+                    <span class="flex shrink-0 items-center gap-2 text-muted">
+                      <span>{t(pct >= 85 ? "skills.lvl_3" : pct >= 70 ? "skills.lvl_2" : "skills.lvl_1")}</span>
+                      <span class="flex gap-0.5" aria-hidden="true">
+                        {[1, 2, 3].map((n) => (
+                          <span class:list={["h-3 w-1.5 rounded-full", n <= (pct >= 85 ? 3 : pct >= 70 ? 2 : 1) ? "bg-accent-2" : "bg-line"]} />
+                        ))}
+                      </span>
+                    </span>
                   </div>
                 </li>
               ))}

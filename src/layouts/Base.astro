@@ -32,7 +32,13 @@ const canonical = new URL(pathFor(lang), site).href;
     <link rel="alternate" hreflang="x-default" href={new URL(pathFor(defaultLang), site).href} />
     <meta property="og:title" content="Dieudonné ESIAKU | Portfolio" />
     <meta property="og:description" content={t("meta.description")} />
-    <meta property="og:image" content={new URL("/images/profile.jpeg", site).href} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={new URL("/images/og.png", site).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dieudonné ESIAKU, Fullstack Developer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={new URL("/images/og.png", site).href} />
     <meta property="og:url" content={canonical} />
     <meta name="theme-color" content="#06070b" />
     <link rel="icon" type="image/png" href="/images/unnamed.png" />
@@ -73,8 +79,16 @@ const canonical = new URL(pathFor(lang), site).href;
         }
 
         if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          // js-motion also turns on the splash screen (pure CSS, see Splash.astro).
           root.classList.add("js-motion");
+          // The splash (pure CSS, see Splash.astro) only plays on the first visit of a session.
+          try {
+            if (!sessionStorage.getItem("splash-seen")) {
+              sessionStorage.setItem("splash-seen", "1");
+              root.classList.add("js-splash");
+            }
+          } catch (e) {
+            root.classList.add("js-splash");
+          }
           // Never leave content hidden if the animation bundle fails to load.
           setTimeout(function () {
             if (!window.__motionReady) root.classList.remove("js-motion");

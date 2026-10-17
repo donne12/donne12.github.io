@@ -23,7 +23,6 @@ const t = useTranslations(Astro.props.lang);
             target="_blank"
             rel="noopener"
             data-reveal
-            data-tilt
             class="glass group relative block overflow-hidden rounded-3xl"
           >
             <div class="aspect-[4/3] overflow-hidden">
@@ -44,6 +43,7 @@ const t = useTranslations(Astro.props.lang);
                   {String(i + 1).padStart(2, "0")} · {t(p.cat)}
                 </p>
                 <h3 class="mt-1 font-display text-lg font-semibold">{p.title}</h3>
+                <p class="mt-1.5 text-[13px] leading-snug text-muted">{t(p.desc)}</p>
               </div>
               <span
                 class="grid size-10 shrink-0 place-items-center rounded-full border border-line transition-all duration-300 group-hover:rotate-45 group-hover:border-accent group-hover:bg-accent group-hover:text-white"
