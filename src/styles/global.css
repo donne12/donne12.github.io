@@ -1,3 +1,6 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/jetbrains-mono";
 @import "tailwindcss";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
@@ -48,9 +51,9 @@
   --color-accent: var(--accent);
   --color-accent-2: var(--accent-2);
   --color-accent-3: var(--accent-3);
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Inter", ui-sans-serif, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", "Inter Variable", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
 }
 
 @layer base {
@@ -127,8 +130,35 @@
 }
 
 /* Elements animated by GSAP start hidden only when JS + motion are available. */
-.js-motion :is([data-reveal], [data-hero-in], [data-scramble], [data-photo], [data-orbit], [data-code-card], [data-code-line]) {
+.js-motion :is([data-reveal], [data-orbit], [data-code-card], [data-code-line]) {
   opacity: 0;
+}
+/* The hero intro is pure CSS so it paints before the JS bundle has loaded.
+   It waits (paused) while the boot sequence is on screen. */
+.js-motion :is([data-hero-in], [data-scramble]) {
+  animation: hero-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  animation-delay: calc(var(--d, 0) * 60ms + 40ms);
+}
+.js-motion [data-photo] {
+  animation: hero-photo 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.js-motion.booting :is([data-hero-in], [data-scramble], [data-photo]) {
+  animation-play-state: paused;
+}
+.js-motion [data-typed] {
+  visibility: hidden;
+}
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+@keyframes hero-photo {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

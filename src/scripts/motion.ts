@@ -35,6 +35,7 @@ function boot(): Promise<void> {
   const el = document.getElementById("preloader");
   if (!el || root.classList.contains("no-preload")) {
     el?.remove();
+    root.classList.remove("booting");
     return Promise.resolve();
   }
   document.body.style.overflow = "hidden";
@@ -66,7 +67,10 @@ function boot(): Promise<void> {
         duration: 0.75,
         ease: "expo.inOut",
       }, 1.05)
-      .add(resolve, 1.15);
+      .add(() => {
+        root.classList.remove("booting");
+        resolve();
+      }, 1.15);
   });
 }
 
@@ -165,13 +169,7 @@ function splitTitles() {
 function heroIntro() {
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  tl.fromTo(
-    "[data-photo]",
-    { scale: 0.6, opacity: 0, filter: "blur(12px)" },
-    { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.9, ease: "expo.out" },
-    0,
-  )
-    .fromTo("[data-hero-in]", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.05 }, 0);
+  // Photo, badges and buttons fade in through CSS (see global.css); JS adds the rest.
 
   $$("[data-scramble]").forEach((el, i) => {
     const text = el.textContent!.trim();
@@ -188,6 +186,7 @@ function heroIntro() {
     const full = typed.dataset.typed!;
     const state = { n: 0 };
     typed.textContent = "";
+    typed.style.visibility = "visible";
     tl.to(state, {
       n: full.length,
       duration: full.length * 0.025,
