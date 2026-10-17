@@ -1,0 +1,17 @@
+---
+interface Props {
+  index: string;
+  label: string;
+  title: string;
+  center?: boolean;
+}
+
+const { index, label, title, center = false } = Astro.props;
+---
+
+<div class:list={["mb-8 sm:mb-10", center && "text-center"]} data-reveal>
+  <p class="section-label mb-3">
+    <span class="text-muted">{index} /</span> {label}
+  </p>
+  <h2 class="section-title">{title}</h2>
+</div>

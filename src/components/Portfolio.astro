@@ -1,0 +1,61 @@
+---
+import Icon from "./Icon.astro";
+import SectionHeading from "./SectionHeading.astro";
+import { profile, projects } from "../data/content";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const t = useTranslations(Astro.props.lang);
+---
+
+<section id="portfolio" class="relative py-12 sm:py-16">
+  <div class="container-x">
+    <SectionHeading index="03" label={t("nav.portfolio")} title={t("portfolio.title")} />
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        projects.map((p, i) => (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener"
+            data-reveal
+            data-tilt
+            class="glass group relative block overflow-hidden rounded-3xl"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src={p.img}
+                alt={p.title}
+                loading="lazy"
+                class="size-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <div class="flex items-center justify-between gap-4 p-5">
+              <div>
+                <p class="font-mono text-[11px] text-accent-2">
+                  {String(i + 1).padStart(2, "0")} · {t(p.cat)}
+                </p>
+                <h3 class="mt-1 font-display text-lg font-semibold">{p.title}</h3>
+              </div>
+              <span
+                class="grid size-10 shrink-0 place-items-center rounded-full border border-line transition-all duration-300 group-hover:rotate-45 group-hover:border-accent group-hover:bg-accent group-hover:text-white"
+                aria-label={t("portfolio.view_project")}
+              >
+                <Icon name="external" size={16} />
+              </span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+    <div class="mt-8 text-center" data-reveal>
+      <a href={profile.certifications} target="_blank" rel="noopener" data-magnetic data-doc={t("doc.certs_title")} class="btn-ghost">
+        {t("portfolio.certifications_button")}
+        <Icon name="arrow" size={16} />
+      </a>
+    </div>
+  </div>
+</section>

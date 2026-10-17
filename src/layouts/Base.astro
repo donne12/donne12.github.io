@@ -1,0 +1,87 @@
+---
+import "../styles/global.css";
+import { defaultLang, languages, pathFor, useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const site = Astro.site?.origin ?? "https://esiakudonne.me";
+const canonical = new URL(pathFor(lang), site).href;
+---
+
+<!doctype html>
+<html lang={lang} data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dieudonné | Portfolio</title>
+    <meta name="description" content={t("meta.description")} />
+    <link rel="canonical" href={canonical} />
+    {
+      (Object.keys(languages) as Lang[]).map((l) => (
+        <link rel="alternate" hreflang={l} href={new URL(pathFor(l), site).href} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(pathFor(defaultLang), site).href} />
+    <meta property="og:title" content="Dieudonné ESIAKU | Portfolio" />
+    <meta property="og:description" content={t("meta.description")} />
+    <meta property="og:image" content={new URL("/images/profile.jpeg", site).href} />
+    <meta property="og:url" content={canonical} />
+    <meta name="theme-color" content="#06070b" />
+    <link rel="icon" type="image/png" href="/images/unnamed.png" />
+    <link rel="apple-touch-icon" href="/images/unnamed.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline define:vars={{ lang, defaultLang, supported: Object.keys(languages) }}>
+      (function () {
+        var root = document.documentElement;
+        try {
+          var saved = localStorage.getItem("site-theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark";
+          root.setAttribute("data-theme", theme);
+        } catch (e) {}
+
+        // Same behaviour as the old site: honour a saved language, otherwise the browser's.
+        if (lang === defaultLang) {
+          try {
+            var pref = localStorage.getItem("site-lang");
+            if (!pref) pref = (navigator.language || "").slice(0, 2).toLowerCase();
+            if (pref !== defaultLang && supported.indexOf(pref) !== -1) {
+              location.replace("/" + pref + "/" + location.hash);
+            }
+          } catch (e) {}
+        }
+
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          root.classList.add("js-motion");
+          // Boot sequence only plays once per browser session.
+          try {
+            if (sessionStorage.getItem("booted")) root.classList.add("no-preload");
+          } catch (e) {
+            root.classList.add("no-preload");
+          }
+          // Never leave content hidden if the animation bundle fails to load.
+          setTimeout(function () {
+            if (!window.__motionReady) root.classList.remove("js-motion");
+          }, 4000);
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-dvh overflow-x-hidden">
+    <slot />
+  </body>
+</html>

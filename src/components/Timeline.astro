@@ -1,0 +1,46 @@
+---
+// Vertical timeline shared by the experience and education sections.
+interface Item {
+  date: string;
+  title: string;
+  org: string;
+  logo: string;
+  html: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<ol class="relative" data-timeline>
+  <span class="absolute top-2 bottom-2 left-[19px] w-px bg-line sm:left-1/2" aria-hidden="true"></span>
+  <span
+    data-timeline-progress
+    class="absolute top-2 bottom-2 left-[19px] w-px origin-top bg-gradient-to-b from-accent to-accent-2 sm:left-1/2"
+    aria-hidden="true"></span>
+  {
+    items.map((item, i) => (
+      <li class:list={["relative mb-6 pl-14 sm:w-1/2 sm:pl-0", i % 2 ? "sm:ml-auto sm:pl-12" : "sm:pr-12"]}>
+        <span
+          class:list={[
+            "absolute top-6 left-[13px] size-[13px] rounded-full border-2 border-accent-2 bg-bg",
+            i % 2 ? "sm:-left-[6.5px]" : "sm:right-[-6.5px] sm:left-auto",
+          ]}
+          aria-hidden="true"
+        />
+        <article data-reveal class="glass rounded-3xl p-6 transition-colors hover:bg-card-hover">
+          <div class="mb-4 flex items-start justify-between gap-4">
+            <p class="font-mono text-xs text-accent-2">{item.date}</p>
+            <img src={item.logo} alt={item.org} loading="lazy" class="h-9 w-auto max-w-24 rounded-md bg-white object-contain p-1" />
+          </div>
+          <h3 class="font-display text-xl font-semibold">{item.title}</h3>
+          <p class="mt-1 text-sm text-muted">{item.org}</p>
+          <p class="prose-exp mt-4 text-sm leading-relaxed text-muted" set:html={item.html} />
+        </article>
+      </li>
+    ))
+  }
+</ol>

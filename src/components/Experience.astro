@@ -1,0 +1,35 @@
+---
+import Icon from "./Icon.astro";
+import SectionHeading from "./SectionHeading.astro";
+import Timeline from "./Timeline.astro";
+import { experiences } from "../data/content";
+import { cvLink, useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const tk = t as (key: string) => string;
+const items = experiences.map((e) => ({
+  date: tk(`exp.${e.id}.date`),
+  title: tk(`exp.${e.id}.title`),
+  org: e.company.startsWith("exp.") ? tk(e.company) : e.company,
+  logo: e.logo,
+  html: tk(`exp.${e.id}.desc`),
+}));
+---
+
+<section id="experience" class="relative py-12 sm:py-16">
+  <div class="container-x">
+    <SectionHeading index="04" label={t("nav.experience")} title={t("experience.title")} />
+    <Timeline items={items} />
+    <div class="mt-6 text-center" data-reveal>
+      <a href={cvLink(lang)} target="_blank" rel="noopener" data-magnetic data-doc={t("doc.cv_title")} class="btn-primary">
+        <Icon name="file" size={16} />
+        {t("hero.cv_button")}
+      </a>
+    </div>
+  </div>
+</section>

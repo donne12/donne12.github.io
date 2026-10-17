@@ -1,0 +1,37 @@
+---
+import Icon from "./Icon.astro";
+import { profile } from "../data/content";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const t = useTranslations(Astro.props.lang);
+---
+
+<footer class="border-t border-line py-10">
+  <div class="container-x flex flex-col items-center justify-between gap-6 text-sm text-muted sm:flex-row">
+    <p>
+      &copy; {new Date().getFullYear()} {profile.shortName}. {t("footer.rights")}
+      <span class="block sm:inline">
+        {t("footer.credit")} <Icon name="heart" size={12} class="inline text-[#ff4d6d]" /> {t("footer.by")}
+        <a href="#top" class="text-fg hover:text-accent">{profile.shortName}</a>
+      </span>
+    </p>
+    <div class="flex items-center gap-2">
+      <a href={profile.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" class="glass grid size-10 place-items-center rounded-full hover:text-fg"><Icon name="linkedin" size={16} /></a>
+      <a href={profile.github} target="_blank" rel="noopener" aria-label="GitHub" class="glass grid size-10 place-items-center rounded-full hover:text-fg"><Icon name="github" size={17} /></a>
+    </div>
+  </div>
+</footer>
+
+<a
+  href="#top"
+  id="back-to-top"
+  aria-label={t("footer.back_to_top")}
+  title={t("footer.back_to_top")}
+  class="glass pointer-events-none fixed right-5 bottom-5 z-40 grid size-11 translate-y-4 place-items-center rounded-full opacity-0 transition-all duration-300 data-[show]:pointer-events-auto data-[show]:translate-y-0 data-[show]:opacity-100"
+>
+  <Icon name="up" size={18} />
+</a>

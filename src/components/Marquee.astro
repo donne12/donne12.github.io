@@ -1,0 +1,32 @@
+---
+// Two counter-scrolling bands of the stack between the hero and the content.
+const rows = [
+  [".NET", "Angular", "C#", "Flutter", "React", "Next.js", "Node.js", "Spring Boot", "PHP", "Symfony"],
+  ["ASP.NET Core", "TypeScript", "RxJS", "Python", "Java", "Kotlin", "SQL Server", "PostgreSQL", "Docker", "UiPath RPA"],
+];
+---
+
+<section class="relative overflow-hidden py-6 select-none" aria-hidden="true">
+  {
+    rows.map((items, i) => (
+      <div
+        data-marquee={i % 2 ? "-1" : "1"}
+        class:list={[
+          "flex w-max border-y border-line py-4",
+          i ? "-mt-px -rotate-1 bg-bg" : "rotate-1 bg-accent text-white",
+        ]}
+      >
+        {[0, 1].map(() => (
+          <div class="flex shrink-0 items-center">
+            {items.map((item) => (
+              <span class="flex items-center gap-8 pr-8 font-display text-2xl font-semibold tracking-tight whitespace-nowrap sm:text-4xl">
+                {item}
+                <span class:list={["text-base", i ? "text-accent-2" : "text-white/60"]}>✦</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</section>

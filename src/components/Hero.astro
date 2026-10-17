@@ -1,0 +1,186 @@
+---
+import Icon from "./Icon.astro";
+import { heroStack, profile } from "../data/content";
+import { cvLink, useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const [firstName, ...rest] = profile.shortName.split(" ");
+
+// Rendered as-is when JS/motion is off; animated line by line otherwise.
+const code = [
+  [["k", "const "], ["v", "dev"], ["p", " = {"]],
+  [["p", "  name: "], ["s", '"Dieudonné"'], ["p", ","]],
+  [["p", "  role: "], ["s", '"Fullstack · Web & Mobile"'], ["p", ","]],
+  [["p", "  stack: ["], ["s", '".NET"'], ["p", ", "], ["s", '"Angular"'], ["p", ", "], ["s", '"Flutter"'], ["p", "],"]],
+  [["p", "  base: "], ["s", '"Paris, FR"'], ["p", ","]],
+  [["p", "};"]],
+  [],
+  [["v", "dev"], ["p", "."], ["f", "ship"], ["p", "(ideas); "], ["c", "// ✓ deployed"]],
+] as const;
+
+const tokenClass = {
+  k: "text-accent",
+  v: "text-fg",
+  p: "text-muted",
+  s: "text-accent-3",
+  f: "text-accent-2",
+  c: "text-muted/60 italic",
+};
+---
+
+<section id="top" class="relative isolate flex min-h-dvh items-center overflow-hidden pt-24 pb-12">
+  <!-- Background layers -->
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]"></div>
+    <div data-hero-glow class="absolute -top-40 left-1/4 size-[38rem] rounded-full bg-accent/25 blur-[120px]"></div>
+    <div data-hero-glow class="absolute -bottom-40 right-0 size-[30rem] rounded-full bg-accent-2/15 blur-[120px]"></div>
+    <canvas id="hero-canvas" class="absolute inset-0 size-full"></canvas>
+    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-bg"></div>
+  </div>
+
+  <div data-hero-content class="container-x grid items-center gap-14 lg:grid-cols-[1.15fr_1fr]">
+    <!-- Copy -->
+    <div>
+      <div data-hero-in class="glass mb-8 inline-flex items-center gap-2.5 rounded-full py-1.5 pr-4 pl-3 text-xs">
+        <span class="relative flex size-2">
+          <span class="absolute inline-flex size-full animate-ping rounded-full bg-accent-3 opacity-75"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-accent-3"></span>
+        </span>
+        <span class="text-muted">{t("hero.status")}</span>
+      </div>
+
+      <p data-hero-in class="mb-3 font-mono text-sm text-accent-2">
+        <span class="text-muted">$</span> whoami <span class="text-muted">→</span> {t("hero.greeting")}
+      </p>
+
+      <h1 class="font-display text-[clamp(2.6rem,7vw,5.4rem)] leading-[0.95] font-bold tracking-tight">
+        <span data-scramble class="block">{firstName}</span>
+        <span data-scramble class="text-gradient block">{rest.join(" ")}</span>
+      </h1>
+
+      <p data-hero-in class="mt-6 flex items-center gap-2 font-mono text-base text-muted sm:text-lg">
+        <span class="text-accent">&gt;</span>
+        <span data-typed={t("hero.role")}>{t("hero.role")}</span>
+        <span class="caret inline-block h-5 w-2.5 bg-accent-2"></span>
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a data-hero-in data-magnetic data-doc={t("doc.cv_title")} href={cvLink(lang)} target="_blank" rel="noopener" class="btn-primary">
+          <Icon name="file" size={16} />
+          {t("hero.cv_button")}
+        </a>
+        <a data-hero-in data-magnetic href="#contact" class="btn-ghost">
+          {t("hero.contact_button")}
+          <Icon name="arrow" size={16} />
+        </a>
+        <div data-hero-in class="ml-1 flex items-center gap-1">
+          <a href={profile.github} target="_blank" rel="noopener" aria-label={t("social.github")} title={t("social.github")} class="grid size-11 place-items-center rounded-full text-muted transition-colors hover:text-fg">
+            <Icon name="github" size={20} />
+          </a>
+          <a href={profile.linkedin} target="_blank" rel="noopener" aria-label={t("social.linkedin")} title={t("social.linkedin")} class="grid size-11 place-items-center rounded-full text-muted transition-colors hover:text-fg">
+            <Icon name="linkedin" size={19} />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual: photo + orbiting stack + code card -->
+    <div class="relative mx-auto aspect-square w-full max-w-[26rem]" data-hero-visual>
+      <div data-orbit class="absolute inset-0" aria-hidden="true">
+        {
+          heroStack.map((name) => (
+            <span data-orbit-chip class="glass absolute top-1/2 left-1/2 rounded-full px-3 py-1 font-mono text-[11px] whitespace-nowrap text-fg/90 shadow-lg">
+              {name}
+            </span>
+          ))
+        }
+      </div>
+
+      <div data-photo class="absolute inset-[18%] z-10">
+        <div class="ring-spin absolute -inset-[6px] rounded-full bg-[conic-gradient(from_0deg,var(--accent),var(--accent-2),transparent_40%,var(--accent-3),var(--accent))] opacity-90 blur-[1px]"></div>
+        <div class="absolute -inset-[3px] rounded-full bg-bg"></div>
+        <img
+          src="/images/profile.jpeg"
+          alt={profile.name}
+          width="320"
+          height="320"
+          fetchpriority="high"
+          class="relative size-full rounded-full object-cover"
+        />
+      </div>
+
+      <div
+        data-code-card
+        class="glass absolute -bottom-6 -left-10 z-20 hidden w-[min(19rem,88%)] rounded-2xl bg-bg-soft/70 p-4 shadow-2xl sm:block"
+      >
+        <div class="mb-3 flex items-center gap-1.5">
+          <span class="size-2.5 rounded-full bg-[#ff5f57]"></span>
+          <span class="size-2.5 rounded-full bg-[#febc2e]"></span>
+          <span class="size-2.5 rounded-full bg-[#28c840]"></span>
+          <span class="ml-2 font-mono text-[10px] text-muted">dev.ts</span>
+        </div>
+        <code class="block overflow-hidden font-mono text-[11px] leading-relaxed sm:text-xs">
+          {
+            code.map((line) => (
+              <span data-code-line class="block min-h-[1.6em] whitespace-pre">
+                {line.map(([kind, text]) => (
+                  <span class:list={tokenClass[kind]}>{text}</span>
+                ))}
+              </span>
+            ))
+          }
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <a
+    href="#about"
+    data-hero-in
+    class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-[10px] tracking-[0.3em] text-muted uppercase sm:flex"
+  >
+    {t("hero.scroll")}
+    <span class="relative h-10 w-px overflow-hidden bg-line">
+      <span class="scroll-dot absolute inset-x-0 top-0 h-3 bg-accent-2"></span>
+    </span>
+  </a>
+</section>
+
+<style>
+  .caret {
+    animation: blink 1s steps(1) infinite;
+  }
+  .ring-spin {
+    animation: spin 8s linear infinite;
+  }
+  .scroll-dot {
+    animation: drop 1.8s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes drop {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(350%);
+    }
+  }
+  /* Static fallback layout for the orbit when JS/motion is unavailable */
+  :global(html:not(.js-motion)) [data-orbit-chip] {
+    display: none;
+  }
+</style>

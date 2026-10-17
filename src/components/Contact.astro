@@ -1,0 +1,58 @@
+---
+import Icon from "./Icon.astro";
+import SectionHeading from "./SectionHeading.astro";
+import { profile } from "../data/content";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const t = useTranslations(Astro.props.lang);
+const field =
+  "w-full rounded-2xl border border-line bg-bg/40 px-4 py-3.5 text-sm text-fg placeholder:text-muted/80 outline-none transition focus:border-accent focus:ring-4 focus:ring-accent/15";
+---
+
+<section id="contact" class="relative overflow-hidden py-12 sm:py-16">
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute top-1/2 left-1/2 size-[40rem] -translate-1/2 rounded-full bg-accent/15 blur-[140px]"></div>
+  </div>
+  <div class="container-x">
+    <SectionHeading index="06" label={t("nav.contact")} title={t("contact.form_intro")} />
+    <div class="glass grid gap-10 rounded-3xl p-6 sm:p-10 lg:grid-cols-[1.4fr_1fr]" data-reveal>
+      <form action={profile.formspree} method="POST" class="space-y-4">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <input class={field} type="text" name="name" placeholder={t("contact.placeholder_name")} aria-label={t("contact.placeholder_name")} required />
+          <input class={field} type="email" name="_replyto" placeholder={t("contact.placeholder_email")} aria-label={t("contact.placeholder_email")} required />
+        </div>
+        <input class={field} type="text" name="Subject" placeholder={t("contact.placeholder_subject")} aria-label={t("contact.placeholder_subject")} required />
+        <textarea class={field} name="message" rows="5" placeholder={t("contact.placeholder_message")} aria-label={t("contact.placeholder_message")} required></textarea>
+        <button type="submit" data-magnetic class="btn-primary">
+          {t("contact.submit_button")}
+          <Icon name="send" size={16} />
+        </button>
+      </form>
+
+      <div class="flex flex-col justify-between gap-8">
+        <ul class="space-y-5">
+          <li class="flex items-center gap-4">
+            <span class="grid size-10 place-items-center rounded-xl bg-accent/10 text-accent"><Icon name="pin" /></span>
+            <span><span class="block text-xs text-muted">{t("about.label_address")}</span>{t("about.value_address")}</span>
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="grid size-10 place-items-center rounded-xl bg-accent/10 text-accent"><Icon name="phone" /></span>
+            <span><span class="block text-xs text-muted">{t("about.label_phone")}</span><a href={profile.phoneHref} class="hover:text-accent">{profile.phone}</a></span>
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="grid size-10 place-items-center rounded-xl bg-accent/10 text-accent"><Icon name="mail" /></span>
+            <span class="min-w-0"><span class="block text-xs text-muted">{t("about.label_email")}</span><a href={`mailto:${profile.email}`} class="block truncate hover:text-accent">{profile.email}</a></span>
+          </li>
+        </ul>
+        <a href={profile.whatsapp} target="_blank" rel="noopener" data-magnetic class="btn self-start bg-[#25d366] text-white hover:shadow-[0_12px_30px_-10px_#25d366]">
+          <Icon name="whatsapp" size={18} />
+          {t("contact.whatsapp_button")}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

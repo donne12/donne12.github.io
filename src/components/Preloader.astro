@@ -1,0 +1,43 @@
+---
+import { bootLines } from "../i18n/ui";
+---
+
+<div id="preloader" class="fixed inset-0 z-[100] flex flex-col" aria-hidden="true">
+  <div data-curtain class="absolute inset-x-0 top-0 h-1/2 bg-bg-soft"></div>
+  <div data-curtain class="absolute inset-x-0 bottom-0 h-1/2 bg-bg-soft"></div>
+  <div data-boot class="container-x relative flex flex-1 flex-col justify-end pb-10 sm:pb-16">
+    <ul class="mb-8 space-y-1.5 font-mono text-xs text-muted sm:text-sm">
+      {
+        bootLines.map((line, i) => (
+          <li data-boot-line class="opacity-0">
+            <span class="text-accent-2">[{String(i).padStart(2, "0")}]</span>{" "}
+            {line.endsWith("ok") ? (
+              <>
+                {line.slice(0, -2)}
+                <span class="text-accent-3">ok</span>
+              </>
+            ) : (
+              line
+            )}
+          </li>
+        ))
+      }
+    </ul>
+    <div class="flex items-end justify-between gap-6 border-t border-line pt-6">
+      <span class="font-mono text-xs tracking-[0.3em] text-muted uppercase">esiakudonne.me</span>
+      <span class="font-display text-[clamp(4rem,16vw,11rem)] leading-[0.8] font-bold tabular-nums">
+        <span data-boot-count>0</span><span class="text-accent">%</span>
+      </span>
+    </div>
+    <div class="mt-6 h-px w-full overflow-hidden bg-line">
+      <div data-boot-bar class="h-full w-full origin-left scale-x-0 bg-gradient-to-r from-accent to-accent-2"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  :global(html:not(.js-motion)) #preloader,
+  :global(html.no-preload) #preloader {
+    display: none;
+  }
+</style>

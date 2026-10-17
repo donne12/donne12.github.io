@@ -1,0 +1,52 @@
+---
+import Icon from "./Icon.astro";
+import SectionHeading from "./SectionHeading.astro";
+import { profile } from "../data/content";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const t = useTranslations(Astro.props.lang);
+const info = [
+  { icon: "mail", label: t("about.label_email"), value: profile.email, href: `mailto:${profile.email}` },
+  { icon: "phone", label: t("about.label_phone"), value: profile.phone, href: profile.phoneHref },
+  { icon: "pin", label: t("about.label_address"), value: t("about.value_address") },
+  { icon: "languages", label: t("about.label_languages"), value: t("about.value_languages") },
+] as const;
+---
+
+<section id="about" class="relative py-12 sm:py-16">
+  <div class="container-x">
+    <SectionHeading index="01" label={t("nav.about")} title={t("about.bio_title")} />
+    <div class="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+      <div class="glass rounded-3xl p-7 sm:p-10" data-reveal>
+        <p class="text-lg leading-relaxed text-fg/90">{t("about.bio_p1")}</p>
+        <p class="mt-5 leading-relaxed text-muted">{t("about.bio_p2")}</p>
+      </div>
+      <div class="glass rounded-3xl p-7 sm:p-8" data-reveal>
+        <h3 class="mb-6 font-mono text-xs tracking-[0.2em] text-muted uppercase">{t("about.info_title")}</h3>
+        <ul class="space-y-5">
+          {
+            info.map((item) => (
+              <li class="flex items-center gap-4">
+                <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent">
+                  <Icon name={item.icon} size={18} />
+                </span>
+                <span class="min-w-0">
+                  <span class="block text-xs text-muted">{item.label}</span>
+                  {"href" in item ? (
+                    <a href={item.href} class="block truncate font-medium hover:text-accent">{item.value}</a>
+                  ) : (
+                    <span class="block font-medium">{item.value}</span>
+                  )}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

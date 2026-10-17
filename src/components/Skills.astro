@@ -1,0 +1,43 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { skills } from "../data/content";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const t = useTranslations(Astro.props.lang);
+---
+
+<section id="skill" class="relative py-12 sm:py-16">
+  <div class="container-x">
+    <SectionHeading index="02" label={t("nav.skills")} title={t("skills.title")} />
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        skills.map((group) => (
+          <article data-reveal data-tilt class="glass group rounded-3xl p-6 transition-colors hover:bg-card-hover">
+            <h3 class="mb-6 font-display text-lg font-semibold">{t(group.key)}</h3>
+            <ul class="space-y-4">
+              {group.items.map(([name, pct]) => (
+                <li>
+                  <div class="mb-2 flex items-center justify-between font-mono text-xs">
+                    <span>{name}</span>
+                    <span class="text-muted" data-count={pct}>{pct}%</span>
+                  </div>
+                  <div class="h-1.5 overflow-hidden rounded-full bg-line">
+                    <div
+                      data-bar
+                      class="h-full origin-left rounded-full bg-gradient-to-r from-accent to-accent-2"
+                      style={`width:${pct}%`}
+                    />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

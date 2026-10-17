@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root,
+[data-theme="dark"] {
+  --bg: #06070b;
+  --bg-soft: #0c0e15;
+  --card: rgb(255 255 255 / 0.035);
+  --card-hover: rgb(255 255 255 / 0.06);
+  --border: rgb(255 255 255 / 0.09);
+  --fg: #eef0f6;
+  --muted: #8b90a3;
+  --accent: #4f6bff;
+  --accent-2: #22d3ee;
+  --accent-3: #a3e635;
+  --grid: rgb(255 255 255 / 0.05);
+  --dot: 148 160 255;
+  --dot-accent: 34 211 238;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #f6f7fb;
+  --bg-soft: #ffffff;
+  --card: rgb(255 255 255 / 0.75);
+  --card-hover: #ffffff;
+  --border: rgb(15 18 35 / 0.1);
+  --fg: #0d1020;
+  --muted: #5a6075;
+  --accent: #3654ff;
+  --accent-2: #0891b2;
+  --accent-3: #4d7c0f;
+  --grid: rgb(15 18 35 / 0.06);
+  --dot: 54 84 255;
+  --dot-accent: 8 145 178;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-line: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+}
+@utility glass {
+  background: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--fg) 20%, var(--accent) 55%, var(--accent-2) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility section-label {
+  @apply font-mono text-xs tracking-[0.2em] uppercase text-accent-2;
+}
+@utility section-title {
+  @apply font-display text-3xl font-semibold tracking-tight sm:text-5xl;
+}
+@utility btn {
+  @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-medium transition-[transform,box-shadow,background-color] duration-300 will-change-transform;
+}
+@utility btn-primary {
+  @apply btn text-white;
+  background: linear-gradient(120deg, var(--accent), color-mix(in oklab, var(--accent) 60%, var(--accent-2)));
+  box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--accent) 70%, transparent);
+}
+.btn-primary:hover {
+  box-shadow: 0 16px 40px -10px color-mix(in oklab, var(--accent) 90%, transparent);
+}
+@utility btn-ghost {
+  @apply btn glass text-fg hover:bg-card-hover;
+}
+@utility bg-grid {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.prose-exp strong {
+  @apply font-semibold text-fg;
+}
+.prose-exp a {
+  @apply text-accent-2 underline underline-offset-4;
+}
+
+/* Elements animated by GSAP start hidden only when JS + motion are available. */
+.js-motion :is([data-reveal], [data-hero-in], [data-scramble], [data-photo], [data-orbit], [data-code-card], [data-code-line]) {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

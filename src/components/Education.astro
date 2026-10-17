@@ -1,0 +1,29 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import Timeline from "./Timeline.astro";
+import { education } from "../data/content";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const t = useTranslations(Astro.props.lang);
+const tk = t as (key: string) => string;
+const items = education.map((e) => ({
+  date: e.date,
+  title: tk(`edu.${e.id}.title`),
+  org: e.school,
+  logo: e.logo,
+  html:
+    tk(`edu.${e.id}.desc`) +
+    ("link" in e ? `<a href="${e.link}" target="_blank" rel="noopener">${t("edu.mba.link")}</a>` : ""),
+}));
+---
+
+<section id="formation" class="relative py-12 sm:py-16">
+  <div class="container-x">
+    <SectionHeading index="05" label={t("nav.formation")} title={t("formation.title")} />
+    <Timeline items={items} />
+  </div>
+</section>

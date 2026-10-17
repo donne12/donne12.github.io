@@ -1,0 +1,58 @@
+---
+// Side panel (bottom sheet on mobile) that previews external documents such as
+// the CV or certifications. Any link with `data-doc` opens here instead of a new tab.
+import Icon from "./Icon.astro";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const t = useTranslations(Astro.props.lang);
+---
+
+<div id="doc-viewer" class="invisible fixed inset-0 z-[80]" role="dialog" aria-modal="true" aria-labelledby="doc-title">
+  <div data-doc-backdrop class="absolute inset-0 bg-black/60 opacity-0 backdrop-blur-sm"></div>
+  <aside
+    data-doc-panel
+    class="glass absolute inset-x-0 bottom-0 flex h-[92dvh] flex-col rounded-t-3xl bg-bg-soft/95 shadow-2xl sm:inset-y-3 sm:right-3 sm:left-auto sm:h-auto sm:w-[min(760px,calc(100vw-1.5rem))] sm:rounded-3xl"
+  >
+    <header class="flex items-center gap-3 border-b border-line px-5 py-4">
+      <span class="flex gap-1.5" aria-hidden="true">
+        <span class="size-2.5 rounded-full bg-[#ff5f57]"></span>
+        <span class="size-2.5 rounded-full bg-[#febc2e]"></span>
+        <span class="size-2.5 rounded-full bg-[#28c840]"></span>
+      </span>
+      <h2 id="doc-title" class="min-w-0 flex-1 truncate font-mono text-sm"></h2>
+      <a
+        data-doc-external
+        href="#"
+        target="_blank"
+        rel="noopener"
+        class="glass grid size-9 place-items-center rounded-full text-muted transition-colors hover:text-fg"
+        aria-label={t("doc.open_tab")}
+        title={t("doc.open_tab")}
+      >
+        <Icon name="external" size={16} />
+      </a>
+      <button
+        type="button"
+        data-doc-close
+        class="glass grid size-9 place-items-center rounded-full text-muted transition-colors hover:text-fg"
+        aria-label={t("doc.close")}
+        title={t("doc.close")}
+      >
+        <Icon name="close" size={16} />
+      </button>
+    </header>
+    <div class="relative flex-1 overflow-hidden rounded-b-3xl bg-bg">
+      <div data-doc-loading class="absolute inset-0 grid place-items-center">
+        <span class="flex items-center gap-3 font-mono text-xs text-muted">
+          <span class="size-4 animate-spin rounded-full border-2 border-line border-t-accent-2"></span>
+          {t("doc.loading")}
+        </span>
+      </div>
+      <iframe data-doc-frame title="" class="relative size-full opacity-0 transition-opacity duration-500" allow="autoplay"></iframe>
+    </div>
+  </aside>
+</div>
