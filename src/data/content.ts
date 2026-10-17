@@ -68,11 +68,11 @@ export const skills = [
   },
 ] as const;
 
-// AI coding agents, highlighted above the skill cards. `tag` is a translation key.
+// AI coding agents, highlighted below the skill cards.
 export const aiAgents = [
-  { slug: "claudecode", tag: "skills.ai_cli" },
-  { slug: "codex", tag: "skills.ai_cloud" },
-  { slug: "copilot", tag: "skills.ai_ide" },
+  { slug: "claudecode" },
+  { slug: "codex" },
+  { slug: "copilot" },
 ] as const;
 
 export const projects = [

@@ -67,14 +67,13 @@ const t = useTranslations(Astro.props.lang);
         </div>
         <ul class="grid gap-3 sm:grid-cols-3 lg:w-[36rem] lg:shrink-0">
           {
-            aiAgents.map(({ slug, tag }) => (
+            aiAgents.map(({ slug }) => (
               <li class="glass flex items-center gap-3 rounded-2xl p-3 transition-colors hover:bg-card-hover">
                 <span class="grid size-11 shrink-0 place-items-center rounded-xl border border-line bg-bg">
                   <TechIcon slug={slug} size={26} />
                 </span>
                 <span class="min-w-0">
                   <span class="block text-sm font-semibold">{tech[slug].name}</span>
-                  <span class="block font-mono text-[11px] leading-snug text-muted">{t(tag)}</span>
                 </span>
               </li>
             ))

@@ -295,9 +295,6 @@ export const extra = {
   fr: {
     "skills.ai": "IA & agents de code",
     "skills.ai_desc": "Les agents IA que j'utilise au quotidien pour concevoir, coder, relire et tester plus vite.",
-    "skills.ai_cli": "Agent en terminal",
-    "skills.ai_cloud": "Agent OpenAI",
-    "skills.ai_ide": "Assistant dans l'IDE",
     "skills.lvl_3": "Expert",
     "skills.lvl_2": "Solide",
     "skills.lvl_1": "Notions",
@@ -317,9 +314,6 @@ export const extra = {
   en: {
     "skills.ai": "AI & coding agents",
     "skills.ai_desc": "The AI agents I use every day to design, code, review and test faster.",
-    "skills.ai_cli": "Terminal agent",
-    "skills.ai_cloud": "OpenAI agent",
-    "skills.ai_ide": "In-IDE assistant",
     "skills.lvl_3": "Expert",
     "skills.lvl_2": "Solid",
     "skills.lvl_1": "Familiar",
@@ -339,9 +333,6 @@ export const extra = {
   es: {
     "skills.ai": "IA y agentes de código",
     "skills.ai_desc": "Los agentes de IA que uso a diario para diseñar, programar, revisar y probar más rápido.",
-    "skills.ai_cli": "Agente en terminal",
-    "skills.ai_cloud": "Agente de OpenAI",
-    "skills.ai_ide": "Asistente en el IDE",
     "skills.lvl_3": "Experto",
     "skills.lvl_2": "Sólido",
     "skills.lvl_1": "Nociones",
