@@ -275,6 +275,11 @@ export const ui = {
 // Strings added with the Astro redesign
 export const extra = {
   fr: {
+    "skills.ai": "IA & agents de code",
+    "skills.ai_desc": "Les agents IA que j'utilise au quotidien pour concevoir, coder, relire et tester plus vite.",
+    "skills.ai_cli": "Agent en terminal",
+    "skills.ai_cloud": "Agent OpenAI",
+    "skills.ai_ide": "Assistant dans l'IDE",
     "doc.cv_title": "Mon CV",
     "doc.certs_title": "Certifications",
     "doc.open_tab": "Ouvrir dans un nouvel onglet",
@@ -290,6 +295,11 @@ export const extra = {
     "meta.description": "ESIAKU K. Dieudonné, développeur fullstack web/mobile.",
   },
   en: {
+    "skills.ai": "AI & coding agents",
+    "skills.ai_desc": "The AI agents I use every day to design, code, review and test faster.",
+    "skills.ai_cli": "Terminal agent",
+    "skills.ai_cloud": "OpenAI agent",
+    "skills.ai_ide": "In-IDE assistant",
     "doc.cv_title": "My resume",
     "doc.certs_title": "Certifications",
     "doc.open_tab": "Open in a new tab",
@@ -305,6 +315,11 @@ export const extra = {
     "meta.description": "ESIAKU K. Dieudonné, fullstack web/mobile developer.",
   },
   es: {
+    "skills.ai": "IA y agentes de código",
+    "skills.ai_desc": "Los agentes de IA que uso a diario para diseñar, programar, revisar y probar más rápido.",
+    "skills.ai_cli": "Agente en terminal",
+    "skills.ai_cloud": "Agente de OpenAI",
+    "skills.ai_ide": "Asistente en el IDE",
     "doc.cv_title": "Mi CV",
     "doc.certs_title": "Certificaciones",
     "doc.open_tab": "Abrir en una pestaña nueva",

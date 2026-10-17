@@ -130,7 +130,7 @@
 }
 
 /* Elements animated by GSAP start hidden only when JS + motion are available. */
-.js-motion :is([data-reveal], [data-orbit], [data-code-card], [data-code-line]) {
+.js-motion :is([data-reveal], [data-code-card], [data-code-line]) {
   opacity: 0;
 }
 /* Splash length; the hero intro (pure CSS, so it paints before the JS bundle
@@ -172,5 +172,25 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+[data-theme="dark"] .tech-invert {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Animated gradient border for the AI agents card */
+.ai-card {
+  background: conic-gradient(from var(--ai-angle, 0deg), var(--accent), var(--accent-2), #d97757, var(--accent));
+  animation: ai-spin 6s linear infinite;
+}
+@property --ai-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes ai-spin {
+  to {
+    --ai-angle: 360deg;
   }
 }

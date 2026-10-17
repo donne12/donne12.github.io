@@ -1,0 +1,37 @@
+---
+// A tech logo, or an initials badge when Devicon has no logo for it.
+import { tech } from "../data/tech";
+
+interface Props {
+  slug: string;
+  size?: number;
+  class?: string;
+}
+
+const { slug, size = 20, class: className = "" } = Astro.props;
+const t = tech[slug];
+if (!t) throw new Error(`Unknown tech "${slug}"`);
+---
+
+{
+  t.icon ? (
+    <img
+      src={t.icon.src}
+      alt=""
+      width={size}
+      height={size}
+      loading="lazy"
+      decoding="async"
+      class:list={["shrink-0 object-contain", t.invert && "tech-invert", className]}
+      style={`width:${size}px;height:${size}px`}
+    />
+  ) : (
+    <span
+      class:list={["grid shrink-0 place-items-center rounded-md bg-accent/15 font-mono font-semibold text-accent", className]}
+      style={`width:${size}px;height:${size}px;font-size:${Math.round(size * 0.42)}px`}
+      aria-hidden="true"
+    >
+      {t.name.slice(0, 2)}
+    </span>
+  )
+}

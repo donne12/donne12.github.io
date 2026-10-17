@@ -22,50 +22,57 @@ export const skills = [
   {
     key: "skills.frontend",
     items: [
-      ["Angular", 85],
-      ["HTML/CSS/JS", 90],
-      ["React.js/Next.js", 50],
-      ["Vue.js", 70],
-      ["Bootstrap", 70],
+      ["Angular", 85, ["angular"]],
+      ["HTML/CSS/JS", 90, ["html5", "css3", "javascript"]],
+      ["React.js/Next.js", 50, ["react", "nextjs"]],
+      ["Vue.js", 70, ["vuejs"]],
+      ["Bootstrap", 70, ["bootstrap"]],
     ],
   },
   {
     key: "skills.backend",
     items: [
-      [".NET / C#", 85],
-      ["Node.js/Spring Boot", 80],
-      ["PHP", 90],
-      ["Python/Java", 75],
+      [".NET / C#", 85, ["dotnet", "csharp"]],
+      ["Node.js/Spring Boot", 80, ["nodejs", "spring"]],
+      ["PHP", 90, ["php"]],
+      ["Python/Java", 75, ["python", "java"]],
     ],
   },
   {
     key: "skills.mobile",
     items: [
-      ["Flutter", 85],
-      ["Kotlin", 65],
+      ["Flutter", 85, ["flutter"]],
+      ["Kotlin", 65, ["kotlin"]],
     ],
   },
   {
     key: "skills.database",
     items: [
-      ["Firebase/MongoDB", 80],
-      ["AWS/Google CP", 50],
+      ["Firebase/MongoDB", 80, ["firebase", "mongodb"]],
+      ["AWS/Google CP", 50, ["aws", "gcp"]],
     ],
   },
   {
     key: "skills.tools",
     items: [
-      ["Git/GitHub/GitLab", 70],
-      ["Docker/Jenkins", 40],
+      ["Git/GitHub/GitLab", 70, ["git", "github", "gitlab"]],
+      ["Docker/Jenkins", 40, ["docker", "jenkins"]],
     ],
   },
   {
     key: "skills.design",
     items: [
-      ["Lunacy", 60],
-      ["Adobe XD", 70],
+      ["Lunacy", 60, ["lunacy"]],
+      ["Adobe XD", 70, ["xd"]],
     ],
   },
+] as const;
+
+// AI coding agents, highlighted above the skill cards. `tag` is a translation key.
+export const aiAgents = [
+  { slug: "claudecode", tag: "skills.ai_cli" },
+  { slug: "codex", tag: "skills.ai_cloud" },
+  { slug: "copilot", tag: "skills.ai_ide" },
 ] as const;
 
 export const projects = [
@@ -99,5 +106,3 @@ export const education = [
   { id: "bac", date: "2016 - 2019", school: "Lycée Scientifique de Lomé - Togo", logo: img("lyceescientifique.jpg") },
 ] as const;
 
-// Shown orbiting the profile picture in the hero.
-export const heroStack = [".NET", "Angular", "Flutter", "C#", "Node.js", "Spring", "React", "Docker"];

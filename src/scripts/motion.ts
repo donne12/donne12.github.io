@@ -18,7 +18,6 @@ startHeroCanvas(document.getElementById("hero-canvas") as HTMLCanvasElement, mot
 
 if (motion) {
   heroIntro(splashDelay());
-  orbit();
   marquee();
   splitTitles();
   heroScroll();
@@ -162,8 +161,7 @@ function heroIntro(delay = 0) {
     }, 0.5);
   }
 
-  tl.fromTo("[data-orbit]", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.8 }, 0.4)
-    .fromTo("[data-code-card]", { y: 40, opacity: 0, rotate: -4 }, { y: 0, opacity: 1, rotate: 0, duration: 0.8, ease: "expo.out" }, 0.5)
+  tl.fromTo("[data-code-card]", { y: 40, opacity: 0, rotate: -4 }, { y: 0, opacity: 1, rotate: 0, duration: 0.8, ease: "expo.out" }, 0.5)
     .fromTo(
       "[data-code-line]",
       { opacity: 0, x: -8, clipPath: "inset(0 100% 0 0)" },
@@ -181,36 +179,6 @@ function heroIntro(delay = 0) {
       repeat: -1,
       yoyo: true,
       ease: "sine.inOut",
-    });
-  });
-}
-
-// Tech chips circling the portrait on a tilted ellipse, passing behind it.
-function orbit() {
-  const wrap = document.querySelector<HTMLElement>("[data-orbit]");
-  if (!wrap) return;
-  const chips = $$("[data-orbit-chip]", wrap);
-  let angle = 0;
-  let speed = 0.25;
-  wrap.parentElement!.addEventListener("pointerenter", () => (speed = 0.08));
-  wrap.parentElement!.addEventListener("pointerleave", () => (speed = 0.25));
-
-  gsap.ticker.add((_t, delta) => {
-    angle += (speed * delta) / 1000;
-    const r = wrap.clientWidth / 2;
-    chips.forEach((chip, i) => {
-      const a = angle + (i / chips.length) * Math.PI * 2;
-      const depth = Math.sin(a); // -1 back, 1 front
-      gsap.set(chip, {
-        xPercent: -50,
-        yPercent: -50,
-        x: Math.cos(a) * r * 0.98,
-        y: depth * r * 0.32 - Math.cos(a) * r * 0.12,
-        scale: 0.78 + (depth + 1) * 0.14,
-        zIndex: depth > 0 ? 15 : 5,
-        opacity: 0.45 + (depth + 1) * 0.275,
-        filter: `blur(${depth < -0.3 ? 1.2 : 0}px)`,
-      });
     });
   });
 }
