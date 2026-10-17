@@ -1,10 +1,13 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 // Vertical timeline shared by the experience and education sections.
 interface Item {
   date: string;
   title: string;
   org: string;
-  logo: string;
+  logo: ImageMetadata;
   html: string;
 }
 
@@ -34,7 +37,7 @@ const { items } = Astro.props;
         <article data-reveal class="glass rounded-3xl p-6 transition-colors hover:bg-card-hover">
           <div class="mb-4 flex items-start justify-between gap-4">
             <p class="font-mono text-xs text-accent-2">{item.date}</p>
-            <img src={item.logo} alt={item.org} loading="lazy" class="h-9 w-auto max-w-24 rounded-md bg-white object-contain p-1" />
+            <Image src={item.logo} alt={item.org} height={72} format={item.logo.format === "svg" ? "svg" : "webp"} loading="lazy" class="h-9 w-auto max-w-24 rounded-md bg-white object-contain p-1" />
           </div>
           <h3 class="font-display text-xl font-semibold">{item.title}</h3>
           <p class="mt-1 text-sm text-muted">{item.org}</p>

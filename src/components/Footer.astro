@@ -12,12 +12,10 @@ const t = useTranslations(Astro.props.lang);
 
 <footer class="border-t border-line py-10">
   <div class="container-x flex flex-col items-center justify-between gap-6 text-sm text-muted sm:flex-row">
-    <p>
-      &copy; {new Date().getFullYear()} {profile.shortName}. {t("footer.rights")}
-      <span class="block sm:inline">
-        {t("footer.credit")} <Icon name="heart" size={12} class="inline text-[#ff4d6d]" /> {t("footer.by")}
-        <a href="#top" class="text-fg hover:text-accent">{profile.shortName}</a>
-      </span>
+    <p class="text-center sm:text-left">
+      &copy; {new Date().getFullYear()} {t("footer.credit")}{" "}
+      <Icon name="heart" size={12} class="inline align-[-1px] text-[#ff4d6d]" />{" "}
+      {t("footer.by")}{" "}<a href="#top" class="text-fg hover:text-accent">{profile.shortName}</a>
     </p>
     <div class="flex items-center gap-2">
       <a href={profile.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" class="glass grid size-10 place-items-center rounded-full hover:text-fg"><Icon name="linkedin" size={16} /></a>

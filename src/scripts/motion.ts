@@ -52,21 +52,21 @@ function boot(): Promise<void> {
           } catch {}
         },
       })
-      .to($$("[data-boot-line]", el), { opacity: 1, duration: 0.05, stagger: 0.28 }, 0.1)
+      .to($$("[data-boot-line]", el), { opacity: 1, duration: 0.05, stagger: 0.12 }, 0.05)
       .to(state, {
         v: 100,
-        duration: 1.6,
+        duration: 0.9,
         ease: "power2.inOut",
         onUpdate: () => (count.textContent = String(Math.round(state.v))),
       }, 0)
-      .to(el.querySelector("[data-boot-bar]"), { scaleX: 1, duration: 1.6, ease: "power2.inOut" }, 0)
-      .to(el.querySelector("[data-boot]"), { opacity: 0, y: -30, duration: 0.4, ease: "power2.in" }, 1.75)
+      .to(el.querySelector("[data-boot-bar]"), { scaleX: 1, duration: 0.9, ease: "power2.inOut" }, 0)
+      .to(el.querySelector("[data-boot]"), { opacity: 0, y: -30, duration: 0.25, ease: "power2.in" }, 0.95)
       .to(el.querySelectorAll("[data-curtain]"), {
         yPercent: (i) => (i ? 100 : -100),
-        duration: 1,
+        duration: 0.75,
         ease: "expo.inOut",
-      }, 2)
-      .add(resolve, 2.35);
+      }, 1.05)
+      .add(resolve, 1.15);
   });
 }
 
@@ -163,22 +163,22 @@ function splitTitles() {
 }
 
 function heroIntro() {
-  const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.15 });
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
   tl.fromTo(
     "[data-photo]",
     { scale: 0.6, opacity: 0, filter: "blur(12px)" },
-    { scale: 1, opacity: 1, filter: "blur(0px)", duration: 1.3, ease: "expo.out" },
+    { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.9, ease: "expo.out" },
     0,
   )
-    .fromTo("[data-hero-in]", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, stagger: 0.07 }, 0.1);
+    .fromTo("[data-hero-in]", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.05 }, 0);
 
   $$("[data-scramble]").forEach((el, i) => {
     const text = el.textContent!.trim();
-    tl.set(el, { opacity: 1 }, 0.3 + i * 0.25).to(
+    tl.set(el, { opacity: 1 }, 0.1 + i * 0.12).to(
       el,
-      { duration: 1.4, scrambleText: { text, chars: "01<>/{}[]#$_*+=", revealDelay: 0.2, speed: 0.6 }, ease: "none" },
-      0.3 + i * 0.25,
+      { duration: 0.8, scrambleText: { text, chars: "01<>/{}[]#$_*+=", revealDelay: 0.05, speed: 1 }, ease: "none" },
+      0.1 + i * 0.12,
     );
   });
 
@@ -190,19 +190,19 @@ function heroIntro() {
     typed.textContent = "";
     tl.to(state, {
       n: full.length,
-      duration: full.length * 0.045,
+      duration: full.length * 0.025,
       ease: "none",
       onUpdate: () => (typed.textContent = full.slice(0, Math.round(state.n))),
-    }, 1.1);
+    }, 0.5);
   }
 
-  tl.fromTo("[data-orbit]", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1.2 }, 0.8)
-    .fromTo("[data-code-card]", { y: 40, opacity: 0, rotate: -4 }, { y: 0, opacity: 1, rotate: 0, duration: 1, ease: "expo.out" }, 1)
+  tl.fromTo("[data-orbit]", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.8 }, 0.4)
+    .fromTo("[data-code-card]", { y: 40, opacity: 0, rotate: -4 }, { y: 0, opacity: 1, rotate: 0, duration: 0.8, ease: "expo.out" }, 0.5)
     .fromTo(
       "[data-code-line]",
       { opacity: 0, x: -8, clipPath: "inset(0 100% 0 0)" },
-      { opacity: 1, x: 0, clipPath: "inset(0 0% 0 0)", duration: 0.45, stagger: 0.12, ease: "power2.out" },
-      1.25,
+      { opacity: 1, x: 0, clipPath: "inset(0 0% 0 0)", duration: 0.35, stagger: 0.07, ease: "power2.out" },
+      0.65,
     );
 
   // Ambient glow drift
