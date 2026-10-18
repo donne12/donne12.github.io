@@ -23,7 +23,6 @@ export const skills = [
     key: "skills.frontend",
     items: [
       ["Angular", 85, ["angular"]],
-      ["HTML/CSS/JS", 90, ["html5", "css3", "javascript"]],
       ["React.js/Next.js", 50, ["react", "nextjs"]],
       ["Vue.js", 70, ["vuejs"]],
       ["Bootstrap", 70, ["bootstrap"]],
@@ -55,7 +54,7 @@ export const skills = [
   {
     key: "skills.tools",
     items: [
-      ["Git/GitHub/GitLab", 70, ["git", "github", "gitlab"]],
+      ["Git", 70, ["git", "github", "gitlab"]],
       ["Docker/Jenkins", 40, ["docker", "jenkins"]],
     ],
   },

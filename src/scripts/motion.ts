@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import { SplitText } from "gsap/SplitText";
-import { startHeroCanvas } from "./hero-canvas";
+import { startHeroCanvas } from "./hero-flow";
 
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, SplitText);
 
