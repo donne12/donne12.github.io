@@ -20,7 +20,7 @@ const links = [
 
 <header
   id="site-nav"
-  class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-500 data-[scrolled]:border-line data-[scrolled]:bg-bg/85 data-[scrolled]:shadow-[0_8px_30px_-12px_rgb(0_0_0/0.35)] data-[scrolled]:backdrop-blur-xl data-[scrolled]:backdrop-saturate-150"
+  class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-500 has-[#mobile-menu[data-open]]:border-line has-[#mobile-menu[data-open]]:bg-bg data-[scrolled]:border-line data-[scrolled]:bg-bg/85 data-[scrolled]:shadow-[0_8px_30px_-12px_rgb(0_0_0/0.35)] data-[scrolled]:backdrop-blur-xl data-[scrolled]:backdrop-saturate-150"
   data-dark-label={t("theme.enable_dark")}
   data-light-label={t("theme.enable_light")}
 >
@@ -125,3 +125,8 @@ const links = [
     </ul>
   </div>
 </header>
+
+<script>
+  // Own bundle, separate from GSAP, so the menu works as soon as this small file is in.
+  import "../scripts/ui";
+</script>

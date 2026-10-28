@@ -40,12 +40,16 @@ export function startHeroCanvas(canvas: HTMLCanvasElement, animate: boolean) {
   function resize() {
     const rect = canvas.getBoundingClientRect();
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // On mobile the hero (min-h-dvh) changes height whenever the URL bar shows/hides while
+    // scrolling: keep the running packets then, and only start over when the width changes.
+    const widthChanged = rect.width !== w;
+    if (!widthChanged && rect.height === h) return;
     w = rect.width;
     h = rect.height;
     canvas.width = w * dpr;
     canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    packets = Array.from({ length: w < 700 ? 14 : 30 }, () => spawn());
+    if (widthChanged) packets = Array.from({ length: w < 700 ? 14 : 30 }, () => spawn());
     ctx.clearRect(0, 0, w, h);
     if (!running) settle();
   }

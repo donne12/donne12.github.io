@@ -58,11 +58,15 @@ function setMenuOpen(open: boolean) {
   menuBtn.setAttribute("aria-expanded", String(open));
   document.body.style.overflow = open ? "hidden" : "";
 }
-menuBtn.addEventListener("click", () => setMenuOpen(!menu.hasAttribute("data-open")));
+const menuIsOpen = () => menu.hasAttribute("data-open");
+menuBtn.addEventListener("click", () => setMenuOpen(!menuIsOpen()));
 menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenuOpen(false)));
+// The menu is hidden from lg up: don't leave the page scroll-locked after a rotation/resize.
+matchMedia("(min-width: 1024px)").addEventListener("change", (e) => e.matches && menuIsOpen() && setMenuOpen(false));
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    setMenuOpen(false);
+    // Only touch the scroll lock if the menu owns it (the doc viewer uses it too).
+    if (menuIsOpen()) setMenuOpen(false);
     setLangOpen(false);
   }
 });

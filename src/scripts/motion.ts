@@ -14,7 +14,6 @@ const $$ = <T extends Element = HTMLElement>(sel: string, scope: ParentNode = do
 ];
 
 startHeroCanvas(document.getElementById("hero-canvas") as HTMLCanvasElement, motion);
-(window as any).__motionReady = true;
 
 if (motion) {
   heroIntro(splashDelay());
@@ -26,6 +25,8 @@ if (motion) {
     magnetic();
   }
 }
+// Set last: if anything above throws, the fallback in Base.astro un-hides the content.
+(window as any).__motionReady = true;
 
 
 // Infinite stack bands; scroll velocity speeds them up and flips direction.
@@ -37,6 +38,9 @@ function marquee() {
       { xPercent: dir > 0 ? 0 : -50 },
       { xPercent: dir > 0 ? -50 : 0, duration: 40, ease: "none", repeat: -1 },
     );
+    // Scrolling up plays it backwards: start far from time 0, otherwise it reaches the
+    // start and stops for good.
+    tween.totalTime(tween.duration() * 1000);
     let boost = gsap.to(tween, { timeScale: 1, duration: 0.1 });
     ScrollTrigger.create({
       trigger: row,

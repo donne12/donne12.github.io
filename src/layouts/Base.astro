@@ -89,10 +89,14 @@ const canonical = new URL(pathFor(lang), site).href;
           } catch (e) {
             root.classList.add("js-splash");
           }
-          // Never leave content hidden if the animation bundle fails to load.
-          setTimeout(function () {
+          // Never leave content hidden if the animation bundle fails to load or throws.
+          // Module scripts always run before DOMContentLoaded, so a slow connection doesn't
+          // trip this (a fixed timeout used to switch animations off on slow mobiles).
+          var fallback = function () {
             if (!window.__motionReady) root.classList.remove("js-motion");
-          }, 4000);
+          };
+          document.addEventListener("DOMContentLoaded", fallback);
+          setTimeout(fallback, 15000);
         }
       })();
     </script>
