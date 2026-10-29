@@ -16,14 +16,34 @@ const $$ = <T extends Element = HTMLElement>(sel: string, scope: ParentNode = do
 startHeroCanvas(document.getElementById("hero-canvas") as HTMLCanvasElement, motion);
 
 if (motion) {
-  heroIntro(splashDelay());
-  marquee();
-  splitTitles();
+  heroIntro();
   heroScroll();
-  sections();
   if (finePointer) {
     magnetic();
   }
+  // Everything below the fold is set up in separate idle slices so the first paint isn't held
+  // up by one long task; the titles wait for the fonts (SplitText would otherwise split twice).
+  idle(sections)
+    .then(() => idle(marquee))
+    .then(() => document.fonts.ready)
+    .then(() => $$(".section-title").reduce((done, title) => done.then(() => idle(() => splitTitle(title))), Promise.resolve()))
+    .catch(() => root.classList.remove("js-motion"));
+}
+
+function idle(fn: () => void) {
+  return new Promise<void>((resolve, reject) => {
+    const run = () => {
+      try {
+        fn();
+        resolve();
+      } catch (e) {
+        reject(e);
+      }
+    };
+    // Safari has no requestIdleCallback.
+    if ("requestIdleCallback" in window) requestIdleCallback(run, { timeout: 500 });
+    else setTimeout(run, 16);
+  });
 }
 // Set last: if anything above throws, the fallback in Base.astro un-hides the content.
 (window as any).__motionReady = true;
@@ -57,46 +77,30 @@ function marquee() {
 }
 
 // Section titles rise in character by character from behind a line mask.
-function splitTitles() {
-  $$(".section-title").forEach((title) => {
-    let played = false;
-    // autoSplit re-splits on resize / font load so lines always match the layout.
-    SplitText.create(title, {
-      type: "lines,chars",
-      mask: "lines",
-      autoSplit: true,
-      onSplit: (split) => {
-        if (played) return;
-        return gsap.from(split.chars, {
-          yPercent: 110,
-          rotate: 6,
-          duration: 0.9,
-          ease: "expo.out",
-          stagger: 0.018,
-          scrollTrigger: { trigger: title, start: "top 85%", once: true },
-          onComplete: () => (played = true),
-        });
-      },
-    });
+function splitTitle(title: HTMLElement) {
+  let played = false;
+  // autoSplit re-splits on resize / font load so lines always match the layout.
+  SplitText.create(title, {
+    type: "lines,chars",
+    mask: "lines",
+    autoSplit: true,
+    onSplit: (split) => {
+      if (played) return;
+      return gsap.from(split.chars, {
+        yPercent: 110,
+        rotate: 6,
+        duration: 0.9,
+        ease: "expo.out",
+        stagger: 0.018,
+        scrollTrigger: { trigger: title, start: "top 85%", once: true },
+        onComplete: () => (played = true),
+      });
+    },
   });
 }
 
-// Seconds until the splash folds away (matches --hero-start in global.css).
-function splashDelay() {
-  const splash = document.getElementById("splash");
-  if (!splash) return 0;
-  if (!root.classList.contains("js-splash")) {
-    splash.remove();
-    return 0;
-  }
-  splash.addEventListener("animationend", (e) => e.target === splash && splash.remove());
-  const start = parseFloat(getComputedStyle(root).getPropertyValue("--splash")) - 0.35;
-  // Time already spent since navigation start counts toward the splash.
-  return Math.max(0, start - performance.now() / 1000);
-}
-
-function heroIntro(delay = 0) {
-  const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay });
+function heroIntro() {
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
   // Photo, badges and buttons fade in through CSS (see global.css); JS adds the rest.
 

@@ -133,14 +133,9 @@
 .js-motion :is([data-reveal], [data-code-card], [data-code-line]) {
   opacity: 0;
 }
-/* Splash length; the hero intro (pure CSS, so it paints before the JS bundle
-   has loaded) starts as the splash folds away. */
+/* The hero intro is pure CSS so it paints before the JS bundle has loaded. */
 .js-motion {
-  --splash: 0.35s;
-  --hero-start: calc(var(--splash) - 0.35s);
-}
-.js-motion.js-splash {
-  --splash: 1.5s;
+  --hero-start: 0s;
 }
 .js-motion :is([data-hero-in], [data-scramble]) {
   animation: hero-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;

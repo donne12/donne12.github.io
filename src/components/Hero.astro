@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Icon from "./Icon.astro";
+import profilePhoto from "../assets/images/profile.jpeg";
 import { profile } from "../data/content";
 import { cvLink, useTranslations, type Lang } from "../i18n/utils";
 
@@ -37,8 +39,10 @@ const tokenClass = {
   <!-- Background layers -->
   <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
     <div class="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]"></div>
-    <div data-hero-glow class="absolute -top-40 left-1/4 size-[38rem] rounded-full bg-accent/25 blur-[120px]"></div>
-    <div data-hero-glow class="absolute -bottom-40 right-0 size-[30rem] rounded-full bg-accent-2/15 blur-[120px]"></div>
+    <!-- Soft glows drawn as radial gradients: a blur() filter this large was re-rasterised on
+         every frame of the drift animation and dropped the hero to ~15 fps on phones. -->
+    <div data-hero-glow class="glow absolute -top-[17rem] left-[calc(25%-7rem)] size-[52rem] [--glow:color-mix(in_oklab,var(--accent)_25%,transparent)]"></div>
+    <div data-hero-glow class="glow absolute -right-[7rem] -bottom-[17rem] size-[44rem] [--glow:color-mix(in_oklab,var(--accent-2)_15%,transparent)]"></div>
     <canvas id="hero-canvas" class="absolute inset-0 size-full"></canvas>
     <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-bg"></div>
   </div>
@@ -94,11 +98,14 @@ const tokenClass = {
       <div data-photo class="absolute inset-[8%] z-10 sm:inset-[25%]">
         <div class="ring-spin absolute -inset-[4px] rounded-full bg-[conic-gradient(from_0deg,var(--accent),var(--accent-2),var(--accent))] opacity-80 shadow-[0_0_40px_-8px_var(--accent)]"></div>
         <div class="absolute -inset-[3px] rounded-full bg-bg"></div>
-        <img
-          src="/images/profile.jpeg"
+        <Image
+          src={profilePhoto}
           alt={profile.name}
-          width="320"
-          height="320"
+          widths={[128, 256, 400]}
+          sizes="(min-width: 1024px) 208px, (min-width: 640px) 160px, 122px"
+          format="webp"
+          quality={80}
+          loading="eager"
           fetchpriority="high"
           class="relative size-full rounded-full object-cover"
         />
@@ -143,6 +150,10 @@ const tokenClass = {
 </section>
 
 <style>
+  .glow {
+    background: radial-gradient(closest-side, var(--glow), color-mix(in oklab, var(--glow) 55%, transparent) 45%, transparent);
+    will-change: transform;
+  }
   .caret {
     animation: blink 1s steps(1) infinite;
   }

@@ -80,15 +80,6 @@ const canonical = new URL(pathFor(lang), site).href;
 
         if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
           root.classList.add("js-motion");
-          // The splash (pure CSS, see Splash.astro) only plays on the first visit of a session.
-          try {
-            if (!sessionStorage.getItem("splash-seen")) {
-              sessionStorage.setItem("splash-seen", "1");
-              root.classList.add("js-splash");
-            }
-          } catch (e) {
-            root.classList.add("js-splash");
-          }
           // Never leave content hidden if the animation bundle fails to load or throws.
           // Module scripts always run before DOMContentLoaded, so a slow connection doesn't
           // trip this (a fixed timeout used to switch animations off on slow mobiles).

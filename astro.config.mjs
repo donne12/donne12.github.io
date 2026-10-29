@@ -9,5 +9,7 @@ export default defineConfig({
     defaultLocale: "fr",
     routing: { prefixDefaultLocale: false },
   },
+  // Inline the (small, gzipped) stylesheet: saves a render-blocking request before first paint.
+  build: { inlineStylesheets: "always" },
   vite: { plugins: [tailwindcss()] },
 });
