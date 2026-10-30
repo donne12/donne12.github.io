@@ -1,4 +1,4 @@
-import { CV_LINKS, extra, ui } from "./ui";
+import { CERTS_LINKS, CV_LINKS, extra, ui } from "./ui";
 
 export const languages = { fr: "Français", en: "English", es: "Español" } as const;
 export type Lang = keyof typeof languages;
@@ -13,5 +13,6 @@ export function useTranslations(lang: Lang) {
 }
 
 export const cvLink = (lang: Lang) => CV_LINKS[lang];
+export const certsLink = (lang: Lang) => CERTS_LINKS[lang];
 
 export const pathFor = (lang: Lang) => (lang === defaultLang ? "/" : `/${lang}/`);

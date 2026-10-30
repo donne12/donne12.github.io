@@ -2,8 +2,8 @@
 import { Image } from "astro:assets";
 import Icon from "./Icon.astro";
 import SectionHeading from "./SectionHeading.astro";
-import { profile, projects } from "../data/content";
-import { useTranslations, type Lang } from "../i18n/utils";
+import { projects } from "../data/content";
+import { certsLink, useTranslations, type Lang } from "../i18n/utils";
 
 interface Props {
   lang: Lang;
@@ -57,7 +57,7 @@ const t = useTranslations(Astro.props.lang);
       }
     </div>
     <div class="mt-8 text-center" data-reveal>
-      <a href={profile.certifications} target="_blank" rel="noopener" data-magnetic data-doc={t("doc.certs_title")} class="btn-ghost">
+      <a href={certsLink(Astro.props.lang)} target="_blank" rel="noopener" data-magnetic data-doc={t("doc.certs_title")} class="btn-ghost">
         {t("portfolio.certifications_button")}
         <Icon name="arrow" size={16} />
       </a>

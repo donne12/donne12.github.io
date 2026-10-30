@@ -5,6 +5,13 @@ export const CV_LINKS = {
     es: "https://drive.google.com/file/d/1KX-3aag8Ys9l3bxCXHmz9N6Rkzls3UPB/view?usp=sharing",
   } as const;
 
+// Built from the original certificates (see public/docs).
+export const CERTS_LINKS = {
+    fr: "/docs/certifications-fr.pdf",
+    en: "/docs/certifications-en.pdf",
+    es: "/docs/certifications-en.pdf",
+  } as const;
+
 export const ui = {
   "fr": {
     "nav.about": "Qui suis-je?",
@@ -49,7 +56,7 @@ export const ui = {
     "portfolio.d.leader": "Suite de livraison : application client, application livreur et back-office web.",
     "portfolio.d.sunu": "Application mobile de santé pour SUNU.",
     "portfolio.view_project": "Voir le projet",
-    "portfolio.certifications_button": "Voir certaines de mes certifications",
+    "portfolio.certifications_button": "Voir mes certifications",
     "experience.title": "Expériences professionnelles",
     "exp.bnp.date": "Décembre 2025 – aujourd'hui",
     "exp.bnp.title": "Graduate Analyst",
@@ -143,7 +150,7 @@ export const ui = {
     "portfolio.d.leader": "Delivery suite: customer app, driver app and web back office.",
     "portfolio.d.sunu": "Health mobile app for SUNU.",
     "portfolio.view_project": "View project",
-    "portfolio.certifications_button": "See some of my certifications",
+    "portfolio.certifications_button": "See my certifications",
     "experience.title": "Professional experience",
     "exp.bnp.date": "December 2025 – present",
     "exp.bnp.title": "Graduate Analyst",
@@ -237,7 +244,7 @@ export const ui = {
     "portfolio.d.leader": "Suite de entregas: app de cliente, app de repartidor y back office web.",
     "portfolio.d.sunu": "App móvil de salud para SUNU.",
     "portfolio.view_project": "Ver proyecto",
-    "portfolio.certifications_button": "Ver algunas de mis certificaciones",
+    "portfolio.certifications_button": "Ver mis certificaciones",
     "experience.title": "Experiencia profesional",
     "exp.bnp.date": "Diciembre 2025 – actualidad",
     "exp.bnp.title": "Graduate Analyst",

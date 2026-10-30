@@ -14,7 +14,6 @@ export const profile = {
   whatsapp: "https://wa.me/+33761547994",
   linkedin: "https://www.linkedin.com/in/dieudonne-esiaku/",
   github: "https://github.com/donne12",
-  certifications: "https://drive.google.com/file/d/1-zMdAM-IOGFBfOTwde0BiI_lu9oG6SzY/view?usp=sharing",
   formspree: "https://formspree.io/f/xvodoqwb",
 };
 

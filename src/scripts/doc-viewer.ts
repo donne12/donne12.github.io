@@ -68,6 +68,8 @@ frame.addEventListener("load", () => {
 document.addEventListener("click", (e) => {
   const link = (e.target as Element).closest<HTMLAnchorElement>("a[data-doc]");
   if (!link || e.metaKey || e.ctrlKey || e.shiftKey) return;
+  // Phones can't show a PDF inside an iframe: let those open in the native viewer instead.
+  if (/\.pdf$/i.test(link.pathname) && (!navigator.pdfViewerEnabled || mobile())) return;
   e.preventDefault();
   open(link);
 });
