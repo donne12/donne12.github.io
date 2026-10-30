@@ -57,7 +57,7 @@ const t = useTranslations(Astro.props.lang);
       }
     </div>
     <div class="mt-8 text-center" data-reveal>
-      <a href={certsLink(Astro.props.lang)} target="_blank" rel="noopener" data-magnetic data-doc={t("doc.certs_title")} class="btn-ghost">
+      <a href={certsLink(Astro.props.lang)} target="_blank" rel="noopener" data-magnetic data-doc={t("doc.certs_title")} data-doc-view="certs" class="btn-ghost">
         {t("portfolio.certifications_button")}
         <Icon name="arrow" size={16} />
       </a>

@@ -3,12 +3,18 @@
 // the CV or certifications. Any link with `data-doc` opens here instead of a new tab.
 import Icon from "./Icon.astro";
 import { useTranslations, type Lang } from "../i18n/utils";
+import { certCategories, certDate, certText, certifications } from "../data/certifications";
 
 interface Props {
   lang: Lang;
 }
 
-const t = useTranslations(Astro.props.lang);
+const lang = Astro.props.lang;
+const t = useTranslations(lang);
+const groups = Object.entries(certCategories).map(([key, label]) => ({
+  label: label[lang],
+  items: certifications.filter((c) => c.category === key),
+}));
 ---
 
 <div id="doc-viewer" class="invisible fixed inset-0 z-[80]" role="dialog" aria-modal="true" aria-labelledby="doc-title">
@@ -53,6 +59,84 @@ const t = useTranslations(Astro.props.lang);
         </span>
       </div>
       <iframe data-doc-frame title="" class="relative size-full opacity-0 transition-opacity duration-500" allow="autoplay"></iframe>
+
+      <!-- Custom view for the certifications: a gallery with a lightbox, instead of an embedded PDF -->
+      <div data-doc-certs hidden class="absolute inset-0 overflow-y-auto overscroll-contain px-5 pt-5 pb-8">
+        <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <p class="font-mono text-xs text-muted"><span class="text-accent-2">{certifications.length}</span> certifications</p>
+          <a data-certs-download href="#" download class="btn-ghost !px-4 !py-2 text-xs">
+            <Icon name="file" size={14} />
+            {t("doc.certs_download")}
+          </a>
+        </div>
+        {
+          groups.map((g) => (
+            <section class="mb-7">
+              <h3 class="mb-3 font-mono text-[11px] tracking-[0.14em] text-accent-2 uppercase">{g.label}</h3>
+              <ul class="grid grid-cols-2 gap-3">
+                {g.items.map((c) => (
+                  <li>
+                    <button
+                      type="button"
+                      data-cert
+                      data-full={`/docs/certs/${c.id}.webp`}
+                      data-title={certText(c.title, lang)}
+                      data-issuer={c.issuer}
+                      data-date={certDate(c.date, lang)}
+                      data-note={certText(c.note, lang)}
+                      data-url={c.url ?? ""}
+                      class="glass group block size-full overflow-hidden rounded-2xl text-left transition-transform duration-300 hover:-translate-y-0.5"
+                    >
+                      <span class="relative block aspect-[4/3] overflow-hidden bg-white">
+                        <img
+                          src={`/docs/certs/${c.id}-thumb.webp`}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                          class:list={["size-full transition-transform duration-500 group-hover:scale-[1.03]", c.landscape ? "object-cover object-top" : "object-contain"]}
+                        />
+                        {c.badge && <span class="absolute top-2 right-2 rounded-full bg-accent px-2 py-0.5 font-mono text-[10px] text-white">{c.badge}</span>}
+                      </span>
+                      <span class="block px-3.5 py-3">
+                        <span class="line-clamp-2 block text-[13px] leading-snug font-semibold">{certText(c.title, lang)}</span>
+                        <span class="mt-1 block truncate font-mono text-[10px] text-muted">{c.issuer} · {c.date.slice(0, 4)}</span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))
+        }
+
+        <!-- Lightbox -->
+        <div data-cert-lightbox hidden class="absolute inset-0 z-10 flex flex-col bg-bg">
+          <div class="flex items-center gap-2 border-b border-line px-4 py-3">
+            <button type="button" data-cert-back class="glass flex h-9 items-center gap-2 rounded-full px-4 font-mono text-xs text-muted transition-colors hover:text-fg">
+              ← {t("doc.back")}
+            </button>
+            <span data-cert-count class="ml-auto font-mono text-xs text-muted"></span>
+            <button type="button" data-cert-prev aria-label={t("doc.prev")} title={t("doc.prev")} class="glass grid size-9 place-items-center rounded-full text-muted transition-colors hover:text-fg">
+              <Icon name="arrow" size={16} class="rotate-180" />
+            </button>
+            <button type="button" data-cert-next aria-label={t("doc.next")} title={t("doc.next")} class="glass grid size-9 place-items-center rounded-full text-muted transition-colors hover:text-fg">
+              <Icon name="arrow" size={16} />
+            </button>
+          </div>
+          <div class="min-h-0 flex-1 overflow-y-auto overscroll-contain p-4">
+            <img data-cert-img alt="" class="mx-auto max-h-[60dvh] w-auto max-w-full rounded-xl bg-white shadow-2xl" />
+            <div class="mx-auto mt-5 max-w-xl">
+              <h3 data-cert-title class="font-display text-xl leading-tight font-bold"></h3>
+              <p class="mt-1 font-mono text-xs text-muted"><span data-cert-issuer></span> · <span data-cert-date></span></p>
+              <p data-cert-note class="mt-3 text-sm text-muted"></p>
+              <a data-cert-verify href="#" target="_blank" rel="noopener" class="btn-ghost mt-4 !px-4 !py-2 text-xs">
+                {t("doc.verify")}
+                <Icon name="external" size={14} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </aside>
 </div>
